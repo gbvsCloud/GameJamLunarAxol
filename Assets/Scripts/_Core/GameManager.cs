@@ -3,40 +3,46 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class GameManager : Singleton<GameManager>
+public class GameManager : MonoBehaviour        
 {
-    [Header("Player")]
-    public GameObject playerPrefab;
+    [SerializeField]
+    private GameObject pauseGroup;
 
-    [Header("Enemies")]
-    public List<GameObject> enemies;
-
-    [Header("References")]
-    public Transform startPoint;
-
-    [Header("Animation Details")]
-
-    public float duration = 0.5f;
-
-    public float delay = 0.5f;
-
-    public Ease ease = Ease.OutBack;
-
-    private GameObject _currentPlayer;
+    bool gamePaused = false;
 
     private void Start()
     {
-        Init();
-    }
-    public void Init()
-    {
-        SpawnPlayer();
+        
     }
 
-    public void SpawnPlayer()
+    private void Update()
     {
-        _currentPlayer = Instantiate(playerPrefab);
-        _currentPlayer.transform.position = startPoint.transform.position;
-        _currentPlayer.transform.DOScale(0, duration).SetEase(ease).From().SetDelay(delay);
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (!gamePaused)
+            {
+                gamePaused = true;
+                Time.timeScale = 0;
+                pauseGroup.SetActive(true);
+            }
+            else
+            {
+                gamePaused = false;
+                Time.timeScale = 1;
+                pauseGroup.SetActive(false);
+            }
+        }
     }
+
+    public void Unpause()
+    {
+        if (gamePaused)
+        {
+            gamePaused = false;
+            Time.timeScale = 1;
+            pauseGroup.SetActive(false);
+        }
+    }
+
+
 }

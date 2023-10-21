@@ -12,6 +12,8 @@ public class TongueManager : MonoBehaviour
     private void Start()
     {
         lineRenderer.positionCount = 2;
+        TonguePosition();
+
     }
     private void Update()
     {
