@@ -21,6 +21,7 @@ public class StateMachine : MonoBehaviour
         RegisterStates(States.RUNNING, new StateBase());
         RegisterStates(States.DEAD, new StateBase());
         RegisterStates(States.SWING, new StateSwing());
+
         SwitchState(States.IDLE, manager);
     }
     public void RegisterStates(States typeEnum, StateBase state)

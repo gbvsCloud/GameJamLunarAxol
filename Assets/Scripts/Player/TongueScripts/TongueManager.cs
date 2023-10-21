@@ -4,16 +4,16 @@ using System.Collections.Generic;
 using UnityEngine;
 public class TongueManager : MonoBehaviour
 {
+    public StateMachine stateMachine;
     public GameObject player;
-    [Header("Língua")]
+    [Header("Lï¿½ngua")]
     public GameObject tongue;
     public LineRenderer lineRenderer;
     public float timeTongueAnimation = .5f;
     private void Start()
     {
         lineRenderer.positionCount = 2;
-        TonguePosition();
-
+        tongue.transform.position = player.transform.position;
     }
     private void Update()
     {
@@ -23,25 +23,27 @@ public class TongueManager : MonoBehaviour
 
     public void TonguePosition()
     {
-        tongue.transform.position = player.transform.position;
+        TongueMotion(player);
     }
     public void TongueMotion(GameObject target)
     {
         Vector2 jointVector = (Vector2)target.transform.position;
         tongue.transform.DOMove(jointVector, timeTongueAnimation);
     }
-    public void TongueAnimationStart(GameObject target)
+    public void TongueAnimationStart(GameObject target, TriggerSwing trigger)
     {
-        StartCoroutine(TongueAnimationStartCoroutine(target));
+        StartCoroutine(TongueAnimationStartCoroutine(target, trigger));
     }
 
-    private IEnumerator TongueAnimationStartCoroutine(GameObject target)
+    private IEnumerator TongueAnimationStartCoroutine(GameObject target, TriggerSwing trigger)
     {
         TongueMotion(target);
         yield return new WaitForSeconds(timeTongueAnimation);
+        stateMachine.SwitchState(StateMachine.States.SWING, trigger);
     }
     public void TongueAnimationEnd(GameObject target)
     {
         TongueMotion(target);
+        player.GetComponent<Rigidbody2D>().gravityScale = player.GetComponent<Player>().GetGravity();
     }
 }
