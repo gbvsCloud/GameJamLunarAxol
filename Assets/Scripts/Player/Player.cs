@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using UnityEditorInternal;
 using UnityEngine;
 
-public class PlayerScript : MonoBehaviour
+public class Player : MonoBehaviour
 {
     
     [SerializeField]
     private SpriteRenderer sRenderer;
+
+    private float currentGravity;
    
     void Start()
     {
-
+        currentGravity = GetComponent<Rigidbody2D>().gravityScale;
     }
 
     // Update is called once per frame
@@ -20,5 +22,10 @@ public class PlayerScript : MonoBehaviour
         
     }
 
+
+    public float GetGravity()
+    {
+        return currentGravity;
+    }
     
 }

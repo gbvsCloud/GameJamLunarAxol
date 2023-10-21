@@ -5,16 +5,16 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField]
-    private Rigidbody2D rBody;
+    private Rigidbody2D rigidBody;
 
     [SerializeField]
-    private SpriteRenderer sRenderer;
+    private SpriteRenderer spriteRenderer;
 
     [SerializeField]
-    private PlayerScript playerScript;
+    private Player player;
 
     [SerializeField]
-    private LineRenderer lRenderer;
+    private LineRenderer lineRenderer;
 
     float direction;
     float speed = 5;
@@ -47,11 +47,11 @@ public class PlayerMovement : MonoBehaviour
 
         if(direction == 1)
         {
-            sRenderer.flipX = false;
+            spriteRenderer.flipX = false;
         }
         if(direction == -1)
         {
-            sRenderer.flipX = true;
+            spriteRenderer.flipX = true;
         }
 
         if(usingSuperJump)
@@ -98,7 +98,7 @@ public class PlayerMovement : MonoBehaviour
             else if (Input.GetKeyDown(KeyCode.Space))
             {
                 Debug.Log("apertou");
-                rBody.AddForce(new Vector2(0, jumpStrength), ForceMode2D.Impulse);
+                rigidBody.AddForce(new Vector2(0, jumpStrength), ForceMode2D.Impulse);
             }
 
 
@@ -122,16 +122,16 @@ public class PlayerMovement : MonoBehaviour
 
         if (superJumpDelay < 1)
         {
-            rBody.AddForce(30 * superJumpDelay * direcao, ForceMode2D.Impulse);
+            rigidBody.AddForce(30 * superJumpDelay * direcao, ForceMode2D.Impulse);
         }
         else
         {
-            rBody.AddForce(30 * direcao, ForceMode2D.Impulse);
+            rigidBody.AddForce(30 * direcao, ForceMode2D.Impulse);
         }
         isGrounded = false;
         usingSuperJump = true;
         mouseJumpTarget = mousePos;
-        lRenderer.positionCount = 0;
+        lineRenderer.positionCount = 0;
     }
 
 
@@ -140,11 +140,11 @@ public class PlayerMovement : MonoBehaviour
 
         if (!usingSuperJump && Input.GetKey(KeyCode.S))
         {
-            rBody.velocity = new Vector2(0, rBody.velocity.y);
+            rigidBody.velocity = new Vector2(0, rigidBody.velocity.y);
         }
         else if(!usingSuperJump && !Input.GetKey(KeyCode.S))
         {
-            rBody.velocity = new Vector2(direction * speed, rBody.velocity.y);
+            rigidBody.velocity = new Vector2(direction * speed, rigidBody.velocity.y);
         }
         
     }
