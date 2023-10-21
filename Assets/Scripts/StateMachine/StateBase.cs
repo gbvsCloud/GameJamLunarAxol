@@ -31,6 +31,7 @@ public class StateSwing : StateBase
     public override void OnStateEnter(object o = null)
     {
         trigger = (TriggerSwing)o;
+        trigger.TongueAnimationStart();
     }
     public override void OnStateStay()
     {
