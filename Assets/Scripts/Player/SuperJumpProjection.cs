@@ -15,7 +15,7 @@ public class SuperJumpProjection : MonoBehaviour
     [SerializeField]
     private LineRenderer lRenderer;
     [SerializeField]
-    private int maxPhysicsIterations;
+    public int maxPhysicsIterations;
 
     private void Start()
     {       

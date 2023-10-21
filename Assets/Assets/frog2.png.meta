@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fd67bd9fc1a12ec4eb4b265f4628052c
+guid: 35c31460328a4f34c84e4dd5fa60f0de
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Log_0
+      name: frog2_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 16
-        height: 16
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,41 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 54863007a008d49419a0b6a445c8007b
-      internalID: 1945379666
+      spriteID: aa66ce669e62b3a44ab7a8f60da7e08f
+      internalID: -106576193
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Log_1
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 93af75a2704d24547b802628e9d37285
-      internalID: -384371209
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Log_2
+      name: frog2_1
       rect:
         serializedVersion: 2
         x: 32
         y: 0
-        width: 16
-        height: 16
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,20 +158,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 57d811e2a2a9bfa4c984512b26a363a2
-      internalID: 484751941
+      spriteID: 7c5394066a934314ebdd7cace6c16cfd
+      internalID: -1547715819
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Log_3
+      name: frog2_2
       rect:
         serializedVersion: 2
-        x: 48
+        x: 64
         y: 0
-        width: 16
-        height: 16
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,8 +179,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4f61920fc900cb14e920b61147c0e224
-      internalID: 221640506
+      spriteID: c5433c083d99a7146b448977928a2460
+      internalID: -1130783192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frog2_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: adf173b65658d5843a62cc4f4b5d2b9c
+      internalID: -153898564
       vertices: []
       indices: 
       edges: []
@@ -217,10 +217,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Log_0: 1945379666
-      Log_1: -384371209
-      Log_2: 484751941
-      Log_3: 221640506
+      frog2_0: -106576193
+      frog2_1: -1547715819
+      frog2_2: -1130783192
+      frog2_3: -153898564
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

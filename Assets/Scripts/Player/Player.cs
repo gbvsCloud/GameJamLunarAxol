@@ -3,23 +3,23 @@ using System.Collections.Generic;
 using UnityEditorInternal;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : EntityBase
 {
     
     [SerializeField]
     private SpriteRenderer sRenderer;
 
     private float currentGravity;
-   
     void Start()
     {
+        Init(3);
         currentGravity = GetComponent<Rigidbody2D>().gravityScale;
     }
 
     // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
-        
+        base.Update();
     }
 
 
@@ -27,5 +27,14 @@ public class Player : MonoBehaviour
     {
         return currentGravity;
     }
-    
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.transform.CompareTag("Enemy"))
+        {
+            TakeDamage();
+
+        }
+    }
+
 }

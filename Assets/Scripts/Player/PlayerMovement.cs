@@ -30,6 +30,8 @@ public class PlayerMovement : MonoBehaviour
     private SuperJumpProjection projection;
     [SerializeField]
     private SuperJumpEcho echo;
+    [SerializeField]
+    private RandomSound jumpAudioSource;
 
     void Start()
     {
@@ -84,11 +86,13 @@ public class PlayerMovement : MonoBehaviour
                     Vector2 velocity;
                     if (superJumpDelay < 1)
                     {
-                       velocity = 30 * superJumpDelay * direcao;
+                        velocity = 30 * superJumpDelay * direcao;
+                        projection.maxPhysicsIterations = (int)(25 * superJumpDelay);
                     }
                     else
                     {
                         velocity = 30 * direcao;
+                        projection.maxPhysicsIterations = 25;
                     }
 
                     projection.SimulateTrajectory(echo, transform.position, velocity);
@@ -99,6 +103,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 Debug.Log("apertou");
                 rigidBody.AddForce(new Vector2(0, jumpStrength), ForceMode2D.Impulse);
+                jumpAudioSource.PlayRandomSound();
             }
 
 
@@ -128,6 +133,8 @@ public class PlayerMovement : MonoBehaviour
         {
             rigidBody.AddForce(30 * direcao, ForceMode2D.Impulse);
         }
+        jumpAudioSource.PlayRandomSound();
+
         isGrounded = false;
         usingSuperJump = true;
         mouseJumpTarget = mousePos;
