@@ -7,6 +7,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private Rigidbody2D rBody;
 
+    [SerializeField]
+    private SpriteRenderer sRenderer;
+
     float direction;
     float speed = 5;
     float jumpStrength = 20;
@@ -25,6 +28,15 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("apertou");
             rBody.AddForce(new Vector2(0, jumpStrength), ForceMode2D.Impulse);
         }
+        if(direction == 1)
+        {
+            sRenderer.flipX = false;
+        }
+        if(direction == -1)
+        {
+            sRenderer.flipX = true;
+        }
+
 
     }
 
