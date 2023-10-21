@@ -4,11 +4,26 @@ using UnityEngine;
 
 namespace _Core.StateMachine
 {
-    public class StateMachine<T> where T : System.Enum
+
+    public class StateMachine : MonoBehaviour
     {
-        public Dictionary<T, StateBase> dictionaryState;
+
+        public enum States
+        {
+            Idle,
+            Run,
+            Jump,
+            SuperJump
+        }
+
+        public Dictionary<States, StateBase> dictionaryState;
 
         public StateBase _currentState;
+
+        private void Start()
+        {
+            Init();
+        }
 
         public StateBase CurrentState
         {
@@ -17,15 +32,18 @@ namespace _Core.StateMachine
 
         public void Init()
         {
-            dictionaryState = new Dictionary<T, StateBase>();
+            dictionaryState = new Dictionary<States, StateBase>();
+            RegisterStates(States.Idle, new Idle());
+            SwitchState(States.Idle);
+
         }
 
-        public void RegisterStates(T typeEnum, StateBase state)
+        public void RegisterStates(States typeEnum, StateBase state)
         {
             dictionaryState.Add(typeEnum, state);
         }
 
-        public void SwitchState(T state, params object[] objs)
+        public void SwitchState(States state, params object[] objs)
         {
             if (dictionaryState[state].Equals(_currentState))
                 return;

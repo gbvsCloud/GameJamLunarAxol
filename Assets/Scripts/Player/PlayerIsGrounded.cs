@@ -12,6 +12,11 @@ public class PlayerIsGrounded : MonoBehaviour
         movementScript.isGrounded = true;
     }
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        movementScript.isGrounded = true;
+    }
+
     private void OnTriggerExit2D(Collider2D collision)
     {
         movementScript.isGrounded = false;
