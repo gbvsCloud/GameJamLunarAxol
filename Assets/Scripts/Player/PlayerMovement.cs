@@ -13,6 +13,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private PlayerScript playerScript;
 
+    [SerializeField]
+    private LineRenderer lRenderer;
 
     float direction;
     float speed = 5;
@@ -24,21 +26,22 @@ public class PlayerMovement : MonoBehaviour
     public Vector2 mouseJumpTarget;
     bool usingSuperJump = false;
 
+    [SerializeField]
+    private SuperJumpProjection projection;
+    [SerializeField]
+    private SuperJumpEcho echo;
+
     void Start()
     {
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!Input.GetKey(KeyCode.S))
-        {
-            direction = Input.GetAxisRaw("Horizontal");
-        }
-        else
-        {
-            direction = 0;
-        }
+        direction = Input.GetAxisRaw("Horizontal");
+
+        
 
         Jump();
 
@@ -59,30 +62,54 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
+        
+
     }
 
     public void Jump()
     {
         chargingSuperJump = false;
-        if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.Space))
-        {  
-            superJumpDelay += Time.deltaTime;
-            chargingSuperJump = true;
-        }
-        else if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if (isGrounded)
         {
-            Debug.Log("apertou");
-            rBody.AddForce(new Vector2(0, jumpStrength), ForceMode2D.Impulse);
-        }
+            if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.Space))
+            {
+                superJumpDelay += Time.deltaTime;
+                chargingSuperJump = true;
 
-        if (superJumpDelay > 0.35f && !(Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.Space)))
-        {
-            Debug.Log("super pulo");           
-            SuperJump();
-            superJumpDelay = 0;
-            chargingSuperJump = false;
-        }
+                if(superJumpDelay >= 0.36f)
+                {
 
+                    Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                    Vector2 direcao = (mousePos - (Vector2)transform.position).normalized;
+                    Vector2 velocity;
+                    if (superJumpDelay < 1)
+                    {
+                       velocity = 30 * superJumpDelay * direcao;
+                    }
+                    else
+                    {
+                        velocity = 30 * direcao;
+                    }
+
+                    projection.SimulateTrajectory(echo, transform.position, velocity);
+                }
+
+            }
+            else if (Input.GetKeyDown(KeyCode.Space))
+            {
+                Debug.Log("apertou");
+                rBody.AddForce(new Vector2(0, jumpStrength), ForceMode2D.Impulse);
+            }
+
+
+            if (superJumpDelay >= 0.35f && !(Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.Space)))
+            {
+                Debug.Log("super pulo");
+                SuperJump();
+                superJumpDelay = 0;
+                chargingSuperJump = false;
+            }
+        }
         if (!chargingSuperJump) superJumpDelay = 0;
 
         
@@ -104,12 +131,22 @@ public class PlayerMovement : MonoBehaviour
         isGrounded = false;
         usingSuperJump = true;
         mouseJumpTarget = mousePos;
+        lRenderer.positionCount = 0;
     }
 
 
     private void FixedUpdate()
-    {    
-        if(!usingSuperJump) rBody.velocity = new Vector2(direction * speed, rBody.velocity.y);
+    {
+
+        if (!usingSuperJump && Input.GetKey(KeyCode.S))
+        {
+            rBody.velocity = new Vector2(0, rBody.velocity.y);
+        }
+        else if(!usingSuperJump && !Input.GetKey(KeyCode.S))
+        {
+            rBody.velocity = new Vector2(direction * speed, rBody.velocity.y);
+        }
+        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
