@@ -37,6 +37,7 @@ public class TongueManager : MonoBehaviour
     {
         TongueMotion(target);
         yield return new WaitForSeconds(timeTongueAnimation);
+        
     }
     public void TongueAnimationEnd(GameObject target)
     {

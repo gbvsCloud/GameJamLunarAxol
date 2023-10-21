@@ -29,7 +29,6 @@ public class TriggerSwing : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.E))
             {
-                Debug.Log("entrou no input");
                 stateMachine.SwitchState(StateMachine.States.SWING, this);
             }
         }
