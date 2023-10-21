@@ -1,64 +1,44 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-namespace _Core.StateMachine
+public class StateMachine : MonoBehaviour
 {
-
-    public class StateMachine : MonoBehaviour
+    public enum States
     {
+        IDLE,
+        RUNNING,
+        DEAD,
+        SWING
+    }
+    public Dictionary<States, StateBase> dictionaryState;
+    private StateBase _currentState;
+    public Player player;
+    public TongueManager manager;
+    private void Awake()
+    {
+        dictionaryState = new Dictionary<States, StateBase>();
+        RegisterStates(States.IDLE, new StateIdle());
+        RegisterStates(States.RUNNING, new StateBase());
+        RegisterStates(States.DEAD, new StateBase());
+        RegisterStates(States.SWING, new StateSwing());
+        SwitchState(States.IDLE, manager);
+    }
+    public void RegisterStates(States typeEnum, StateBase state)
+    {
+        dictionaryState.Add(typeEnum, state);
+    }
+    public void SwitchState(States state, object o = null)
+    {
+        if (dictionaryState[state].Equals(_currentState))
+            return;
 
-        public enum States
-        {
-            Idle,
-            Run,
-            Jump,
-            SuperJump
-        }
+        if (_currentState != null) _currentState.OnStateExit();
+        _currentState = dictionaryState[state];
 
-        public Dictionary<States, StateBase> dictionaryState;
-
-        public StateBase _currentState;
-
-        private void Start()
-        {
-            Init();
-        }
-
-        public StateBase CurrentState
-        {
-            get { return _currentState; }
-        }
-
-        public void Init()
-        {
-            dictionaryState = new Dictionary<States, StateBase>();
-            RegisterStates(States.Idle, new Idle());
-            SwitchState(States.Idle);
-
-        }
-
-        public void RegisterStates(States typeEnum, StateBase state)
-        {
-            dictionaryState.Add(typeEnum, state);
-        }
-
-        public void SwitchState(States state, params object[] objs)
-        {
-            if (dictionaryState[state].Equals(_currentState))
-                return;
-
-            if (_currentState != null) _currentState.OnStateExit();
-
-            _currentState = dictionaryState[state];
-
-            if (_currentState != null) _currentState.OnStateEnter(objs);
-        }
-
-        public void Update()
-        {
-            if (_currentState != null) _currentState.OnStateStay();
-        }
-        
+        if (_currentState != null) _currentState.OnStateEnter(o);
+    }
+    public void Update()
+    {
+        if (_currentState != null) _currentState.OnStateStay();
     }
 }
