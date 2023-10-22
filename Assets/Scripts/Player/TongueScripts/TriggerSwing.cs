@@ -11,7 +11,7 @@ public class TriggerSwing : MonoBehaviour
     public TongueManager manager;
     [Header("Animação do Swing")]
     public float swingDuration = .5f;
-    public float distLerp = 1f;
+    public float distLerp = 3f;
     public List<GameObject> listLerps = new List<GameObject>();
     public GameObject player;
     //privates
