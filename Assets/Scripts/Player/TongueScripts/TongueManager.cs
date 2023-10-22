@@ -15,7 +15,6 @@ public class TongueManager : Singleton<TongueManager>
     {
         lineRenderer.positionCount = 2;
         TonguePosition();
-
     }
     private void Update()
     {
@@ -28,7 +27,7 @@ public class TongueManager : Singleton<TongueManager>
 
     public void TonguePosition()
     {
-        if(tongue != null) tongue.transform.position = player.transform.position;
+        if (tongue != null) tongue.transform.position = player.transform.position;
     }
     public void TongueMotion(GameObject target)
     {
@@ -48,6 +47,13 @@ public class TongueManager : Singleton<TongueManager>
     }
     public void TongueAnimationEnd(GameObject target)
     {
+        StartCoroutine(TongueAnimationEndCoroutine(target));
+    }
+
+    private IEnumerator TongueAnimationEndCoroutine(GameObject target)
+    {
         TongueMotion(target);
+        yield return new WaitForSeconds(timeTongueAnimation - 0.1f);
+        stateMachine.SwitchState(StateMachine.States.IDLE, this);
     }
 }
