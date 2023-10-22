@@ -14,6 +14,7 @@ public class StateMachine : Singleton<StateMachine>
     private StateBase _currentState;
     public Player player;
     public TongueManager manager;
+
     public override void Awake()
     {
         base.Awake();
@@ -31,8 +32,7 @@ public class StateMachine : Singleton<StateMachine>
     }
     public void SwitchState(States state, object o = null)
     {
-        if (dictionaryState[state].Equals(_currentState))
-            return;
+        if (dictionaryState[state].Equals(_currentState)) return;
 
         if (_currentState != null) _currentState.OnStateExit();
         _currentState = dictionaryState[state];

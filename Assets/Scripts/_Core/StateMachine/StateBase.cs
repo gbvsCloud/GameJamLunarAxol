@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -39,6 +40,6 @@ public class StateSwing : StateBase
     }
     public override void OnStateExit()
     {
-        trigger.TongueAnimationEnd();
+        trigger.SetIndex(0);
     }
 }

@@ -4,8 +4,6 @@ using UnityEngine;
 using DG.Tweening;
 public class TriggerSwing : MonoBehaviour
 {
-    public StateMachine stateMachine;
-
     public KeyCode keyCode = KeyCode.E;
 
     [Header("Animação da Língua")]
@@ -21,6 +19,7 @@ public class TriggerSwing : MonoBehaviour
     private int _index;
     private Tween tween;
     private Vector2 playerVector;
+
     private void Update()
     {
         if(player != null)
@@ -36,6 +35,12 @@ public class TriggerSwing : MonoBehaviour
             }
         }
     }
+
+    public void SetIndex(int index)
+    {
+        _index = index;
+    }
+
     public void TongueAnimationStart()
     {
         manager.TongueAnimationStart(jointPosition, this);
@@ -49,10 +54,9 @@ public class TriggerSwing : MonoBehaviour
     public void MotionBetween()
     {
         Vector2 lerpTarget = (Vector2)listLerps[_index].transform.position;
-        if (_index >= listLerps.Count - 1 && Vector2.Distance(playerVector, lerpTarget) < distLerp / 2)
+        if (_index >= listLerps.Count - 1 && Vector2.Distance(playerVector, lerpTarget) < distLerp)
         {
-            stateMachine.SwitchState(StateMachine.States.IDLE, manager);
-            _index = 0;
+            TongueAnimationEnd();
         }
         else if (_index < listLerps.Count - 1 && Vector2.Distance(playerVector, lerpTarget) < distLerp)
         {
