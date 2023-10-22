@@ -6701,7 +6701,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96c302d6af94ef04f9c4d2435d884bec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1329902858}
+  player: {fileID: 1329902863}
+  playerObject: {fileID: 1329902858}
   stateMachine: {fileID: 1838747943}
   tongue: {fileID: 1392646811}
   lineRenderer: {fileID: 753141558}
@@ -7011,13 +7012,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attack: {fileID: 1856669687}
-  handleAttack: 0.857
-  rigidBody: {fileID: 1329902861}
-  spriteRenderer: {fileID: 1329902859}
-  player: {fileID: 1329902863}
-  animator: {fileID: 1329902867}
   lineRenderer: {fileID: 1329902866}
+  tongueManager: {fileID: 1117846041}
+  stateMachine: {fileID: 1838747943}
+  handleAttack: 0.857
   isGrounded: 0
+  canRun: 0
   superJumpDelay: 0
   chargingSuperJump: 0
   mouseJumpTarget: {x: 0, y: 0}
