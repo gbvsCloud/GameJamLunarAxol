@@ -46,8 +46,15 @@ public class TongueManager : Singleton<TongueManager>
         yield return new WaitForSeconds(timeTongueAnimation);
         stateMachine.SwitchState(StateMachine.States.SWING, trigger);
     }
-    public void TongueAnimationEnd(GameObject target)
+    public void TongueAnimationEnd(GameObject target, TriggerSwing trigger)
+    {
+        StartCoroutine(TongueAnimationEndCoroutine( target,  trigger));
+    }
+
+    private IEnumerator TongueAnimationEndCoroutine(GameObject target, TriggerSwing trigger)
     {
         TongueMotion(target);
+        yield return new WaitForSeconds(timeTongueAnimation);
+        stateMachine.SwitchState(StateMachine.States.SWING, trigger);
     }
 }

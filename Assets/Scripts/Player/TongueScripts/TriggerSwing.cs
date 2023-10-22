@@ -43,7 +43,7 @@ public class TriggerSwing : MonoBehaviour
     }
     public void TongueAnimationEnd()
     {
-        manager.TongueAnimationEnd(player);
+        manager.TongueAnimationEnd(player, this);
         player.GetComponent<Rigidbody2D>().gravityScale = player.GetComponent<Player>().GetGravity();
     }
     public void MotionBetween()
