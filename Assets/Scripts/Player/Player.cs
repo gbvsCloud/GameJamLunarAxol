@@ -36,13 +36,9 @@ public class Player : EntityBase
         if (collision.transform.CompareTag(tagEnemy))
         {
             TakeDamage();
-        }
-        if (collision.transform.CompareTag(tagEnemy))
-        {
-
         }else if (collision.transform.CompareTag("TornTiles"))
         {
-            Debug.Log("espinho");
+            TakeDamage();
         }
     }
 
