@@ -5,7 +5,8 @@ using DG.Tweening;
 
 public class AttackPlayer : MonoBehaviour
 {
-    public KeyCode keyCode = KeyCode.R;
+    public KeyCode keyCodeAttack = KeyCode.R;
+    public KeyCode keyCodeLick = KeyCode.Q;
     public Animator animator;
 
     //privates
@@ -16,9 +17,13 @@ public class AttackPlayer : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(keyCode))
+        if (Input.GetKeyDown(keyCodeAttack))
         {
             StartCoroutine(Attack());
+        }
+        if (Input.GetKeyDown(keyCodeLick))
+        {
+            Lick();
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -27,6 +32,11 @@ public class AttackPlayer : MonoBehaviour
         {
             collision.gameObject.GetComponent<Enemy>().TakeDamage();
         }
+    }
+
+    private void Lick()
+    {
+        animator.SetTrigger("Lick");
     }
 
     private IEnumerator Attack()

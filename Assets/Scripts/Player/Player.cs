@@ -27,7 +27,7 @@ public class Player : EntityBase
     {
         base.Update();
         if (climb)
-            transform.DOMove(_currentTransform, 0f);w
+            transform.DOMove(_currentTransform, 0f);
     }
 
     public float GetGravity()
