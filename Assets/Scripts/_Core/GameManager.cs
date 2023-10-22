@@ -2,11 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using Unity.VisualScripting;
 
 public class GameManager : Singleton<GameManager>
 {
     [SerializeField]
     private GameObject pauseGroup;
+
+    [SerializeField]
+    private List<Transform> checkpoints;
+
+    [SerializeField]
+    private Transform lastCheckpoint;
+
+    [SerializeField]
+    private Player player;
 
     bool gamePaused = false;
 
@@ -39,5 +49,20 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
+    public void NewCheckPoint(Transform checkpoint)
+    {
+        if(checkpoints.IndexOf(checkpoint) > checkpoints.IndexOf(lastCheckpoint))
+        {
+            lastCheckpoint = checkpoint;
+        }
+
+        
+    }
+
+    public void ReturnToLastCheckpoint()
+    {
+        player.transform.position = lastCheckpoint.position;
+    }
 
 }
+
