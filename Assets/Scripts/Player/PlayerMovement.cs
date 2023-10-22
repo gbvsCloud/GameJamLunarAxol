@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     private TongueManager tongueManager;
 
     [SerializeField]
-    private StateMachine stateMachine;
+    public StateMachine stateMachine;
 
     public float handleAttack = 1.33f;
 
