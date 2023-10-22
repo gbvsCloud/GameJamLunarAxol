@@ -36,7 +36,9 @@ public class TongueManager : Singleton<TongueManager>
     }
     public void TongueAnimationStart(GameObject target, TriggerSwing trigger)
     {
-        StartCoroutine(TongueAnimationStartCoroutine(target, trigger));
+        TongueMotion(target);
+        stateMachine.SwitchState(StateMachine.States.SWING, trigger);
+        //StartCoroutine(TongueAnimationStartCoroutine(target, trigger));
     }
 
     private IEnumerator TongueAnimationStartCoroutine(GameObject target, TriggerSwing trigger)
