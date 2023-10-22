@@ -20,8 +20,8 @@ public class PlayerMovement : MonoBehaviour
     private LineRenderer lineRenderer;
 
     float direction;
-    float speed = 5;
-    float jumpStrength = 20;
+    float speed = 6.5f;
+    float jumpStrength = 17;
     public bool isGrounded = false;
 
     public float superJumpDelay = 0;

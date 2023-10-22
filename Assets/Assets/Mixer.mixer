@@ -6,7 +6,7 @@ AudioMixerGroupController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Ambience
+  m_Name: Music
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: 1bb07ca1fd44e9d448e7df274e9b92a3
   m_Children: []
@@ -65,9 +65,13 @@ AudioMixerController:
   - {fileID: 24500006}
   m_StartSnapshot: {fileID: 24500006}
   m_SuspendThreshold: -80
-  m_EnableSuspend: 1
+  m_EnableSuspend: 0
   m_UpdateMode: 0
-  m_ExposedParameters: []
+  m_ExposedParameters:
+  - guid: 53c0ae1ff9fea1c4f9a8c2b8d3b3b587
+    name: music
+  - guid: e4823662ea56a8a4ea5dead224e9da7b
+    name: sfx
   m_AudioMixerGroupViews:
   - guids:
     - 63d0b6948c383934ca5571fdfed28ee3

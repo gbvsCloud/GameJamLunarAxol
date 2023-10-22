@@ -4,11 +4,6 @@ using UnityEngine;
 
 public class Enemy : EntityBase
 {
-    [SerializeField]
-    private Transform patrolPositionA;
-    [SerializeField]
-    private Transform patrolPositionB;
-    
     private Transform currentPatrolPosition;
 
     [SerializeField]
@@ -16,14 +11,12 @@ public class Enemy : EntityBase
 
     float speed = 4;
 
+    public bool goingRight = true;
+
     void Start()
     {
 
-        Init(3);
-
-        currentPatrolPosition = patrolPositionA;
-        patrolPositionA.transform.position = new Vector2(patrolPositionA.transform.position.x, transform.position.y);
-        patrolPositionB.transform.position = new Vector2(patrolPositionB.transform.position.x, transform.position.y);
+        Init(2);
     }
 
     // Update is called once per frame
@@ -34,27 +27,31 @@ public class Enemy : EntityBase
 
     public void Patrol()
     {
-        if (currentPatrolPosition == patrolPositionA)
+        if(goingRight)
         {
             rigidBody.velocity = new Vector2(speed, rigidBody.velocity.y);
-
         }
         else
         {
             rigidBody.velocity = new Vector2(-speed, rigidBody.velocity.y);
         }
 
-        if (Vector2.Distance(transform.position, currentPatrolPosition.position) < 0.5f && currentPatrolPosition == patrolPositionB)
-        {
-            currentPatrolPosition = patrolPositionA;
-        }
-        if (Vector2.Distance(transform.position, currentPatrolPosition.position) < 0.5f && currentPatrolPosition == patrolPositionA)
-        {
-            currentPatrolPosition = patrolPositionB;
-        }
-
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("ReturnEnemy"))
+        {
+            goingRight = !goingRight;
+        }
+    }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "TornTiles")
+        {
+            Death();
+        }
+    }
 
 }
