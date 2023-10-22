@@ -4,7 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 public class TongueManager : Singleton<TongueManager>
 {
-    public GameObject player;
+    public Player player;
+    public GameObject playerObject;
     public StateMachine stateMachine;
     [Header("Língua")]
     public GameObject tongue;
@@ -20,14 +21,14 @@ public class TongueManager : Singleton<TongueManager>
     {
         if(lineRenderer != null)
         {
-            lineRenderer.SetPosition(0, player.transform.position);
+            lineRenderer.SetPosition(0, playerObject.transform.position);
             lineRenderer.SetPosition(1, tongue.transform.position);
         }
     }
 
     public void TonguePosition()
     {
-        if (tongue != null) tongue.transform.position = player.transform.position;
+        if (tongue != null) tongue.transform.position = playerObject.transform.position;
     }
     public void TongueMotion(GameObject target)
     {
@@ -37,7 +38,7 @@ public class TongueManager : Singleton<TongueManager>
     public void TongueAnimationStart(GameObject target, TriggerSwing trigger)
     {
         TongueMotion(target);
-        stateMachine.SwitchState(StateMachine.States.SWING, trigger);
+        stateMachine.SwitchState(StateMachine.States.SWING, trigger, player);
         //StartCoroutine(TongueAnimationStartCoroutine(target, trigger));
     }
 
@@ -45,7 +46,7 @@ public class TongueManager : Singleton<TongueManager>
     {
         TongueMotion(target);
         yield return new WaitForSeconds(timeTongueAnimation);
-        stateMachine.SwitchState(StateMachine.States.SWING, trigger);
+        stateMachine.SwitchState(StateMachine.States.SWING, trigger, player);
     }
     public void TongueAnimationEnd(GameObject target)
     {
@@ -56,6 +57,6 @@ public class TongueManager : Singleton<TongueManager>
     {
         TongueMotion(target);
         yield return new WaitForSeconds(timeTongueAnimation - 0.1f);
-        stateMachine.SwitchState(StateMachine.States.IDLE, this);
+        stateMachine.SwitchState(StateMachine.States.IDLE, this, player);
     }
 }

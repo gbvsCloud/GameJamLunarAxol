@@ -5,27 +5,31 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField]
     private Transform attack;
-    public float handleAttack = 1.33f;
-
-    [SerializeField]
-    private Rigidbody2D rigidBody;
-
-    [SerializeField]
-    private SpriteRenderer spriteRenderer;
-
-    [SerializeField]
-    private Player player;
-
-    [SerializeField]
-    private Animator animator;
 
     [SerializeField]
     private LineRenderer lineRenderer;
+
+    [SerializeField]
+    private TongueManager tongueManager;
+
+    [SerializeField]
+    private StateMachine stateMachine;
+
+    public float handleAttack = 1.33f;
+
+    private Rigidbody2D rigidBody;
+
+    private SpriteRenderer spriteRenderer;
+
+    private Player player;
+
+    private Animator animator;
 
     float direction;
     float speed = 5;
     float jumpStrength = 20;
     public bool isGrounded = false;
+    public bool canRun = false;
 
     public float superJumpDelay = 0;
     public bool chargingSuperJump = false;
@@ -39,29 +43,38 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private RandomSound jumpAudioSource;
 
+    private void Start()
+    {
+        player = GetComponent<Player>();
+        animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        rigidBody = GetComponent<Rigidbody2D>();
+    }
+
     void Update()
     {
         direction = Input.GetAxisRaw("Horizontal");
 
         Jump();
 
-        if(direction == 1)
+        if (direction == 1 && canRun)
         {
             if (spriteRenderer.flipX == true)
                 attack.transform.DOMoveX(transform.position.x + handleAttack, 0f);
 
-            animator.SetBool("Run", true);
+            stateMachine.SwitchState(StateMachine.States.RUNNING, player);
             spriteRenderer.flipX = false;
         }
-        else if(direction == -1)
+        else if (direction == -1 && canRun)
         {
             if (spriteRenderer.flipX == false)
                 attack.transform.DOMoveX(transform.position.x - handleAttack, 0f);
-            animator.SetBool("Run", true);
+
+            stateMachine.SwitchState(StateMachine.States.RUNNING, player);
             spriteRenderer.flipX = true;
         }
-        else
-            animator.SetBool("Run", false);
+        else if (canRun)
+            stateMachine.SwitchState(StateMachine.States.IDLE, tongueManager, player);
 
         if (usingSuperJump)
         {
@@ -75,12 +88,13 @@ public class PlayerMovement : MonoBehaviour
     public void Jump()
     {
         chargingSuperJump = false;
-        if (isGrounded)
+        if (isGrounded && canRun)
         {
             if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.Space))
             {
                 superJumpDelay += Time.deltaTime;
                 chargingSuperJump = true;
+                canRun = false;
 
                 if(superJumpDelay >= 0.36f)
                 {
@@ -170,6 +184,7 @@ public class PlayerMovement : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         usingSuperJump = false;
+        canRun = true;
     }
 
 }

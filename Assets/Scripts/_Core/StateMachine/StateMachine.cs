@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static StateSwing;
+
 public class StateMachine : Singleton<StateMachine>
 {
     public enum States
@@ -21,26 +23,27 @@ public class StateMachine : Singleton<StateMachine>
 
         dictionaryState = new Dictionary<States, StateBase>();
         RegisterStates(States.IDLE, new StateIdle());
-        RegisterStates(States.RUNNING, new StateBase());
+        RegisterStates(States.RUNNING, new StateRun());
         RegisterStates(States.DEAD, new StateBase());
         RegisterStates(States.SWING, new StateSwing());
-        SwitchState(States.IDLE, manager);
+        SwitchState(States.IDLE, manager, player);
     }
     public void RegisterStates(States typeEnum, StateBase state)
     {
         dictionaryState.Add(typeEnum, state);
     }
-    public void SwitchState(States state, object o = null)
+    public void SwitchState(States state, params object[] objs)
     {
         if (dictionaryState[state].Equals(_currentState)) return;
 
         if (_currentState != null) _currentState.OnStateExit();
         _currentState = dictionaryState[state];
 
-        if (_currentState != null) _currentState.OnStateEnter(o);
+        if (_currentState != null) _currentState.OnStateEnter(objs);
     }
     public void Update()
     {
         if (_currentState != null) _currentState.OnStateStay();
+        Debug.Log(_currentState);
     }
 }
