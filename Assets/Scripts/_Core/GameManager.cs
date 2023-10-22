@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using Unity.VisualScripting;
+using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -18,7 +20,23 @@ public class GameManager : Singleton<GameManager>
     [SerializeField]
     private Player player;
 
+    [SerializeField]
+    private AudioMixer mixer;
+
+    [SerializeField]
+    Button musicButton;
+    [SerializeField]
+    Button SFXButton;
+
+    [SerializeField]
+    Sprite musicUnmutedIMG, musicMutedIMG;
+    [SerializeField]
+    Sprite SFXUnmutedIMG, SFXMutedIMG;
+
     bool gamePaused = false;
+
+    bool musicMuted = false;
+    bool sfxMuted = false;
 
     private void Update()
     {
@@ -28,6 +46,24 @@ public class GameManager : Singleton<GameManager>
             {
                 gamePaused = true;
                 Time.timeScale = 0;
+                if (musicMuted)
+                {
+                    musicButton.image.sprite = musicMutedIMG;
+                }
+                else
+                {
+                    musicButton.image.sprite = musicUnmutedIMG;
+                }
+
+                if(sfxMuted)
+                {
+                    SFXButton.image.sprite = SFXMutedIMG;
+                }
+                else
+                {
+                    SFXButton.image.sprite = SFXUnmutedIMG;
+                }
+
                 pauseGroup.SetActive(true);
             }
             else
@@ -62,6 +98,41 @@ public class GameManager : Singleton<GameManager>
     public void ReturnToLastCheckpoint()
     {
         player.transform.position = lastCheckpoint.position;
+    }
+
+    public void InvertMusicState()
+    {
+        if (!musicMuted)
+        {
+            musicMuted = true;
+            mixer.SetFloat("music", -80);
+            musicButton.image.sprite = musicMutedIMG;
+        }
+        else
+        {
+            musicMuted = false;
+            mixer.SetFloat("music", 20);
+            musicButton.image.sprite = musicUnmutedIMG;
+        }
+    }
+
+    public void InvertSfxState()
+    {
+       
+        if (!sfxMuted)
+        {
+            Debug.Log("mutou");
+            sfxMuted = true;
+            mixer.SetFloat("sfx", -80);
+            SFXButton.image.sprite = SFXMutedIMG;
+        }
+        else
+        {
+            Debug.Log("desmutou");
+            sfxMuted = false;
+            mixer.SetFloat("sfx", 20);
+            SFXButton.image.sprite = SFXUnmutedIMG;
+        }
     }
 
 }

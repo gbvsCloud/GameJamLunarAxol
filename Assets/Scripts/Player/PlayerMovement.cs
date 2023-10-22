@@ -26,8 +26,8 @@ public class PlayerMovement : MonoBehaviour
     private Animator animator;
 
     float direction;
-    float speed = 5;
-    float jumpStrength = 20;
+    float speed = 6.5f;
+    float jumpStrength = 17;
     public bool isGrounded = false;
     public bool canRun = false;
 
