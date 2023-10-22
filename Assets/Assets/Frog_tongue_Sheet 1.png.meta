@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: bdf8aaceacd60a3428966dffbf31ef6c
+guid: 10fefa46d73468546bcbf5be1f6dbc7b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tongue_animation_GRAY_0
+      name: Frog_tongue_Sheet 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d4eb2a3876b1cc141a11e599c214e303
-      internalID: -1770869625
+      spriteID: e811879708b0cf541ac5c59ab43a02f9
+      internalID: -1735774760
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tongue_animation_GRAY_1
+      name: Frog_tongue_Sheet 1_1
       rect:
         serializedVersion: 2
         x: 64
@@ -145,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 581442948fa772d4b865366504ab15da
-      internalID: -1145415210
+      spriteID: f71030dae1c92ec4c806df1bfd14731a
+      internalID: -392520162
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tongue_animation_GRAY_2
+      name: Frog_tongue_Sheet 1_2
       rect:
         serializedVersion: 2
         x: 128
@@ -166,14 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0307ef4eb51ca1d41a59648063c77866
-      internalID: 1990665600
+      spriteID: 2dee132166ac6734d9713d827c51cff8
+      internalID: 1963390090
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tongue_animation_GRAY_3
+      name: Frog_tongue_Sheet 1_3
       rect:
         serializedVersion: 2
         x: 192
@@ -187,14 +187,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 052b4c2fee0710143bf2642383b365f7
-      internalID: 463384809
+      spriteID: 0f4c862557d692e4a9e7858873c85740
+      internalID: 1840617064
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tongue_animation_GRAY_4
+      name: Frog_tongue_Sheet 1_4
       rect:
         serializedVersion: 2
         x: 256
@@ -208,14 +208,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 16be9b2367387764287166c1f2bd25a4
-      internalID: -487904490
+      spriteID: 22a72cd6f788ae04db516c9ce97753d4
+      internalID: 236843154
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tongue_animation_GRAY_5
+      name: Frog_tongue_Sheet 1_5
       rect:
         serializedVersion: 2
         x: 320
@@ -229,14 +229,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 027354d55ac189b46b45f4903849cf5b
-      internalID: -68429048
+      spriteID: 5fb18888f6c45714280513165b9e6fed
+      internalID: 1287543297
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tongue_animation_GRAY_6
+      name: Frog_tongue_Sheet 1_6
       rect:
         serializedVersion: 2
         x: 384
@@ -250,14 +250,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 64a5ea02c7af5fd4dbe595cf7d218190
-      internalID: 507470556
+      spriteID: dc7e1cd83a5aade4aa74092b79a1eea1
+      internalID: 7276511
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tongue_animation_GRAY_7
+      name: Frog_tongue_Sheet 1_7
       rect:
         serializedVersion: 2
         x: 448
@@ -271,8 +271,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 30ca956bb781ec649aa08345d303298a
-      internalID: 1474156924
+      spriteID: f3d8cd428e20b9c40b98789855765739
+      internalID: -255771594
       vertices: []
       indices: 
       edges: []
@@ -288,14 +288,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      tongue_animation_GRAY_0: -1770869625
-      tongue_animation_GRAY_1: -1145415210
-      tongue_animation_GRAY_2: 1990665600
-      tongue_animation_GRAY_3: 463384809
-      tongue_animation_GRAY_4: -487904490
-      tongue_animation_GRAY_5: -68429048
-      tongue_animation_GRAY_6: 507470556
-      tongue_animation_GRAY_7: 1474156924
+      Frog_tongue_Sheet 1_0: -1735774760
+      Frog_tongue_Sheet 1_1: -392520162
+      Frog_tongue_Sheet 1_2: 1963390090
+      Frog_tongue_Sheet 1_3: 1840617064
+      Frog_tongue_Sheet 1_4: 236843154
+      Frog_tongue_Sheet 1_5: 1287543297
+      Frog_tongue_Sheet 1_6: 7276511
+      Frog_tongue_Sheet 1_7: -255771594
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

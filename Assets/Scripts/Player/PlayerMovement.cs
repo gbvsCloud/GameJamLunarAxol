@@ -17,6 +17,9 @@ public class PlayerMovement : MonoBehaviour
     private Player player;
 
     [SerializeField]
+    private Animator animator;
+
+    [SerializeField]
     private LineRenderer lineRenderer;
 
     float direction;
@@ -47,17 +50,20 @@ public class PlayerMovement : MonoBehaviour
             if (spriteRenderer.flipX == true)
                 attack.transform.DOMoveX(transform.position.x + handleAttack, 0f);
 
+            animator.SetBool("Run", true);
             spriteRenderer.flipX = false;
         }
-        if(direction == -1)
+        else if(direction == -1)
         {
             if (spriteRenderer.flipX == false)
                 attack.transform.DOMoveX(transform.position.x - handleAttack, 0f);
-              
+            animator.SetBool("Run", true);
             spriteRenderer.flipX = true;
         }
+        else
+            animator.SetBool("Run", false);
 
-        if(usingSuperJump)
+        if (usingSuperJump)
         {
             if(Vector2.Distance(transform.position, mouseJumpTarget) < 0.5f)
             {
