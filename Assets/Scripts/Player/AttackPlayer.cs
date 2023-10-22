@@ -14,10 +14,11 @@ public class AttackPlayer : MonoBehaviour
     private bool _attack = false;
     private AnimatorStateInfo stateInfo;
     private float _normalizedTime;
+    bool canAttack = true;
 
     void Update()
     {
-        if (Input.GetKeyDown(keyCodeAttack))
+        if (Input.GetKeyDown(keyCodeAttack) && canAttack)
         {
             StartCoroutine(Attack());
         }
@@ -41,11 +42,21 @@ public class AttackPlayer : MonoBehaviour
 
     private IEnumerator Attack()
     {
+        Debug.Log("ataque");
         _attack = true;
         animator.SetTrigger("Attack");
-        stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+        stateInfo = animator.GetCurrentAnimatorStateInfo(0);      
         _normalizedTime = stateInfo.normalizedTime;
+        StartCoroutine(RechargeAttack());
         yield return new WaitForSeconds(_normalizedTime);
         _attack = false;
     }
+
+    IEnumerator RechargeAttack()
+    {
+        canAttack = false;
+        yield return new WaitForSeconds(1f);
+        canAttack = true;
+    }
+
 }

@@ -3005,7 +3005,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 130.98499, y: -32.744995}
+  m_AnchoredPosition: {x: 130.98438, y: -32.74414}
   m_SizeDelta: {x: 261.97, y: 65.49}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &760446222
@@ -3754,7 +3754,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -30.049988, y: -34.97101}
+  m_AnchoredPosition: {x: -30.050781, y: -34.970703}
   m_SizeDelta: {x: 60.1, y: 60.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1045303885
@@ -4274,10 +4274,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 22.701212, y: 21.4197}
+    - - {x: 22.468214, y: 21.303202}
       - {x: -12.590852, y: 21.419697}
-      - {x: -12.902464, y: -24.40062}
-      - {x: 22.934082, y: -24.400621}
+      - {x: -12.698288, y: -31.955103}
+      - {x: 22.555761, y: -31.853018}
   m_UseDelaunayMesh: 0
 --- !u!4 &1206299064
 Transform:
@@ -12139,7 +12139,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -30.049988, y: -99.70001}
+  m_AnchoredPosition: {x: -30.050781, y: -99.69922}
   m_SizeDelta: {x: 60.1, y: 60.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2010466150
