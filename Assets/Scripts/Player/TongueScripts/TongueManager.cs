@@ -39,24 +39,10 @@ public class TongueManager : Singleton<TongueManager>
     {
         TongueMotion(target);
         stateMachine.SwitchState(StateMachine.States.SWING, trigger, player);
-        //StartCoroutine(TongueAnimationStartCoroutine(target, trigger));
-    }
-
-    private IEnumerator TongueAnimationStartCoroutine(GameObject target, TriggerSwing trigger)
-    {
-        TongueMotion(target);
-        yield return new WaitForSeconds(timeTongueAnimation);
-        stateMachine.SwitchState(StateMachine.States.SWING, trigger, player);
     }
     public void TongueAnimationEnd(GameObject target)
     {
-        StartCoroutine(TongueAnimationEndCoroutine(target));
-    }
-
-    private IEnumerator TongueAnimationEndCoroutine(GameObject target)
-    {
         TongueMotion(target);
-        yield return new WaitForSeconds(timeTongueAnimation - 0.1f);
         stateMachine.SwitchState(StateMachine.States.IDLE, this, player);
     }
 }
