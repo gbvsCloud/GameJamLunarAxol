@@ -88,7 +88,7 @@ public class PlayerMovement : MonoBehaviour
     public void Jump()
     {
         chargingSuperJump = false;
-        if (isGrounded && canRun)
+        if (isGrounded)
         {
             if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.Space))
             {
@@ -119,25 +119,16 @@ public class PlayerMovement : MonoBehaviour
             }
             else if (Input.GetKeyDown(KeyCode.Space))
             {
-                if (player.climb)
-                {
-                    player.climb = false;
-                    player.GetComponent<Rigidbody2D>().gravityScale = player.GetGravity();
-                }
                 rigidBody.AddForce(new Vector2(0, jumpStrength), ForceMode2D.Impulse);
                 jumpAudioSource.PlayRandomSound();
             }
 
             if (superJumpDelay >= 0.35f && !(Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.Space)))
             {
-                if(player.climb)
-                {
-                    player.climb = false;
-                    player.GetComponent<Rigidbody2D>().gravityScale = player.GetGravity();
-                }
                 SuperJump();
                 superJumpDelay = 0;
                 chargingSuperJump = false;
+                canRun = true;
             }
         }
         if (!chargingSuperJump) superJumpDelay = 0;
