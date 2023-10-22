@@ -70,6 +70,12 @@ public class Player : EntityBase
         StartCoroutine(DeathAnimation());
     }
 
+    public override void TakeDamage()
+    {
+        base.TakeDamage();
+        gameManager.CloseEye();
+    }
+
     IEnumerator DeathAnimation()
     {
         

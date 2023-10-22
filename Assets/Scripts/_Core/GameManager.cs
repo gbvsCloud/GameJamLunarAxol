@@ -38,6 +38,9 @@ public class GameManager : Singleton<GameManager>
     bool musicMuted = false;
     bool sfxMuted = false;
 
+    public Image[] eyes;
+    public Sprite openEye, closedEye;
+
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.Escape))
@@ -132,6 +135,18 @@ public class GameManager : Singleton<GameManager>
             sfxMuted = false;
             mixer.SetFloat("sfx", 20);
             SFXButton.image.sprite = SFXUnmutedIMG;
+        }
+    }
+
+    public void CloseEye()
+    {
+        for(int i = 2; i > -1; i--)
+        {
+            if (eyes[i].sprite == openEye)
+            {
+                eyes[i].sprite = closedEye;
+                return;
+            }
         }
     }
 

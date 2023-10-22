@@ -17,7 +17,7 @@ public class EntityBase : MonoBehaviour
     }
 
 
-    public void TakeDamage()
+    public virtual void TakeDamage()
     {
         health--;
     }
