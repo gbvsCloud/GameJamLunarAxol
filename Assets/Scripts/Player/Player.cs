@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.Tilemaps;
-
+using UnityEngine.SceneManagement;
 public class Player : EntityBase
 {
     public bool climb = false;
@@ -15,6 +15,8 @@ public class Player : EntityBase
     private Rigidbody2D rigidBody;
     [SerializeField]
     private GameManager gameManager;
+    [SerializeField]
+    public PlayerMovement playerMovement;
 
     //privates
     private float _currentGravity;
@@ -25,6 +27,7 @@ public class Player : EntityBase
     {
         Init(3);
         _currentGravity = GetComponent<Rigidbody2D>().gravityScale;
+        playerMovement = GetComponent<PlayerMovement>();
     }
 
     protected override void Update()
@@ -49,11 +52,8 @@ public class Player : EntityBase
         {
             TakeDamage();
             gameManager.ReturnToLastCheckpoint();
+            rigidBody.gravityScale = 1;
         }
-
-        /*else if (collision.transform.CompareTag("WallTiles"))
-        {
-            ClimbWall();*/
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -64,12 +64,17 @@ public class Player : EntityBase
         }
     }
 
-
-    private void ClimbWall()
+    public override void Death()
     {
-        rigidBody.gravityScale = 0;
-        _currentTransform = transform.position;
-        climb = true;
+        playerMovement.stateMachine.SwitchState(StateMachine.States.DEAD, this);
+        StartCoroutine(DeathAnimation());
+    }
+
+    IEnumerator DeathAnimation()
+    {
+        
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene(0);
     }
 
 }
