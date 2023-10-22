@@ -16,11 +16,9 @@ public class AttackPlayer : MonoBehaviour
 
     void Update()
     {
-        
-
         if (Input.GetKeyDown(keyCode))
         {
-            
+            StartCoroutine(Attack());
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -39,5 +37,6 @@ public class AttackPlayer : MonoBehaviour
         stateInfo = animator.GetCurrentAnimatorStateInfo(0);
         normalizedTime = stateInfo.normalizedTime;
         yield return new WaitForSeconds(normalizedTime);
+        attack = false;
     }
 }
