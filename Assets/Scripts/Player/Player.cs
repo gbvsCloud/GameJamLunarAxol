@@ -11,6 +11,10 @@ public class Player : EntityBase
     
     [SerializeField]
     private SpriteRenderer spriteRenderer;
+    [SerializeField]
+    private Rigidbody2D rigidBody;
+    [SerializeField]
+    private GameManager gameManager;
 
     //privates
     private float _currentGravity;
@@ -44,14 +48,26 @@ public class Player : EntityBase
         else if (collision.transform.CompareTag("TornTiles"))
         {
             TakeDamage();
+            gameManager.ReturnToLastCheckpoint();
         }
-        //else if (collision.transform.CompareTag("WallTiles"))
-        //    ClimbWall();
+
+        /*else if (collision.transform.CompareTag("WallTiles"))
+        {
+            ClimbWall();*/
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.transform.CompareTag("Checkpoint"))
+        {
+            gameManager.NewCheckPoint(collision.transform);
+        }
+    }
+
 
     private void ClimbWall()
     {
-        this.GetComponent<Rigidbody2D>().gravityScale = 0;
+        rigidBody.gravityScale = 0;
         _currentTransform = transform.position;
         climb = true;
     }
