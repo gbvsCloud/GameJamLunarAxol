@@ -54,7 +54,7 @@ public class TriggerSwing : MonoBehaviour
     public void MotionBetween()
     {
         Vector2 lerpTarget = (Vector2)listLerps[_index].transform.position;
-        if (_index >= listLerps.Count - 1 && Vector2.Distance(playerVector, lerpTarget) < distLerp)
+        if (_index >= listLerps.Count - 1 && Vector2.Distance(playerVector, lerpTarget) < distLerp / 2)
         {
             TongueAnimationEnd();
         }
@@ -63,6 +63,7 @@ public class TriggerSwing : MonoBehaviour
             _index++;
         }
         if (Vector2.Distance(playerVector, lerpTarget) >= distLerp) SwingMotion(lerpTarget);
+        Debug.Log(_index);
     }
     public void SwingMotion(Vector2 lerpPosition)
     {

@@ -36,6 +36,4 @@ public class EntityBase : MonoBehaviour
         Debug.Log("morreu");
         Destroy(this.gameObject);
     }
-
-
 }
