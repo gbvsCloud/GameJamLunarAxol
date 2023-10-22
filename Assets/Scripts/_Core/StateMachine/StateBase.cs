@@ -72,10 +72,10 @@ public class StateDead : StateBase
     public override void OnStateEnter(params object[] objs)
     {
         player = (Player)objs[0];
-        player.GetComponent<Animator>().SetBool("Run", true);
+        player.GetComponent<Animator>().SetBool("Dead", true);
     }
     public override void OnStateExit()
     {
-        player.GetComponent<Animator>().SetBool("Run", false);
+        player.GetComponent<Animator>().SetBool("Dead", false);
     }
 }
