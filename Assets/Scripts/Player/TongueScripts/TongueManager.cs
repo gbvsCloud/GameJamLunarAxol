@@ -5,6 +5,7 @@ using UnityEngine;
 public class TongueManager : Singleton<TongueManager>
 {
     public GameObject player;
+    public StateMachine stateMachine;
     [Header("Língua")]
     public GameObject tongue;
     public LineRenderer lineRenderer;
@@ -18,28 +19,32 @@ public class TongueManager : Singleton<TongueManager>
     }
     private void Update()
     {
-        lineRenderer.SetPosition(0, player.transform.position);
-        lineRenderer.SetPosition(1, tongue.transform.position);
+        if(lineRenderer != null)
+        {
+            lineRenderer.SetPosition(0, player.transform.position);
+            lineRenderer.SetPosition(1, tongue.transform.position);
+        }
     }
 
     public void TonguePosition()
     {
-        tongue.transform.position = player.transform.position;
+        if(tongue != null) tongue.transform.position = player.transform.position;
     }
     public void TongueMotion(GameObject target)
     {
         Vector2 jointVector = (Vector2)target.transform.position;
-        tongue.transform.DOMove(jointVector, timeTongueAnimation);
+        if (tongue != null) tongue.transform.DOMove(jointVector, timeTongueAnimation);
     }
-    public void TongueAnimationStart(GameObject target)
+    public void TongueAnimationStart(GameObject target, TriggerSwing trigger)
     {
-        StartCoroutine(TongueAnimationStartCoroutine(target));
+        StartCoroutine(TongueAnimationStartCoroutine(target, trigger));
     }
 
-    private IEnumerator TongueAnimationStartCoroutine(GameObject target)
+    private IEnumerator TongueAnimationStartCoroutine(GameObject target, TriggerSwing trigger)
     {
         TongueMotion(target);
         yield return new WaitForSeconds(timeTongueAnimation);
+        stateMachine.SwitchState(StateMachine.States.SWING, trigger);
     }
     public void TongueAnimationEnd(GameObject target)
     {

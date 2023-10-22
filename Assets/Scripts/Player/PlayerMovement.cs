@@ -1,9 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField]
+    private Transform attack;
+    public float handleAttack = 1.33f;
+
     [SerializeField]
     private Rigidbody2D rigidBody;
 
@@ -33,26 +36,24 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private RandomSound jumpAudioSource;
 
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
     void Update()
     {
         direction = Input.GetAxisRaw("Horizontal");
-
-        
 
         Jump();
 
         if(direction == 1)
         {
+            if (spriteRenderer.flipX == true)
+                attack.transform.DOMoveX(transform.position.x + handleAttack, 0f);
+
             spriteRenderer.flipX = false;
         }
         if(direction == -1)
         {
+            if (spriteRenderer.flipX == false)
+                attack.transform.DOMoveX(transform.position.x - handleAttack, 0f);
+              
             spriteRenderer.flipX = true;
         }
 
@@ -63,9 +64,6 @@ public class PlayerMovement : MonoBehaviour
                 usingSuperJump = false;
             }
         }
-
-        
-
     }
 
     public void Jump()
@@ -105,7 +103,6 @@ public class PlayerMovement : MonoBehaviour
                 rigidBody.AddForce(new Vector2(0, jumpStrength), ForceMode2D.Impulse);
                 jumpAudioSource.PlayRandomSound();
             }
-
 
             if (superJumpDelay >= 0.35f && !(Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.Space)))
             {

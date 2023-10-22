@@ -1,18 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static System.Runtime.CompilerServices.RuntimeHelpers;
+using DG.Tweening;
 
 public class AttackPlayer : MonoBehaviour
 {
     public KeyCode keyCode = KeyCode.R;
     public Animator animator;
-    private bool attack = false;
-    AnimatorStateInfo stateInfo;
-    float normalizedTime;
 
     //privates
     private string _tagEnemy = "Enemy";
+    private bool _attack = false;
+    private AnimatorStateInfo stateInfo;
+    private float _normalizedTime;
 
     void Update()
     {
@@ -21,22 +21,21 @@ public class AttackPlayer : MonoBehaviour
             StartCoroutine(Attack());
         }
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.transform.tag == _tagEnemy && attack)
+        if (collision.transform.tag == _tagEnemy && _attack)
         {
             collision.gameObject.GetComponent<Enemy>().TakeDamage();
         }
-              
     }
 
     private IEnumerator Attack()
     {
-        attack = true;
+        _attack = true;
         animator.SetTrigger("Attack");
         stateInfo = animator.GetCurrentAnimatorStateInfo(0);
-        normalizedTime = stateInfo.normalizedTime;
-        yield return new WaitForSeconds(normalizedTime);
-        attack = false;
+        _normalizedTime = stateInfo.normalizedTime;
+        yield return new WaitForSeconds(_normalizedTime);
+        _attack = false;
     }
 }

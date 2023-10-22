@@ -23,7 +23,8 @@ public class TriggerSwing : MonoBehaviour
     private Vector2 playerVector;
     private void Update()
     {
-        playerVector = player.transform.position;
+        if(player != null)
+            playerVector = player.transform.position;
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -31,14 +32,13 @@ public class TriggerSwing : MonoBehaviour
         {
             if (Input.GetKey(keyCode))
             {
-                Debug.Log("entrou no input");
-                stateMachine.SwitchState(StateMachine.States.SWING, this);
+                TongueAnimationStart();
             }
         }
     }
     public void TongueAnimationStart()
     {
-        manager.TongueAnimationStart(jointPosition);
+        manager.TongueAnimationStart(jointPosition, this);
         player.GetComponent<Rigidbody2D>().gravityScale = 0;
     }
     public void TongueAnimationEnd()
@@ -62,7 +62,7 @@ public class TriggerSwing : MonoBehaviour
     }
     public void SwingMotion(Vector2 lerpPosition)
     {
-        tween = player.transform.DOMove(lerpPosition, swingDuration);
         tween.SetEase(Ease.Linear);
+        tween = player.transform.DOMove(lerpPosition, swingDuration);
     }
 }
