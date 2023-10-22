@@ -3,17 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class GameManager : MonoBehaviour        
+public class GameManager : Singleton<GameManager>
 {
     [SerializeField]
     private GameObject pauseGroup;
 
     bool gamePaused = false;
-
-    private void Start()
-    {
-        
-    }
 
     private void Update()
     {

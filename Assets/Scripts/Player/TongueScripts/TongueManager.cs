@@ -2,13 +2,14 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class TongueManager : MonoBehaviour
+public class TongueManager : Singleton<TongueManager>
 {
     public GameObject player;
     [Header("Língua")]
     public GameObject tongue;
     public LineRenderer lineRenderer;
     public float timeTongueAnimation = .5f;
+
     private void Start()
     {
         lineRenderer.positionCount = 2;

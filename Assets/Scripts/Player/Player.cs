@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Player : EntityBase
 {
+    private string tagEnemy = "Enemy";
     
     [SerializeField]
     private SpriteRenderer sRenderer;
@@ -30,9 +31,12 @@ public class Player : EntityBase
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.transform.CompareTag("Enemy"))
+        if (collision.transform.CompareTag(tagEnemy))
         {
             TakeDamage();
+        }
+        if (collision.transform.CompareTag(tagEnemy))
+        {
 
         }
     }

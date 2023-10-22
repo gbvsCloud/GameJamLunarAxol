@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class StateMachine : MonoBehaviour
+public class StateMachine : Singleton<StateMachine>
 {
     public enum States
     {
@@ -14,8 +14,10 @@ public class StateMachine : MonoBehaviour
     private StateBase _currentState;
     public Player player;
     public TongueManager manager;
-    private void Awake()
+    public override void Awake()
     {
+        base.Awake();
+
         dictionaryState = new Dictionary<States, StateBase>();
         RegisterStates(States.IDLE, new StateIdle());
         RegisterStates(States.RUNNING, new StateBase());

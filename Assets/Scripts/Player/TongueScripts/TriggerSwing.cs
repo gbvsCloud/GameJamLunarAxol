@@ -6,6 +6,8 @@ public class TriggerSwing : MonoBehaviour
 {
     public StateMachine stateMachine;
 
+    public KeyCode keyCode = KeyCode.E;
+
     [Header("Animação da Língua")]
     public GameObject jointPosition;
     public TongueManager manager;
@@ -27,7 +29,7 @@ public class TriggerSwing : MonoBehaviour
     {
         if (collision.transform.tag == _tagPlayer)
         {
-            if (Input.GetKey(KeyCode.E))
+            if (Input.GetKey(keyCode))
             {
                 Debug.Log("entrou no input");
                 stateMachine.SwitchState(StateMachine.States.SWING, this);
