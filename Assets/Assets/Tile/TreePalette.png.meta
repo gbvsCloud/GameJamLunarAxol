@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Tilemap_0
+      name: TreePalette_0
       rect:
         serializedVersion: 2
         x: 128
@@ -131,20 +131,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bd15150f74676524790f1925b9d3a9bb
-      internalID: 1124570552
+      spriteID: 44364c908f0612d49990f8ae2db097c7
+      internalID: 2127586707
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilemap_1
+      name: TreePalette_1
       rect:
         serializedVersion: 2
         x: 144
@@ -152,20 +152,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f9bf025537c6e324fbf9969da59745e1
-      internalID: 1970976137
+      spriteID: 982c84ebb024caf40a338e98e70c4991
+      internalID: -863137936
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilemap_2
+      name: TreePalette_2
       rect:
         serializedVersion: 2
         x: 16
@@ -173,20 +173,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 526a1426aa134fc438e8d70000d22142
-      internalID: 987889372
+      spriteID: ab2cb93b844085b47bac1426a0141fa3
+      internalID: 1968053515
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilemap_3
+      name: TreePalette_3
       rect:
         serializedVersion: 2
         x: 48
@@ -194,20 +194,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 505941f00ca38094f89324182bee5d4d
-      internalID: 649819048
+      spriteID: f47ec6e21df2f4c4ba531270aec94515
+      internalID: -1506524953
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilemap_4
+      name: TreePalette_4
       rect:
         serializedVersion: 2
         x: 64
@@ -215,20 +215,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5fa52d6adfcdc1c4492e40056e1d29bc
-      internalID: -992336754
+      spriteID: 929519a6b9dcd97468eb7120cda26776
+      internalID: 878429356
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilemap_5
+      name: TreePalette_5
       rect:
         serializedVersion: 2
         x: 80
@@ -236,20 +236,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8c685f0bd89ee3c4c9c35a279da73a70
-      internalID: -2013290752
+      spriteID: c7dea9bee114bd248986f9707deb4e25
+      internalID: 2142267869
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilemap_6
+      name: TreePalette_6
       rect:
         serializedVersion: 2
         x: 96
@@ -257,20 +257,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b0f19d96b54ec541b07b6410db305b6
-      internalID: 12869558
+      spriteID: 65af43418baa1a54d86ae8053060f205
+      internalID: -2099842236
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilemap_7
+      name: TreePalette_7
       rect:
         serializedVersion: 2
         x: 128
@@ -278,20 +278,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 24907add549f6fb4989a7a7f4760f2e3
-      internalID: 650859430
+      spriteID: 796b3b89845484b4eabe8d38577c317b
+      internalID: -292834336
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilemap_8
+      name: TreePalette_8
       rect:
         serializedVersion: 2
         x: 144
@@ -299,20 +299,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e0a3f99eba50d5d4b9ccb4faff5de04c
-      internalID: 522210309
+      spriteID: 69a4d096141608f4780d83a473b4ccd3
+      internalID: 1293767027
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilemap_9
+      name: TreePalette_9
       rect:
         serializedVersion: 2
         x: 16
@@ -320,20 +320,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d7ab81de9d9c8748a157096a248e5fc
-      internalID: 6850867
+      spriteID: 80b8eb13dd1175f4fab935e10a3dad36
+      internalID: 1035003942
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilemap_10
+      name: TreePalette_10
       rect:
         serializedVersion: 2
         x: 48
@@ -341,20 +341,24 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -2, y: -2}
+        - {x: -2, y: -8}
+        - {x: 8, y: -8}
+        - {x: 8, y: -2}
       tessellationDetail: 0
       bones: []
-      spriteID: 1abad2e98cc223542ba1b7e5e9caa8e3
-      internalID: 699134953
+      spriteID: ef4511604a2d752458648cc925aa629c
+      internalID: 895264385
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilemap_11
+      name: TreePalette_11
       rect:
         serializedVersion: 2
         x: 64
@@ -362,20 +366,24 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -8, y: -1}
+        - {x: -8, y: -8}
+        - {x: 8, y: -8}
+        - {x: 8, y: -1}
       tessellationDetail: 0
       bones: []
-      spriteID: 522dbb76ac1365a40a4afc90e19884a9
-      internalID: -1981873699
+      spriteID: 0fe32306d2f0d2d499f12d63e116e21d
+      internalID: 1285435390
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilemap_12
+      name: TreePalette_12
       rect:
         serializedVersion: 2
         x: 80
@@ -383,20 +391,25 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -8, y: -1}
+        - {x: -8, y: -8}
+        - {x: 8, y: -8}
+        - {x: 8, y: -1}
+        - {x: 4, y: -1}
       tessellationDetail: 0
       bones: []
-      spriteID: f85e0afe9080a634ab55b9b0f95d4b97
-      internalID: 1454583559
+      spriteID: 282de6172f9766e419a7344d6ffbbae1
+      internalID: -1552684429
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilemap_13
+      name: TreePalette_13
       rect:
         serializedVersion: 2
         x: 96
@@ -404,20 +417,24 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -8, y: -1}
+        - {x: -8, y: -8}
+        - {x: 4, y: -8}
+        - {x: 4, y: -1}
       tessellationDetail: 0
       bones: []
-      spriteID: ac7d4b74416abae4bb710ca8df6a3a2e
-      internalID: -706744868
+      spriteID: 8102afdc942dfea4ca12cd36a61e5c88
+      internalID: 1005485751
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilemap_14
+      name: TreePalette_14
       rect:
         serializedVersion: 2
         x: 128
@@ -425,20 +442,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d888b59fcf22d094cbfa634c3a6c2a45
-      internalID: -1867758678
+      spriteID: ec830a1e6fb869f41bc72cd84d7f4719
+      internalID: -285919703
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilemap_15
+      name: TreePalette_15
       rect:
         serializedVersion: 2
         x: 144
@@ -446,20 +463,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: deebef1b894c15a44b520b6eb1b97ccf
-      internalID: 1482672206
+      spriteID: 0ead822edde36ac4ba8f6b3541b180d4
+      internalID: -2067991778
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilemap_16
+      name: TreePalette_16
       rect:
         serializedVersion: 2
         x: 16
@@ -467,20 +484,41 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d8e4c81ef9b8444439124bf8cffef573
-      internalID: -78048459
+      spriteID: 57e5660e4387cbc419820a88ed517fd6
+      internalID: -1109343090
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilemap_17
+      name: TreePalette_17
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 722f1383b877bb94db1f9aad2202fe55
+      internalID: 160348811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreePalette_18
       rect:
         serializedVersion: 2
         x: 48
@@ -488,20 +526,26 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -6, y: 8}
+        - {x: -8, y: 6}
+        - {x: -8, y: -6}
+        - {x: -6, y: -8}
+        - {x: 8, y: -8}
+        - {x: 8, y: 8}
       tessellationDetail: 0
       bones: []
-      spriteID: a6355c4662f6c604aa1be9a1f0b09918
-      internalID: -1219432631
+      spriteID: 8a9872e94b32f48488eb57a236b9526e
+      internalID: 466154199
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilemap_18
+      name: TreePalette_19
       rect:
         serializedVersion: 2
         x: 64
@@ -509,20 +553,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b247a14b896a809499ced62bd7434806
-      internalID: -768434473
+      spriteID: 0102b2896cc1347428ecac24d611bcd4
+      internalID: 296376449
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilemap_19
+      name: TreePalette_20
       rect:
         serializedVersion: 2
         x: 80
@@ -530,20 +574,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3355091b5461de840a3417700433623f
-      internalID: -1496707262
+      spriteID: 153e9f067c3cd5246aea8bcedd76c552
+      internalID: -1928405127
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilemap_20
+      name: TreePalette_21
       rect:
         serializedVersion: 2
         x: 96
@@ -551,20 +595,83 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 78d6a5e1edf7e6141aebccd0960f6bbc
-      internalID: 547506185
+      spriteID: ed8420c0810e3f74787dbb016977abca
+      internalID: 1373185371
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilemap_21
+      name: TreePalette_22
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5aa3c521badb9194b972c43af0736d3d
+      internalID: 183658506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreePalette_23
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16df526aedebb57449d0b596997edef3
+      internalID: -1313681346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreePalette_24
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4695397bb416e004e8a39558b4a8bd4e
+      internalID: -1245322510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreePalette_25
       rect:
         serializedVersion: 2
         x: 48
@@ -572,20 +679,24 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -4, y: 8}
+        - {x: -4, y: 3}
+        - {x: 8, y: 3}
+        - {x: 8, y: 8}
       tessellationDetail: 0
       bones: []
-      spriteID: a523b13018933fc439e127fab9a25fea
-      internalID: 1240618511
+      spriteID: a6d8c53b3e807e64c80591e6dcc7ada4
+      internalID: 365064640
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilemap_22
+      name: TreePalette_26
       rect:
         serializedVersion: 2
         x: 64
@@ -593,20 +704,24 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -8, y: 8}
+        - {x: -8, y: 4}
+        - {x: 8, y: 4}
+        - {x: 8, y: 8}
       tessellationDetail: 0
       bones: []
-      spriteID: 76e780842faf78340845861c778d6d7b
-      internalID: -865414970
+      spriteID: e16a14d0878274440afa5da812050d44
+      internalID: 1168889519
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilemap_23
+      name: TreePalette_27
       rect:
         serializedVersion: 2
         x: 80
@@ -614,20 +729,24 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -8, y: 8}
+        - {x: -8, y: 4}
+        - {x: 8, y: 4}
+        - {x: 8, y: 8}
       tessellationDetail: 0
       bones: []
-      spriteID: 2a5c2767833a15241845d20a577fb759
-      internalID: 167148842
+      spriteID: 3f87ced4a60c67f4ea735a34095a48d7
+      internalID: -1314680741
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilemap_24
+      name: TreePalette_28
       rect:
         serializedVersion: 2
         x: 96
@@ -635,20 +754,24 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -8, y: 8}
+        - {x: -8, y: 3}
+        - {x: 5, y: 3}
+        - {x: 5, y: 8}
       tessellationDetail: 0
       bones: []
-      spriteID: 9edb53e4d7d776d44bbe59b975141b1d
-      internalID: -292293413
+      spriteID: 88fc08f7b8cd280418947fed59c144cb
+      internalID: 587905243
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilemap_25
+      name: TreePalette_29
       rect:
         serializedVersion: 2
         x: 112
@@ -656,20 +779,83 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f48eb5e14869d2c418bd85914669af74
-      internalID: 517049078
+      spriteID: 1a62f10221f7cf84a92a455f67c40cc4
+      internalID: 744565859
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilemap_26
+      name: TreePalette_30
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 407e8e811af07554f94515b3b1141b7a
+      internalID: -840363987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreePalette_31
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db7bcfe1fec24c2499b182c44c915949
+      internalID: 1091725823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreePalette_32
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2025a0ea4fc326c4aa870f7d57963fa4
+      internalID: 917899513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreePalette_33
       rect:
         serializedVersion: 2
         x: 32
@@ -677,20 +863,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b2667bb985e6abb4f85613eb623bf772
-      internalID: 1569464210
+      spriteID: 9adae1867050e084398146601e537b37
+      internalID: -1925052092
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilemap_27
+      name: TreePalette_34
       rect:
         serializedVersion: 2
         x: 48
@@ -698,20 +884,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ab41446612a616940a4f63d49c6361c3
-      internalID: 1852017506
+      spriteID: 15b928bb1f7a37c4db6c6a3fd35ee5e6
+      internalID: -1190285712
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilemap_28
+      name: TreePalette_35
       rect:
         serializedVersion: 2
         x: 64
@@ -719,20 +905,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 159d35ae3f8b7384cacf4064d6014957
-      internalID: 1316989343
+      spriteID: 557f8be6753f0c848b1acc258ac2ad3f
+      internalID: -1067350186
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilemap_29
+      name: TreePalette_36
       rect:
         serializedVersion: 2
         x: 80
@@ -740,20 +926,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5b2afd858fc16404d850862428749f39
-      internalID: -1885450022
+      spriteID: c3b773ce50c704744a3de9ddf65a1ae8
+      internalID: 891881202
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilemap_30
+      name: TreePalette_37
       rect:
         serializedVersion: 2
         x: 96
@@ -761,20 +947,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 56b701c0cf3ee5943922ba7df7b085a8
-      internalID: 2052014813
+      spriteID: ab4f6a33567360e4d8ba553a8df8a6db
+      internalID: 1976113206
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilemap_31
+      name: TreePalette_38
       rect:
         serializedVersion: 2
         x: 112
@@ -782,20 +968,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 759a5a5ab2a262446bf850779f698f47
-      internalID: -1172710137
+      spriteID: a20b732199f41684b9c8c4df77b5b588
+      internalID: -2076839581
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilemap_32
+      name: TreePalette_39
       rect:
         serializedVersion: 2
         x: 128
@@ -803,20 +989,83 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 83a8033302a0093459d87d8e78f2d616
-      internalID: -790847314
+      spriteID: 59a31bca127582e40abb28a788fa0e3f
+      internalID: -811241960
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilemap_33
+      name: TreePalette_40
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46e9791325881d444a681dd016ea5177
+      internalID: 639119939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreePalette_41
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a3174f4d46d28c42934382b723c9d09
+      internalID: -1531191439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreePalette_42
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e96fee2fd8f4b84fab8df2f66c4216a
+      internalID: 1354042905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreePalette_43
       rect:
         serializedVersion: 2
         x: 32
@@ -824,20 +1073,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8189af8be6167974fad57c967cdfb696
-      internalID: -1919964038
+      spriteID: 6540f2c3aa8685e4ba6f72362ccbf52f
+      internalID: 1139217089
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilemap_34
+      name: TreePalette_44
       rect:
         serializedVersion: 2
         x: 48
@@ -845,20 +1094,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fe0fe4ada184b644a8f6a605e8550738
-      internalID: 764058285
+      spriteID: f70e2cb8c5ab7ae44bc08c5e2d19462a
+      internalID: -1050442823
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilemap_35
+      name: TreePalette_45
       rect:
         serializedVersion: 2
         x: 64
@@ -866,20 +1115,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3cabe80a3d591a848b0f35a239c66b73
-      internalID: -921819777
+      spriteID: e17b53ca7c8d0cd4192b5d7198cbceaf
+      internalID: 971270437
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilemap_36
+      name: TreePalette_46
       rect:
         serializedVersion: 2
         x: 80
@@ -887,20 +1136,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e9eec8f94e9013e4698bee6e358aa132
-      internalID: -441809489
+      spriteID: 599c72eab500f504f9f1c6a148c9570a
+      internalID: -594886211
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilemap_37
+      name: TreePalette_47
       rect:
         serializedVersion: 2
         x: 96
@@ -908,20 +1157,83 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d00f3e7c84b56ab47822d71f59e9abd2
-      internalID: 1541826423
+      spriteID: 80fc0613e415ac949b13ff081852b7af
+      internalID: 122267242
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilemap_38
+      name: TreePalette_48
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af97fee4b781836489b0c394509ec24b
+      internalID: -229447476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreePalette_49
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 261c2f3e9f7fd0946868365bb296f3d4
+      internalID: 584705286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreePalette_50
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edf1ab07d4ab6e74b833f9fbf73c8790
+      internalID: 1397163723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreePalette_51
       rect:
         serializedVersion: 2
         x: 32
@@ -929,20 +1241,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ac61f82ff5fd89a42b88fdf4eeb48f67
-      internalID: -1990710367
+      spriteID: eaabefc4b2a7ac74584ff4208b4f0e0b
+      internalID: 1239390868
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilemap_39
+      name: TreePalette_52
       rect:
         serializedVersion: 2
         x: 48
@@ -950,20 +1262,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6d73700722010f749a97717c9b66df96
-      internalID: -1463418088
+      spriteID: 58e42f973e4ee15448635dd1253d5413
+      internalID: -562643724
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilemap_40
+      name: TreePalette_53
       rect:
         serializedVersion: 2
         x: 64
@@ -971,20 +1283,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2b3ca1bcb84275340b00d0ae30e554a4
-      internalID: 945510938
+      spriteID: dae0581429839fd43945c276eed8a2f1
+      internalID: -1541266830
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilemap_41
+      name: TreePalette_54
       rect:
         serializedVersion: 2
         x: 80
@@ -992,20 +1304,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 652d68513c4eeac4c8198d7f72a7b75c
-      internalID: -259503914
+      spriteID: 0283769d862d0694591bcfab6bc2e275
+      internalID: -1271392849
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilemap_42
+      name: TreePalette_55
       rect:
         serializedVersion: 2
         x: 96
@@ -1013,14 +1325,140 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7342943ff643407419fea2fcb847eda2
-      internalID: -21214582
+      spriteID: 5f4e791b3ddc3ce44a72b90a13581f17
+      internalID: 1402554039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreePalette_56
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f1436c6eaad0f748be4410a3451b383
+      internalID: -1301386227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreePalette_57
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 743304cbe37e09d4daa7b292e070f5c4
+      internalID: -508725678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreePalette_58
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bb57e8e0fea91e458d6577d7df5ec05
+      internalID: 1033692414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreePalette_59
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20e133d911e3c9d438fc0bb9c4bd38b4
+      internalID: 1181584208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreePalette_60
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abfe4a52d6e7334419a3a63ed0ca2a05
+      internalID: 1276677271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreePalette_61
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6211ff5d9dce6f4ba4041fa911f0471
+      internalID: 2097437434
       vertices: []
       indices: 
       edges: []
@@ -1036,49 +1474,68 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Tilemap_0: 1124570552
-      Tilemap_1: 1970976137
-      Tilemap_10: 699134953
-      Tilemap_11: -1981873699
-      Tilemap_12: 1454583559
-      Tilemap_13: -706744868
-      Tilemap_14: -1867758678
-      Tilemap_15: 1482672206
-      Tilemap_16: -78048459
-      Tilemap_17: -1219432631
-      Tilemap_18: -768434473
-      Tilemap_19: -1496707262
-      Tilemap_2: 987889372
-      Tilemap_20: 547506185
-      Tilemap_21: 1240618511
-      Tilemap_22: -865414970
-      Tilemap_23: 167148842
-      Tilemap_24: -292293413
-      Tilemap_25: 517049078
-      Tilemap_26: 1569464210
-      Tilemap_27: 1852017506
-      Tilemap_28: 1316989343
-      Tilemap_29: -1885450022
-      Tilemap_3: 649819048
-      Tilemap_30: 2052014813
-      Tilemap_31: -1172710137
-      Tilemap_32: -790847314
-      Tilemap_33: -1919964038
-      Tilemap_34: 764058285
-      Tilemap_35: -921819777
-      Tilemap_36: -441809489
-      Tilemap_37: 1541826423
-      Tilemap_38: -1990710367
-      Tilemap_39: -1463418088
-      Tilemap_4: -992336754
-      Tilemap_40: 945510938
-      Tilemap_41: -259503914
-      Tilemap_42: -21214582
-      Tilemap_5: -2013290752
-      Tilemap_6: 12869558
-      Tilemap_7: 650859430
-      Tilemap_8: 522210309
-      Tilemap_9: 6850867
+      TreePalette_0: 2127586707
+      TreePalette_1: -863137936
+      TreePalette_10: 895264385
+      TreePalette_11: 1285435390
+      TreePalette_12: -1552684429
+      TreePalette_13: 1005485751
+      TreePalette_14: -285919703
+      TreePalette_15: -2067991778
+      TreePalette_16: -1109343090
+      TreePalette_17: 160348811
+      TreePalette_18: 466154199
+      TreePalette_19: 296376449
+      TreePalette_2: 1968053515
+      TreePalette_20: -1928405127
+      TreePalette_21: 1373185371
+      TreePalette_22: 183658506
+      TreePalette_23: -1313681346
+      TreePalette_24: -1245322510
+      TreePalette_25: 365064640
+      TreePalette_26: 1168889519
+      TreePalette_27: -1314680741
+      TreePalette_28: 587905243
+      TreePalette_29: 744565859
+      TreePalette_3: -1506524953
+      TreePalette_30: -840363987
+      TreePalette_31: 1091725823
+      TreePalette_32: 917899513
+      TreePalette_33: -1925052092
+      TreePalette_34: -1190285712
+      TreePalette_35: -1067350186
+      TreePalette_36: 891881202
+      TreePalette_37: 1976113206
+      TreePalette_38: -2076839581
+      TreePalette_39: -811241960
+      TreePalette_4: 878429356
+      TreePalette_40: 639119939
+      TreePalette_41: -1531191439
+      TreePalette_42: 1354042905
+      TreePalette_43: 1139217089
+      TreePalette_44: -1050442823
+      TreePalette_45: 971270437
+      TreePalette_46: -594886211
+      TreePalette_47: 122267242
+      TreePalette_48: -229447476
+      TreePalette_49: 584705286
+      TreePalette_5: 2142267869
+      TreePalette_50: 1397163723
+      TreePalette_51: 1239390868
+      TreePalette_52: -562643724
+      TreePalette_53: -1541266830
+      TreePalette_54: -1271392849
+      TreePalette_55: 1402554039
+      TreePalette_56: -1301386227
+      TreePalette_57: -508725678
+      TreePalette_58: 1033692414
+      TreePalette_59: 1181584208
+      TreePalette_6: -2099842236
+      TreePalette_60: 1276677271
+      TreePalette_61: 2097437434
+      TreePalette_7: -292834336
+      TreePalette_8: 1293767027
+      TreePalette_9: 1035003942
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

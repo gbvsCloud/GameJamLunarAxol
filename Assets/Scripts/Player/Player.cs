@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditorInternal;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class Player : EntityBase
 {
@@ -9,6 +10,7 @@ public class Player : EntityBase
     
     [SerializeField]
     private SpriteRenderer sRenderer;
+
 
     private float currentGravity;
     void Start()
@@ -38,7 +40,12 @@ public class Player : EntityBase
         if (collision.transform.CompareTag(tagEnemy))
         {
 
+        }else if (collision.transform.CompareTag("TornTiles"))
+        {
+            Debug.Log("espinho");
         }
     }
+
+    
 
 }
