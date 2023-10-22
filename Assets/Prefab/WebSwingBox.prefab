@@ -112,11 +112,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2463626661cbef41ac80fa4944fb739, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateMachine: {fileID: 0}
+  keyCode: 101
   jointPosition: {fileID: 9162852416654977962}
   manager: {fileID: 0}
   swingDuration: 0.5
-  distLerp: 1
+  distLerp: 3
   listLerps:
   - {fileID: 7882025810158423887}
   - {fileID: 7590059096881474202}
