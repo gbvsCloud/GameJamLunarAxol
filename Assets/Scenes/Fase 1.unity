@@ -6300,7 +6300,7 @@ MonoBehaviour:
   stateMachine: {fileID: 1838747943}
   tongue: {fileID: 1392646811}
   lineRenderer: {fileID: 753141558}
-  timeTongueAnimation: 0.5
+  timeTongueAnimation: 0.3
 --- !u!4 &1167206183 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 417220981880093042, guid: 47faec8d45e18fc4ba9b79c1236f134d, type: 3}

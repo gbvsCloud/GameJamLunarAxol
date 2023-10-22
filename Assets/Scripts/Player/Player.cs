@@ -6,25 +6,23 @@ using UnityEngine.Tilemaps;
 
 public class Player : EntityBase
 {
-    private string tagEnemy = "Enemy";
-    
     [SerializeField]
     private SpriteRenderer sRenderer;
 
-
+    //privates
     private float currentGravity;
+    private string tagEnemy = "Enemy";
+
     void Start()
     {
         Init(3);
         currentGravity = GetComponent<Rigidbody2D>().gravityScale;
     }
 
-    // Update is called once per frame
     protected override void Update()
     {
         base.Update();
     }
-
 
     public float GetGravity()
     {
@@ -36,7 +34,8 @@ public class Player : EntityBase
         if (collision.transform.CompareTag(tagEnemy))
         {
             TakeDamage();
-        }else if (collision.transform.CompareTag("TornTiles"))
+        }
+        else if (collision.transform.CompareTag("TornTiles"))
         {
             TakeDamage();
         }
