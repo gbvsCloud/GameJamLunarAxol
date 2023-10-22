@@ -783,7 +783,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 130.985, y: -32.745}
+  m_AnchoredPosition: {x: 130.98499, y: -32.744995}
   m_SizeDelta: {x: 261.97, y: 65.49}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &466765346
@@ -1613,11 +1613,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -5427078601722840039, guid: 2d96aa0b1ceff2440a37791553ca7e6a, type: 2}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
-  m_Volume: 1
+  m_audioClip: {fileID: 8300000, guid: 0e985c6f54648e94eab2bdab221b6ead, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
