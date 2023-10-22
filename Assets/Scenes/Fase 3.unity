@@ -316,6 +316,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1117846041}
     - target: {fileID: 6414388981904901945, guid: 47faec8d45e18fc4ba9b79c1236f134d, type: 3}
+      propertyPath: distLerp
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6414388981904901945, guid: 47faec8d45e18fc4ba9b79c1236f134d, type: 3}
       propertyPath: stateMachine
       value: 
       objectReference: {fileID: 1838747943}
@@ -4603,6 +4607,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1117846041}
     - target: {fileID: 6414388981904901945, guid: 47faec8d45e18fc4ba9b79c1236f134d, type: 3}
+      propertyPath: distLerp
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6414388981904901945, guid: 47faec8d45e18fc4ba9b79c1236f134d, type: 3}
       propertyPath: stateMachine
       value: 
       objectReference: {fileID: 1838747943}
@@ -5013,6 +5021,10 @@ PrefabInstance:
       propertyPath: manager
       value: 
       objectReference: {fileID: 1117846041}
+    - target: {fileID: 6414388981904901945, guid: 47faec8d45e18fc4ba9b79c1236f134d, type: 3}
+      propertyPath: distLerp
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6414388981904901945, guid: 47faec8d45e18fc4ba9b79c1236f134d, type: 3}
       propertyPath: stateMachine
       value: 
@@ -13029,7 +13041,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2463626661cbef41ac80fa4944fb739, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateMachine: {fileID: 1838747943}
   keyCode: 101
   jointPosition: {fileID: 820557605}
   manager: {fileID: 1117846041}
@@ -13694,6 +13705,10 @@ PrefabInstance:
       propertyPath: manager
       value: 
       objectReference: {fileID: 1117846041}
+    - target: {fileID: 6414388981904901945, guid: 47faec8d45e18fc4ba9b79c1236f134d, type: 3}
+      propertyPath: distLerp
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6414388981904901945, guid: 47faec8d45e18fc4ba9b79c1236f134d, type: 3}
       propertyPath: stateMachine
       value: 
