@@ -99,14 +99,22 @@ public class PlayerMovement : MonoBehaviour
             }
             else if (Input.GetKeyDown(KeyCode.Space))
             {
-                Debug.Log("apertou");
+                if (player.climb)
+                {
+                    player.climb = false;
+                    player.GetComponent<Rigidbody2D>().gravityScale = player.GetGravity();
+                }
                 rigidBody.AddForce(new Vector2(0, jumpStrength), ForceMode2D.Impulse);
                 jumpAudioSource.PlayRandomSound();
             }
 
             if (superJumpDelay >= 0.35f && !(Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.Space)))
             {
-                Debug.Log("super pulo");
+                if(player.climb)
+                {
+                    player.climb = false;
+                    player.GetComponent<Rigidbody2D>().gravityScale = player.GetGravity();
+                }
                 SuperJump();
                 superJumpDelay = 0;
                 chargingSuperJump = false;
