@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d2ef869d438fcfa459a626079f0d4b4b
+guid: 904f73a1fa864ed45beb814c29cecf09
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -94,19 +94,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
     buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -123,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Frog_Idle_0
+      name: jump_Frog-Sheet 1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,41 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 84949385fa9f20142a55a37a42e9a879
-      internalID: 540166017
+      spriteID: 0961acfab61357b4cbd0db3cb622946e
+      internalID: -541294068
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Frog_Idle_1
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 06efe0e0690e2e040a3d34ea810cb56b
-      internalID: 95711454
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Frog_Idle_2
+      name: jump_Frog-Sheet 1_1
       rect:
         serializedVersion: 2
         x: 64
         y: 0
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,41 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d8b2a9d6ea93080438b52796d31fdbcd
-      internalID: -905132987
+      spriteID: bab0e1345042cd84da049097c1c663e3
+      internalID: -801412385
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Frog_Idle_3
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c403f8b38dae68140a844a57295a58d7
-      internalID: -1130768618
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Frog_Idle_4
+      name: jump_Frog-Sheet 1_2
       rect:
         serializedVersion: 2
         x: 128
         y: 0
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -221,41 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c00e8e75b82ffa04c8adf583ec529f7f
-      internalID: -1322400587
+      spriteID: 89452f3886a0fbe4e9b37ea0d4f3974a
+      internalID: 193721083
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Frog_Idle_5
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f1cd5b63f4acd2046bd3ad699d21de78
-      internalID: -392587381
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Frog_Idle_6
+      name: jump_Frog-Sheet 1_3
       rect:
         serializedVersion: 2
         x: 192
         y: 0
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -263,20 +187,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e8981ba1740fb0644b0fa7fd9aeaf776
-      internalID: -499958052
+      spriteID: 70554943332fa194497b44b80e61409c
+      internalID: 474598220
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Frog_Idle_7
+      name: jump_Frog-Sheet 1_4
       rect:
         serializedVersion: 2
-        x: 224
+        x: 256
         y: 0
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -284,8 +208,134 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e07ceab2739ef764da24f05c94b46de9
-      internalID: -40570775
+      spriteID: b1c2b5ea40ab12442a0c432b0de278a9
+      internalID: 1140138569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jump_Frog-Sheet 1_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5d4e696d6d3c5e42a29daaeaa454273
+      internalID: 2086915075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jump_Frog-Sheet 1_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1bd920c809470345833bd2dfaa4f482
+      internalID: -631007688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jump_Frog-Sheet 1_7
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46336f64d7cfa6d44817a9ea7181ccb0
+      internalID: 783534730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jump_Frog-Sheet 1_8
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa2fcf288dfd732478cdff38bd056abe
+      internalID: -419189910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jump_Frog-Sheet 1_9
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab90733e12fa85540947038b6283403f
+      internalID: -1101647267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jump_Frog-Sheet 1_10
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 848012f48f587664e8ac6e6fa507d64b
+      internalID: 352452956
       vertices: []
       indices: 
       edges: []
@@ -301,14 +351,17 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Frog_Idle_0: 540166017
-      Frog_Idle_1: 95711454
-      Frog_Idle_2: -905132987
-      Frog_Idle_3: -1130768618
-      Frog_Idle_4: -1322400587
-      Frog_Idle_5: -392587381
-      Frog_Idle_6: -499958052
-      Frog_Idle_7: -40570775
+      jump_Frog-Sheet 1_0: -541294068
+      jump_Frog-Sheet 1_1: -801412385
+      jump_Frog-Sheet 1_10: 352452956
+      jump_Frog-Sheet 1_2: 193721083
+      jump_Frog-Sheet 1_3: 474598220
+      jump_Frog-Sheet 1_4: 1140138569
+      jump_Frog-Sheet 1_5: 2086915075
+      jump_Frog-Sheet 1_6: -631007688
+      jump_Frog-Sheet 1_7: 783534730
+      jump_Frog-Sheet 1_8: -419189910
+      jump_Frog-Sheet 1_9: -1101647267
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
