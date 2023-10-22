@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class LoadScene : MonoBehaviour
 {
+    public int sceneToLoad;
     public void Load(int i)
     {
         SceneManager.LoadScene(i);
@@ -14,4 +15,8 @@ public class LoadScene : MonoBehaviour
         SceneManager.LoadScene(s);
     }
 
+    public void Load()
+    {
+        SceneManager.LoadScene(sceneToLoad);
+    }
 }
