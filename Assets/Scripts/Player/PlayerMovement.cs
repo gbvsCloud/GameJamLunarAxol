@@ -31,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
     float jumpStrength = 17;
     public bool isGrounded = false;
     public bool canRun = false;
+    private bool Jumping = false;
 
     public float superJumpDelay = 0;
     public bool chargingSuperJump = false;
@@ -61,19 +62,19 @@ public class PlayerMovement : MonoBehaviour
         {
             if (spriteRenderer.flipX == true)
                 attack.transform.DOMoveX(transform.position.x + handleAttack, 0f);
-
-            stateMachine.SwitchState(StateMachine.States.RUNNING, player);
+            if(!Jumping)
+                stateMachine.SwitchState(StateMachine.States.RUNNING, player);
             spriteRenderer.flipX = false;
         }
         else if (direction == -1)
         {
             if (spriteRenderer.flipX == false)
                 attack.transform.DOMoveX(transform.position.x - handleAttack, 0f);
-
-            stateMachine.SwitchState(StateMachine.States.RUNNING, player);
+            if (!Jumping)
+                stateMachine.SwitchState(StateMachine.States.RUNNING, player);
             spriteRenderer.flipX = true;
         }
-        else if (canRun)
+        else if (canRun && !Jumping)
             stateMachine.SwitchState(StateMachine.States.IDLE, tongueManager, player);
 
         if (usingSuperJump)
@@ -96,12 +97,14 @@ public class PlayerMovement : MonoBehaviour
                 chargingSuperJump = true;
                 canRun = false;
 
+
                 if(superJumpDelay >= 0.36f)
                 {
 
                     Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                     Vector2 direcao = (mousePos - (Vector2)transform.position).normalized;
                     Vector2 velocity;
+                    Jumping = false;
                     if (superJumpDelay < 1)
                     {
                         velocity = 30 * superJumpDelay * direcao;
@@ -121,6 +124,8 @@ public class PlayerMovement : MonoBehaviour
             {
                 rigidBody.AddForce(new Vector2(0, jumpStrength), ForceMode2D.Impulse);
                 jumpAudioSource.PlayRandomSound();
+                player.GetComponent<Animator>().SetTrigger("Jump");
+                Jumping = false;
             }
 
             if (superJumpDelay >= 0.35f && !(Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.Space)))
@@ -128,7 +133,9 @@ public class PlayerMovement : MonoBehaviour
                 SuperJump();
                 superJumpDelay = 0;
                 chargingSuperJump = false;
+                player.GetComponent<Animator>().SetTrigger("Jump");
                 canRun = true;
+                Jumping = true;
             }
         }
         if (!chargingSuperJump) superJumpDelay = 0;
@@ -175,8 +182,12 @@ public class PlayerMovement : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         usingSuperJump = false;
-        
-        if (!collision.transform.CompareTag("TornTiles")) canRun = true;
+
+        if (!collision.transform.CompareTag("TornTiles"))
+        {
+            player.GetComponent<Animator>().SetTrigger("Landing");
+            canRun = true;
+        }
     }
 
 }
