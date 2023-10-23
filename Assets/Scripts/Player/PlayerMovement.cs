@@ -102,7 +102,6 @@ public class PlayerMovement : MonoBehaviour
 
                 if (superJumpDelay >= 0.36f)
                 {
-                    stateMachine.SwitchState(StateMachine.States.JUMPING, player);
                     Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                     Vector2 direcao = (mousePos - (Vector2)transform.position).normalized;
                     Vector2 velocity;
@@ -134,6 +133,7 @@ public class PlayerMovement : MonoBehaviour
                 superJumpDelay = 0;
                 chargingSuperJump = false;
                 canRun = true;
+                stateMachine.SwitchState(StateMachine.States.JUMPING, player);
             }
         }
         if (!chargingSuperJump) superJumpDelay = 0;
