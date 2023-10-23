@@ -24,8 +24,9 @@ public class StateMachine : Singleton<StateMachine>
         dictionaryState = new Dictionary<States, StateBase>();
         RegisterStates(States.IDLE, new StateIdle());
         RegisterStates(States.RUNNING, new StateRun());
-        RegisterStates(States.DEAD, new StateBase());
+        RegisterStates(States.DEAD, new StateDead());
         RegisterStates(States.SWING, new StateSwing());
+
         SwitchState(States.IDLE, manager, player);
     }
     public void RegisterStates(States typeEnum, StateBase state)

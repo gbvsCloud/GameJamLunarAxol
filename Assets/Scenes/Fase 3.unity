@@ -5245,6 +5245,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0dd09de55871a342aa38c5cd3426b91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stateMachine: {fileID: 1838747943}
+  tongueManager: {fileID: 1117846041}
   pauseGroup: {fileID: 515699618}
   checkpoints:
   - {fileID: 613146852}

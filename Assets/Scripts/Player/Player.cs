@@ -6,9 +6,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.SceneManagement;
 public class Player : EntityBase
-{
-    public bool climb = false;
-    
+{   
     [SerializeField]
     private SpriteRenderer spriteRenderer;
     [SerializeField]
@@ -33,8 +31,6 @@ public class Player : EntityBase
     protected override void Update()
     {
         base.Update();
-        if (climb)
-            transform.DOMove(_currentTransform, 0f);
     }
 
     public float GetGravity()
@@ -53,6 +49,7 @@ public class Player : EntityBase
             TakeDamage();
             gameManager.ReturnToLastCheckpoint();
             rigidBody.gravityScale = 1;
+            playerMovement.canRun = false;
         }
     }
 
@@ -78,7 +75,6 @@ public class Player : EntityBase
 
     IEnumerator DeathAnimation()
     {
-        
         yield return new WaitForSeconds(2);
         SceneManager.LoadScene(0);
     }

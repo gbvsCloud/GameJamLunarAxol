@@ -1,4 +1,5 @@
 using DG.Tweening;
+using DG.Tweening.Core.Easing;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -53,11 +54,10 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        direction = Input.GetAxisRaw("Horizontal");
+        if(canRun) direction = Input.GetAxisRaw("Horizontal");
 
         Jump();
-
-        if (direction == 1 && canRun)
+        if (direction == 1)
         {
             if (spriteRenderer.flipX == true)
                 attack.transform.DOMoveX(transform.position.x + handleAttack, 0f);
@@ -65,7 +65,7 @@ public class PlayerMovement : MonoBehaviour
             stateMachine.SwitchState(StateMachine.States.RUNNING, player);
             spriteRenderer.flipX = false;
         }
-        else if (direction == -1 && canRun)
+        else if (direction == -1)
         {
             if (spriteRenderer.flipX == false)
                 attack.transform.DOMoveX(transform.position.x - handleAttack, 0f);
@@ -175,7 +175,8 @@ public class PlayerMovement : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         usingSuperJump = false;
-        canRun = true;
+        
+        if (!collision.transform.CompareTag("TornTiles")) canRun = true;
     }
 
 }

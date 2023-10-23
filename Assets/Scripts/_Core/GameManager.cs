@@ -5,9 +5,16 @@ using DG.Tweening;
 using Unity.VisualScripting;
 using UnityEngine.Audio;
 using UnityEngine.UI;
+using UnityEditorInternal;
 
 public class GameManager : Singleton<GameManager>
 {
+    [SerializeField]
+    private StateMachine stateMachine;
+
+    [SerializeField]
+    private TongueManager tongueManager;
+
     [SerializeField]
     private GameObject pauseGroup;
 
@@ -100,7 +107,15 @@ public class GameManager : Singleton<GameManager>
 
     public void ReturnToLastCheckpoint()
     {
+        StartCoroutine(AnimationDeath()); 
+    }
+
+    private IEnumerator AnimationDeath()
+    {
+        stateMachine.SwitchState(StateMachine.States.DEAD, player);
+        yield return new WaitForSeconds(2);
         player.transform.position = lastCheckpoint.position;
+        stateMachine.SwitchState(StateMachine.States.IDLE, tongueManager, player);
     }
 
     public void InvertMusicState()

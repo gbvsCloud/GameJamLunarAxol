@@ -29,7 +29,7 @@ public class TriggerSwing : MonoBehaviour
     {
         if (collision.transform.tag == _tagPlayer)
         {
-            if (Input.GetKey(keyCode))
+            if (Input.GetKey(keyCode) && !player.GetComponent<Player>().isDead)
             {
                 TongueAnimationStart();
             }
