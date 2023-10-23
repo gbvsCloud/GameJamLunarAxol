@@ -1,6 +1,7 @@
 using DG.Tweening;
 using DG.Tweening.Core.Easing;
 using UnityEngine;
+using UnityEngine.Animations;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -31,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
     float jumpStrength = 17;
     public bool isGrounded = false;
     public bool canRun = false;
-    private bool Jumping = false;
+    public bool jumping = false;
 
     public float superJumpDelay = 0;
     public bool chargingSuperJump = false;
@@ -58,11 +59,12 @@ public class PlayerMovement : MonoBehaviour
         if(canRun) direction = Input.GetAxisRaw("Horizontal");
 
         Jump();
+
         if (direction == 1)
         {
             if (spriteRenderer.flipX == true)
                 attack.transform.DOMoveX(transform.position.x + handleAttack, 0f);
-            if(!Jumping)
+            if(!jumping)
                 stateMachine.SwitchState(StateMachine.States.RUNNING, player);
             spriteRenderer.flipX = false;
         }
@@ -70,11 +72,11 @@ public class PlayerMovement : MonoBehaviour
         {
             if (spriteRenderer.flipX == false)
                 attack.transform.DOMoveX(transform.position.x - handleAttack, 0f);
-            if (!Jumping)
+            if (!jumping)
                 stateMachine.SwitchState(StateMachine.States.RUNNING, player);
             spriteRenderer.flipX = true;
         }
-        else if (canRun && !Jumping)
+        else if (canRun && !jumping)
             stateMachine.SwitchState(StateMachine.States.IDLE, tongueManager, player);
 
         if (usingSuperJump)
@@ -96,15 +98,14 @@ public class PlayerMovement : MonoBehaviour
                 superJumpDelay += Time.deltaTime;
                 chargingSuperJump = true;
                 canRun = false;
+                player.GetComponent<Animator>().StopPlayback();
 
-
-                if(superJumpDelay >= 0.36f)
+                if (superJumpDelay >= 0.36f)
                 {
-
+                    stateMachine.SwitchState(StateMachine.States.JUMPING, player);
                     Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                     Vector2 direcao = (mousePos - (Vector2)transform.position).normalized;
                     Vector2 velocity;
-                    Jumping = false;
                     if (superJumpDelay < 1)
                     {
                         velocity = 30 * superJumpDelay * direcao;
@@ -122,10 +123,9 @@ public class PlayerMovement : MonoBehaviour
             }
             else if (Input.GetKeyDown(KeyCode.Space))
             {
+                stateMachine.SwitchState(StateMachine.States.JUMPING, player);
                 rigidBody.AddForce(new Vector2(0, jumpStrength), ForceMode2D.Impulse);
                 jumpAudioSource.PlayRandomSound();
-                player.GetComponent<Animator>().SetTrigger("Jump");
-                Jumping = false;
             }
 
             if (superJumpDelay >= 0.35f && !(Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.Space)))
@@ -133,9 +133,7 @@ public class PlayerMovement : MonoBehaviour
                 SuperJump();
                 superJumpDelay = 0;
                 chargingSuperJump = false;
-                player.GetComponent<Animator>().SetTrigger("Jump");
                 canRun = true;
-                Jumping = true;
             }
         }
         if (!chargingSuperJump) superJumpDelay = 0;
@@ -185,7 +183,11 @@ public class PlayerMovement : MonoBehaviour
 
         if (!collision.transform.CompareTag("TornTiles"))
         {
-            player.GetComponent<Animator>().SetTrigger("Landing");
+            if(jumping)
+            {
+                player.GetComponent<Animator>().SetTrigger("Landing");
+                stateMachine.SwitchState(StateMachine.States.IDLE, player, tongueManager);
+            }
             canRun = true;
         }
     }

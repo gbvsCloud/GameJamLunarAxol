@@ -10,7 +10,8 @@ public class StateMachine : Singleton<StateMachine>
         IDLE,
         RUNNING,
         DEAD,
-        SWING
+        SWING,
+        JUMPING
     }
     public Dictionary<States, StateBase> dictionaryState;
     private StateBase _currentState;
@@ -26,6 +27,7 @@ public class StateMachine : Singleton<StateMachine>
         RegisterStates(States.RUNNING, new StateRun());
         RegisterStates(States.DEAD, new StateDead());
         RegisterStates(States.SWING, new StateSwing());
+        RegisterStates(States.JUMPING, new StateJump());
 
         SwitchState(States.IDLE, manager, player);
     }

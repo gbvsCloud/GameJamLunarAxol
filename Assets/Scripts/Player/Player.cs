@@ -19,7 +19,6 @@ public class Player : EntityBase
     //privates
     private float _currentGravity;
     private string _tagEnemy = "Enemy";
-    private Vector2 _currentTransform;
 
     void Start()
     {
