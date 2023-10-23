@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -37,9 +38,9 @@ public class StateSwing : StateBase
     {
         trigger = (TriggerSwing)objs[0];
         player = (Player)objs[1];
+        player.GetComponent<PlayerMovement>().canRun = false;
         trigger.TongueAnimationStart();
         player.GetComponent<Animator>().SetTrigger("Swing");
-        player.GetComponent<PlayerMovement>().canRun = false;
     }
     public override void OnStateStay()
     {

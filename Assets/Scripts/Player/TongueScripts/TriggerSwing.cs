@@ -17,7 +17,6 @@ public class TriggerSwing : MonoBehaviour
     //privates
     private string _tagPlayer = "Player";
     private int _index;
-    private Tween tween;
     private Vector2 playerVector;
 
     private void Update()
@@ -63,11 +62,10 @@ public class TriggerSwing : MonoBehaviour
             _index++;
         }
         if (Vector2.Distance(playerVector, lerpTarget) >= distLerp) SwingMotion(lerpTarget);
-        Debug.Log(_index);
+        
     }
     public void SwingMotion(Vector2 lerpPosition)
     {
-        tween.SetEase(Ease.Linear);
-        tween = player.transform.DOMove(lerpPosition, swingDuration);
+        player.transform.DOMove(lerpPosition, swingDuration).SetEase(Ease.Linear);
     }
 }
