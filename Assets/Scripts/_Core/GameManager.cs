@@ -1,11 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using DG.Tweening;
-using Unity.VisualScripting;
 using UnityEngine.Audio;
 using UnityEngine.UI;
-using UnityEditorInternal;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -134,7 +131,7 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
-    public void InvertSfxState()
+    public void InvertSfxState() 
     {
        
         if (!sfxMuted)
