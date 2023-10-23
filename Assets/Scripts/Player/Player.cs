@@ -1,9 +1,6 @@
-using DG.Tweening;
+
 using System.Collections;
-using System.Collections.Generic;
-using UnityEditorInternal;
 using UnityEngine;
-using UnityEngine.Tilemaps;
 using UnityEngine.SceneManagement;
 public class Player : EntityBase
 {   

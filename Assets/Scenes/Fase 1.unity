@@ -6046,7 +6046,7 @@ Transform:
   m_GameObject: {fileID: 1073982969}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.635445, y: 9.921973, z: -10}
+  m_LocalPosition: {x: 0.13091373, y: 9.89868, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6749,6 +6749,7 @@ GameObject:
   - component: {fileID: 1607200033}
   - component: {fileID: 1607200032}
   - component: {fileID: 1607200031}
+  - component: {fileID: 1607200034}
   m_Layer: 5
   m_Name: Fechar
   m_TagString: Untagged
@@ -6818,7 +6819,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1607200032}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1607200034}
+        m_TargetAssemblyTypeName: B_Exit, Assembly-CSharp
+        m_MethodName: Quit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1607200032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6857,6 +6870,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1607200029}
   m_CullTransparentMesh: 1
+--- !u!114 &1607200034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1607200029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4a5b46b8e136a949bb6fc0220fc53ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1612687508 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3704879000720098545, guid: 516865cd41658024c90702f2104b89ee, type: 3}
