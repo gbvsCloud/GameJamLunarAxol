@@ -186,7 +186,7 @@ public class PlayerMovement : MonoBehaviour
             if(jumping)
             {
                 player.GetComponent<Animator>().SetTrigger("Landing");
-                stateMachine.SwitchState(StateMachine.States.IDLE, player, tongueManager);
+                stateMachine.SwitchState(StateMachine.States.IDLE, tongueManager, player);
             }
             canRun = true;
         }
