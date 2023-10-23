@@ -5,7 +5,7 @@
 FrögGarde é um emocionante jogo de plataforma e ação, onde o jogador assume o controle de Rhinalla, uma sapinha amigável e sua leal rapieira.
 
 ## Sobre o Jogo
-  Jogo feito na _**Game Jam +**_ , utilizamos Unity com técnicas de StateMachines, Tweenings e TilesMaps. Recursos feitos por [Murilo Sartori](https://www.linkedin.com/in/murilo-sartori-22ba50259/) e [Gabriel Besson](https://www.linkedin.com/in/gabriel-besson-528978206/).
+  Jogo feito na _**Game Jam +**_ , utilizamos Unity com técnicas de StateMachines, Tweenings e TilesMaps. Recursos usados por [Murilo Sartori](https://www.linkedin.com/in/murilo-sartori-22ba50259/) e [Gabriel Besson](https://www.linkedin.com/in/gabriel-besson-528978206/).
 ## História
 Rhinalla, uma princesa que reside no topo de uma árvore gigante, zela para que todos os habitantes do reino possam viver em paz. No entanto, a tranquilidade de seu reino é ameaçada por invasores que gradualmente sobem a árvore, prejudicando a economia, a saúde e a vida daqueles que lá habitam.
 
