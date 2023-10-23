@@ -8,7 +8,7 @@ public class Enemy : EntityBase
 
     [SerializeField]
     private Rigidbody2D rigidBody;
-
+    SpriteRenderer spriteRenderer;
     float speed = 4;
 
     public bool goingRight = true;
@@ -16,13 +16,26 @@ public class Enemy : EntityBase
     void Start()
     {
 
-        Init(2);
+        Init(1);
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         Patrol();
+    }
+    protected override void Update()
+    {
+        base.Update();
+        if(goingRight)
+        {
+            spriteRenderer.flipX = true;
+        }
+        else
+        {
+            spriteRenderer.flipX = false;
+        }
     }
 
     public void Patrol()
