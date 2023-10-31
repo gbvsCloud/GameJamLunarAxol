@@ -9,8 +9,13 @@ public class RandomSound : MonoBehaviour
 
     public List<AudioClip> audioClips;
 
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
     public void PlayRandomSound()
     {
+        
         audioSource.volume = 1;
         audioSource.pitch = 1;
         audioSource.clip = audioClips[Random.Range(0, audioClips.Count)];

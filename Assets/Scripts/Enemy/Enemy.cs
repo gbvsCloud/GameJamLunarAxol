@@ -8,18 +8,19 @@ public class Enemy : EntityBase
 
     [SerializeField]
     private Rigidbody2D rigidBody;
-    SpriteRenderer spriteRenderer;
     float speed = 4;
 
     public bool goingRight = true;
 
     EnemyStateMachine stateMachine;
 
+    [SerializeField] private RandomSound damageAudio;
+
+
     void Start()
     {
 
-        Init(1);
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        Init(2);
         stateMachine = GetComponent<EnemyStateMachine>();
         stateMachine.Initialize();
     }
@@ -40,6 +41,13 @@ public class Enemy : EntityBase
         {
             spriteRenderer.flipX = false;
         }
+    }
+
+    public override void TakeDamage()
+    {
+        base.TakeDamage();
+        damageAudio.PlayRandomSoundWithVariation();
+
     }
 
     public void Patrol()

@@ -5,8 +5,6 @@ using UnityEngine.SceneManagement;
 public class Player : EntityBase
 {   
     [SerializeField]
-    private SpriteRenderer spriteRenderer;
-    [SerializeField]
     private Rigidbody2D rigidBody;
     [SerializeField]
     private GameManager gameManager;
@@ -16,6 +14,8 @@ public class Player : EntityBase
     //privates
     [SerializeField] private float _currentGravity;
     private string _tagEnemy = "Enemy";
+
+    [SerializeField] private RandomSound damageSound;
 
     void Start()
     {
@@ -38,6 +38,7 @@ public class Player : EntityBase
         if (collision.transform.CompareTag(_tagEnemy))
         {
             TakeDamage();
+            damageSound.PlayRandomSoundWithVariation();
         }
         else if (collision.transform.CompareTag("TornTiles"))
         {
@@ -45,6 +46,7 @@ public class Player : EntityBase
             gameManager.ReturnToLastCheckpoint();
             rigidBody.gravityScale = 1;
             playerMovement.canRun = false;
+            damageSound.PlayRandomSoundWithVariation();
         }
     }
 
