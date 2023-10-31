@@ -56,7 +56,10 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if(canRun) direction = Input.GetAxisRaw("Horizontal");
+        if (canRun)
+            direction = Input.GetAxisRaw("Horizontal");
+        else
+            direction = 0;
 
         Jump();
 
@@ -124,7 +127,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 stateMachine.SwitchState(StateMachine.States.JUMPING, player);
                 rigidBody.AddForce(new Vector2(0, jumpStrength), ForceMode2D.Impulse);
-                jumpAudioSource.PlayRandomSound();
+                jumpAudioSource.PlayRandomSoundWithVariation();
             }
 
             if (superJumpDelay >= 0.35f && !(Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.Space)))
@@ -189,6 +192,10 @@ public class PlayerMovement : MonoBehaviour
                 stateMachine.SwitchState(StateMachine.States.IDLE, tongueManager, player);
             }
             canRun = true;
+        }
+        else
+        {
+            canRun = false;
         }
     }
 

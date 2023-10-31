@@ -9,6 +9,7 @@ TagManager:
   - Checkpoint
   - ReturnEnemy
   - Map
+  - CameraBounds
   layers:
   - Default
   - TransparentFX

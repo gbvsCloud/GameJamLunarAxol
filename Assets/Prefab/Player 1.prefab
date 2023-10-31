@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 91179128659462668}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.857, y: -0.391, z: 0}
+  m_LocalPosition: {x: 1.15, y: -0.391, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -80,7 +80,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.00582242, y: -0.018365383}
+  m_Offset: {x: 0.47214413, y: 0.13707542}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -91,7 +91,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.933269, y: 0.13299274}
+  m_Size: {x: 1.8659124, y: 0.7869148}
   m_EdgeRadius: 0
 --- !u!1 &270862698913998626
 GameObject:
@@ -332,8 +332,8 @@ GameObject:
   - component: {fileID: 2504437496629426553}
   - component: {fileID: 2600314246063880980}
   - component: {fileID: 3678403551309033379}
-  - component: {fileID: 7866665645979208403}
   - component: {fileID: 1334642406568807862}
+  - component: {fileID: 7866665645979208403}
   - component: {fileID: 2053690855485187874}
   m_Layer: 0
   m_Name: Player 1
@@ -350,7 +350,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3460165102199987254}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -12.9, y: 11.42, z: 0.05109631}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -500,10 +500,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 0
   isDead: 0
-  climb: 0
   spriteRenderer: {fileID: 2504437496629426553}
   rigidBody: {fileID: 6460122260922180886}
   gameManager: {fileID: 0}
+  playerMovement: {fileID: 3678403551309033379}
+  _currentGravity: 0
 --- !u!114 &3678403551309033379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -523,27 +524,13 @@ MonoBehaviour:
   handleAttack: 0.857
   isGrounded: 0
   canRun: 0
+  jumping: 0
   superJumpDelay: 0
   chargingSuperJump: 0
   mouseJumpTarget: {x: 0, y: 0}
   projection: {fileID: 7866665645979208403}
   echo: {fileID: 451899232462149950, guid: 8dccb2ccc00211e418007f23358da0ca, type: 3}
   jumpAudioSource: {fileID: 1048421147674320546}
---- !u!114 &7866665645979208403
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3460165102199987254}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7e56a0bf2298d34dbefa7c3d1b05c78, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  grid: {fileID: 0}
-  lRenderer: {fileID: 1334642406568807862}
-  maxPhysicsIterations: 0
 --- !u!120 &1334642406568807862
 LineRenderer:
   serializedVersion: 2
@@ -655,6 +642,21 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
+--- !u!114 &7866665645979208403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3460165102199987254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7e56a0bf2298d34dbefa7c3d1b05c78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grid: {fileID: 0}
+  lineRenderer: {fileID: 0}
+  maxPhysicsIterations: 0
 --- !u!95 &2053690855485187874
 Animator:
   serializedVersion: 5

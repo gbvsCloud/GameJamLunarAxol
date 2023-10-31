@@ -14,14 +14,13 @@ public class Player : EntityBase
     public PlayerMovement playerMovement;
 
     //privates
-    private float _currentGravity;
+    [SerializeField] private float _currentGravity;
     private string _tagEnemy = "Enemy";
 
     void Start()
     {
         Init(3);
         _currentGravity = GetComponent<Rigidbody2D>().gravityScale;
-        playerMovement = GetComponent<PlayerMovement>();
     }
 
     protected override void Update()

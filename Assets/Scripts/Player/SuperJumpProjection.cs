@@ -13,13 +13,15 @@ public class SuperJumpProjection : MonoBehaviour
     private Transform grid;
 
     [SerializeField]
-    private LineRenderer lRenderer;
+    private LineRenderer lineRenderer;
     [SerializeField]
     public int maxPhysicsIterations;
 
     private void Start()
-    {       
-        CreatePhysicsScene();
+    {
+        grid = FindObjectOfType<Grid>().transform;
+        lineRenderer = GetComponent<LineRenderer>();
+        CreatePhysicsScene();     
     }
 
     void CreatePhysicsScene()
@@ -39,12 +41,12 @@ public class SuperJumpProjection : MonoBehaviour
 
         ghostObj.Init(velocity);
 
-        lRenderer.positionCount = maxPhysicsIterations;
+        lineRenderer.positionCount = maxPhysicsIterations;
 
         for(int i = 0; i < maxPhysicsIterations; i++)
         {
             physicsScene.Simulate(Time.fixedDeltaTime);
-            lRenderer.SetPosition(i, ghostObj.transform.position);
+            lineRenderer.SetPosition(i, ghostObj.transform.position);
         }
 
         Destroy(ghostObj.gameObject);

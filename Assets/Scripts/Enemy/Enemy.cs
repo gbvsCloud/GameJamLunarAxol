@@ -13,11 +13,15 @@ public class Enemy : EntityBase
 
     public bool goingRight = true;
 
+    EnemyStateMachine stateMachine;
+
     void Start()
     {
 
         Init(1);
         spriteRenderer = GetComponent<SpriteRenderer>();
+        stateMachine = GetComponent<EnemyStateMachine>();
+        stateMachine.Initialize();
     }
 
     // Update is called once per frame
