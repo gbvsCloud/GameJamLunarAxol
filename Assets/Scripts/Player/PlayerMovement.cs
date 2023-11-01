@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     private TongueManager tongueManager;
 
     [SerializeField]
-    public StateMachine stateMachine;
+    //public StateMachine stateMachine;
 
     public float handleAttack = 1.33f;
 
@@ -68,7 +68,7 @@ public class PlayerMovement : MonoBehaviour
             if (spriteRenderer.flipX == true)
                 attack.transform.DOMoveX(transform.position.x + handleAttack, 0f);
             if(!jumping)
-                stateMachine.SwitchState(StateMachine.States.RUNNING, player);
+                //stateMachine.SwitchState(StateMachine.States.RUNNING, player);
             spriteRenderer.flipX = false;
         }
         else if (direction == -1)
@@ -76,11 +76,11 @@ public class PlayerMovement : MonoBehaviour
             if (spriteRenderer.flipX == false)
                 attack.transform.DOMoveX(transform.position.x - handleAttack, 0f);
             if (!jumping)
-                stateMachine.SwitchState(StateMachine.States.RUNNING, player);
+                //stateMachine.SwitchState(StateMachine.States.RUNNING, player);
             spriteRenderer.flipX = true;
         }
         else if (canRun && !jumping)
-            stateMachine.SwitchState(StateMachine.States.IDLE, tongueManager, player);
+            //stateMachine.SwitchState(StateMachine.States.IDLE, tongueManager, player);
 
         if (usingSuperJump)
         {
@@ -125,7 +125,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else if (Input.GetKeyDown(KeyCode.Space))
             {
-                stateMachine.SwitchState(StateMachine.States.JUMPING, player);
+                //stateMachine.SwitchState(StateMachine.States.JUMPING, player);
                 rigidBody.AddForce(new Vector2(0, jumpStrength), ForceMode2D.Impulse);
                 jumpAudioSource.PlayRandomSoundWithVariation();
             }
@@ -136,7 +136,7 @@ public class PlayerMovement : MonoBehaviour
                 superJumpDelay = 0;
                 chargingSuperJump = false;
                 canRun = true;
-                stateMachine.SwitchState(StateMachine.States.JUMPING, player);
+                //stateMachine.SwitchState(StateMachine.States.JUMPING, player);
             }
         }
         if (!chargingSuperJump) superJumpDelay = 0;
@@ -189,7 +189,7 @@ public class PlayerMovement : MonoBehaviour
             if(jumping)
             {
                 player.GetComponent<Animator>().SetTrigger("Landing");
-                stateMachine.SwitchState(StateMachine.States.IDLE, tongueManager, player);
+                //stateMachine.SwitchState(StateMachine.States.IDLE, tongueManager, player);
             }
             canRun = true;
         }

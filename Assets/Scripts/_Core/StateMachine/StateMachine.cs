@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StateMachine : Singleton<StateMachine>
+public class PlayerStates
 {
     public enum States
     {
@@ -12,29 +12,42 @@ public class StateMachine : Singleton<StateMachine>
         SWING,
         JUMPING
     }
-    public Dictionary<States, StateBase> dictionaryState;
-    private StateBase _currentState;
-    public Player player;
-    public TongueManager manager;
-
-    public override void Awake()
+    public void Awake()
     {
-        base.Awake();
+        
+        //RegisterStates(States.IDLE, new StateIdle());
+        //RegisterStates(States.RUNNING, new StateRun());
+        //RegisterStates(States.DEAD, new StateDead());
+        //RegisterStates(States.SWING, new StateSwing());
+        //RegisterStates(States.JUMPING, new StateJump());
 
-        dictionaryState = new Dictionary<States, StateBase>();
-        RegisterStates(States.IDLE, new StateIdle());
-        RegisterStates(States.RUNNING, new StateRun());
-        RegisterStates(States.DEAD, new StateDead());
-        RegisterStates(States.SWING, new StateSwing());
-        RegisterStates(States.JUMPING, new StateJump());
-
-        SwitchState(States.IDLE, manager, player);
+        //SwitchState(States.IDLE, manager, player);
     }
-    public void RegisterStates(States typeEnum, StateBase state)
+
+    //public Player player;
+    //public TongueManager manager;
+}
+
+public class StateMachine<T> where T : System.Enum
+{
+    
+    public Dictionary<T, StateBase> dictionaryState;
+    private StateBase _currentState;
+
+    public StateBase CurrentState
+    {
+        get { return _currentState; } 
+    }   
+
+    public void Init()
+    {
+        dictionaryState = new Dictionary<T, StateBase>();
+    }
+    public void RegisterStates(T typeEnum, StateBase state)
     {
         dictionaryState.Add(typeEnum, state);
     }
-    public void SwitchState(States state, params object[] objs)
+    public void SwitchState(T state, params object[] objs)
     {
         if (dictionaryState[state].Equals(_currentState)) return;
 

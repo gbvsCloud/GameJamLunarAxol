@@ -5,7 +5,7 @@ public class TongueManager : Singleton<TongueManager>
 {
     public Player player;
     public GameObject playerObject;
-    public StateMachine stateMachine;
+    //public StateMachine stateMachine;
     [Header("Língua")]
     public GameObject tongue;
     public LineRenderer lineRenderer;
@@ -37,11 +37,11 @@ public class TongueManager : Singleton<TongueManager>
     public void TongueAnimationStart(GameObject target, TriggerSwing trigger)
     {
         TongueMotion(target);
-        stateMachine.SwitchState(StateMachine.States.SWING, trigger, player);
+        //stateMachine.SwitchState(StateMachine.States.SWING, trigger, player);
     }
     public void TongueAnimationEnd(GameObject target)
     {
         TongueMotion(target);
-        stateMachine.SwitchState(StateMachine.States.IDLE, this, player);
+        //stateMachine.SwitchState(StateMachine.States.IDLE, this, player);
     }
 }
