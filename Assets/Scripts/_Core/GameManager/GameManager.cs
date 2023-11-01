@@ -6,8 +6,40 @@ using UnityEngine.UI;
 
 public class GameManager : Singleton<GameManager>
 {
-    [SerializeField]
-    private StateMachine stateMachine;
+    #region StateMachine
+    public enum GameStates
+    {
+        INTRO,
+        GAMEPLAY,
+        PAUSE,
+        WIN,
+        LOSE
+    }
+
+    public StateMachine<GameStates> stateMachine;
+
+    public void Start()
+    {
+        Init();
+    }
+
+    public void Init()
+    {
+        stateMachine = new StateMachine<GameStates>();
+        stateMachine.Init();
+        stateMachine.RegisterStates(GameStates.INTRO, new StateBase());
+        stateMachine.RegisterStates(GameStates.GAMEPLAY, new StateBase());
+        stateMachine.RegisterStates(GameStates.PAUSE, new StateBase());
+        stateMachine.RegisterStates(GameStates.WIN, new StateBase());
+        stateMachine.RegisterStates(GameStates.LOSE, new StateBase());
+
+        stateMachine.SwitchState(GameStates.INTRO);
+    }
+
+    #endregion
+
+    //[SerializeField]
+    //private StateMachine stateMachine;
 
     [SerializeField]
     private TongueManager tongueManager;
@@ -45,6 +77,11 @@ public class GameManager : Singleton<GameManager>
     public Image[] eyes;
     public Sprite openEye, closedEye;
 
+    public override void Awake()
+    {
+        base.Awake();
+        DontDestroyOnLoad(this.gameObject);
+    }
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.Escape))
@@ -104,15 +141,15 @@ public class GameManager : Singleton<GameManager>
 
     public void ReturnToLastCheckpoint()
     {
-        StartCoroutine(AnimationDeath()); 
+        StartCoroutine(AnimationDeath());
     }
 
     private IEnumerator AnimationDeath()
     {
-        stateMachine.SwitchState(StateMachine.States.DEAD, player);
+        //stateMachine.SwitchState(StateMachine.States.DEAD, player);
         yield return new WaitForSeconds(2);
-        player.transform.position = lastCheckpoint.position;
-        stateMachine.SwitchState(StateMachine.States.IDLE, tongueManager, player);
+        if(lastCheckpoint != null) player.transform.position = lastCheckpoint.position;
+        //stateMachine.SwitchState(StateMachine.States.IDLE, tongueManager, player);
     }
 
     public void InvertMusicState()

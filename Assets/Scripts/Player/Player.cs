@@ -60,7 +60,7 @@ public class Player : EntityBase
 
     public override void Death()
     {
-        playerMovement.stateMachine.SwitchState(StateMachine.States.DEAD, this);
+        //playerMovement.stateMachine.SwitchState(StateMachine.States.DEAD, this);
         StartCoroutine(DeathAnimation());
     }
 
