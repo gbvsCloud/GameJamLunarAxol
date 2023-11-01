@@ -17,6 +17,34 @@ public class Player : EntityBase
 
     [SerializeField] private RandomSound damageSound;
 
+
+    #region StateMachine
+    public enum States
+    {
+        IDLE,
+        RUNNING,
+        DEAD,
+        SWING,
+        JUMPING
+    }
+    public StateMachine<States> stateMachine;
+
+    public void Awake()
+    {
+        stateMachine = new StateMachine<States>();
+        stateMachine.Init();
+        stateMachine.RegisterStates(States.IDLE, new StateIdle());
+        stateMachine.RegisterStates(States.RUNNING, new StateRun());
+        stateMachine.RegisterStates(States.DEAD, new StateDead());
+        stateMachine.RegisterStates(States.SWING, new StateSwing());
+        stateMachine.RegisterStates(States.JUMPING, new StateJump());
+
+        stateMachine.SwitchState(States.IDLE, manager, this);
+    }
+
+    public TongueManager manager;
+    #endregion
+
     void Start()
     {
         Init(3);

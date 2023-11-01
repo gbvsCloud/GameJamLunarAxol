@@ -1706,7 +1706,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0dd09de55871a342aa38c5cd3426b91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateMachine: {fileID: 1838747943}
   tongueManager: {fileID: 1117846041}
   pauseGroup: {fileID: 1985158402}
   checkpoints:
@@ -6430,7 +6429,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1329902863}
   playerObject: {fileID: 1329902858}
-  stateMachine: {fileID: 1838747943}
   tongue: {fileID: 1392646811}
   lineRenderer: {fileID: 753141558}
   timeTongueAnimation: 0.3
@@ -7431,52 +7429,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: 0
---- !u!1 &1838747942
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1838747944}
-  - component: {fileID: 1838747943}
-  m_Layer: 0
-  m_Name: StateMachine
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1838747943
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1838747942}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c87611ca8b1042409bffeb185f88f99, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1329902863}
-  manager: {fileID: 1117846041}
---- !u!4 &1838747944
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1838747942}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.2645555, y: -1.4980266, z: -0.05109631}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1846277141
 GameObject:
   m_ObjectHideFlags: 0
@@ -10306,6 +10258,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2600314246063880980, guid: a6ab3104bc43c27468e88b01b7f7e879, type: 3}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 1117846041}
+    - target: {fileID: 2600314246063880980, guid: a6ab3104bc43c27468e88b01b7f7e879, type: 3}
       propertyPath: damageSound
       value: 
       objectReference: {fileID: 1571785943}
@@ -10320,7 +10276,7 @@ PrefabInstance:
     - target: {fileID: 3678403551309033379, guid: a6ab3104bc43c27468e88b01b7f7e879, type: 3}
       propertyPath: stateMachine
       value: 
-      objectReference: {fileID: 1838747943}
+      objectReference: {fileID: 0}
     - target: {fileID: 3678403551309033379, guid: a6ab3104bc43c27468e88b01b7f7e879, type: 3}
       propertyPath: tongueManager
       value: 
@@ -10468,7 +10424,6 @@ SceneRoots:
   - {fileID: 1846277143}
   - {fileID: 1414953683894364676}
   - {fileID: 1795424667501911433}
-  - {fileID: 1838747944}
   - {fileID: 1994147924}
   - {fileID: 798554241}
   - {fileID: 1525342720}
