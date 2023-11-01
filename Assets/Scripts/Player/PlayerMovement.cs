@@ -99,6 +99,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.Space))
             {
+                direction = 0;
                 superJumpDelay += Time.deltaTime;
                 chargingSuperJump = true;
                 canRun = false;
@@ -169,15 +170,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-
-        if (!usingSuperJump && Input.GetKey(KeyCode.S))
-        {
-            rigidBody.velocity = new Vector2(0, rigidBody.velocity.y);
-        }
-        else if(!usingSuperJump && !Input.GetKey(KeyCode.S))
-        {
-            rigidBody.velocity = new Vector2(direction * speed, rigidBody.velocity.y);
-        }
+        if(!usingSuperJump) rigidBody.velocity = new Vector2(direction * speed, rigidBody.velocity.y);
         
     }
 
