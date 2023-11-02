@@ -15,21 +15,6 @@ public class StateBase
     {
     }
 }
-public class StateIdle : StateBase
-{
-    private TongueManager manager;
-    private Player player;
-    public override void OnStateEnter(params object[] objs)
-    {
-        manager = (TongueManager)objs[0];
-        player = (Player)objs[1];
-        player.GetComponent<Animator>().SetTrigger("Idle");
-    }
-    public override void OnStateStay()
-    {
-        manager.TonguePosition();
-    }
-}
 public class StateSwing : StateBase
 {
     private TriggerSwing trigger;
@@ -53,48 +38,5 @@ public class StateSwing : StateBase
     }
 }
 
-public class StateRun : StateBase
-{
-    private Player player;
-    public override void OnStateEnter(params object[] objs)
-    {
-        player = (Player)objs[0];
-        player.GetComponent<Animator>().SetBool("Run", true);
-    }
-    public override void OnStateExit()
-    {
-        player.GetComponent<Animator>().SetBool("Run", false);
-    }
-}
 
-public class StateDead : StateBase
-{
-    private Player player;
-    public override void OnStateEnter(params object[] objs)
-    {
-        player = (Player)objs[0];
-        player.GetComponent<PlayerMovement>().canRun = false;
-        player.GetComponent<Animator>().SetBool("Dead", true);
-    }
-    public override void OnStateExit()
-    {
-        player.GetComponent<Animator>().SetBool("Dead", false);
-        player.GetComponent<PlayerMovement>().canRun = true;
-    }
-}
-
-public class StateJump : StateBase
-{
-    private Player player;
-    public override void OnStateEnter(params object[] objs)
-    {
-        player = (Player)objs[0];
-        player.GetComponent<PlayerMovement>().jumping = true;
-        player.GetComponent<Animator>().StopPlayback();
-        player.GetComponent<Animator>().SetTrigger("Jump");
-    }
-    public override void OnStateExit()
-    {
-        player.GetComponent<PlayerMovement>().jumping = false;
-    }
-}
+    

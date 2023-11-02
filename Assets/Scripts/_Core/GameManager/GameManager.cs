@@ -146,10 +146,10 @@ public class GameManager : Singleton<GameManager>
 
     private IEnumerator AnimationDeath()
     {
-        //stateMachine.SwitchState(StateMachine.States.DEAD, player);
+        player.stateMachine.SwitchState(Player.States.DEAD, player);
         yield return new WaitForSeconds(2);
         if(lastCheckpoint != null) player.transform.position = lastCheckpoint.position;
-        //stateMachine.SwitchState(StateMachine.States.IDLE, tongueManager, player);
+        player.stateMachine.SwitchState(Player.States.IDLE, tongueManager, player);
     }
 
     public void InvertMusicState()

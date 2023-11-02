@@ -651,6 +651,8 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   playerMovement: {fileID: 3678403551309033379}
   _currentGravity: 0
+  damageSound: {fileID: 8866901344266955568}
+  manager: {fileID: 0}
 --- !u!114 &3678403551309033379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -666,7 +668,6 @@ MonoBehaviour:
   attack: {fileID: 3159028428594031985}
   lineRenderer: {fileID: 1334642406568807862}
   tongueManager: {fileID: 0}
-  stateMachine: {fileID: 0}
   handleAttack: 0.857
   isGrounded: 0
   canRun: 0
