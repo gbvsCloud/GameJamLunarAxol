@@ -9,12 +9,12 @@ public class EnemyCheckGround : MonoBehaviour
 
     bool goingRight;
     float distanceCheck = 1f;
-    private void Start()
+    private void Awake()
     {
         goingRight = !enemy.goingRight;
     }
 
-    private void Update()
+    private void LateUpdate()
     {
         if (enemy.goingRight && goingRight != enemy.goingRight)
         {

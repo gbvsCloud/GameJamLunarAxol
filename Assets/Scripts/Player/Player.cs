@@ -67,6 +67,8 @@ public class Player : EntityBase
         {
             TakeDamage();
             damageSound.PlayRandomSoundWithVariation();
+            
+
         }
         else if (collision.transform.CompareTag("TornTiles"))
         {
@@ -88,7 +90,7 @@ public class Player : EntityBase
 
     public override void Death()
     {
-        //playerMovement.stateMachine.SwitchState(StateMachine.States.DEAD, this);
+        stateMachine.SwitchState(Player.States.DEAD, this);
         StartCoroutine(DeathAnimation());
     }
 
@@ -96,6 +98,12 @@ public class Player : EntityBase
     {
         base.TakeDamage();
         gameManager.CloseEye();
+        if (health <= 0)
+        {
+            rigidBody.gravityScale = 1;
+            playerMovement.canRun = false;
+        }
+
     }
 
     IEnumerator DeathAnimation()

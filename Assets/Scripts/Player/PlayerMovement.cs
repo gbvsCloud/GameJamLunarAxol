@@ -29,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
 
     float direction;
     float speed = 6.5f;
-    float jumpStrength = 17;
+    float jumpStrength = 20;
     public bool isGrounded = false;
     public bool canRun = false;
     public bool jumping = false;
