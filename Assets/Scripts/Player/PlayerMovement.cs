@@ -29,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
 
     float direction;
     float speed = 6.5f;
-    float jumpStrength = 17;
+    float jumpStrength = 20;
     public bool isGrounded = false;
     public bool canRun = false;
     public bool jumping = false;
@@ -64,24 +64,9 @@ public class PlayerMovement : MonoBehaviour
         Jump();
 
 
-        if (direction == 1)
-        {
-            if (spriteRenderer.flipX == true)
-                attack.transform.DOMoveX(transform.position.x + handleAttack, 0f);
-            if(!jumping)
-                player.stateMachine.SwitchState(Player.States.RUNNING, player);
-            spriteRenderer.flipX = false;
-        }
-        else if (direction == -1)
-        {
-            if (spriteRenderer.flipX == false)
-                attack.transform.DOMoveX(transform.position.x - handleAttack, 0f);
-            if (!jumping)
-                player.stateMachine.SwitchState(Player.States.RUNNING, player);
-            spriteRenderer.flipX = true;
-        }
-        else if (canRun && !jumping)
-            player.stateMachine.SwitchState(Player.States.IDLE, tongueManager, player);
+        
+       /* else if (canRun && !jumping)
+            player.stateMachine.SwitchState(Player.States.IDLE, tongueManager, player);*/
 
         if (usingSuperJump)
         {
@@ -153,7 +138,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (superJumpDelay < 1)
         {
-            rigidBody.AddForce(30 * superJumpDelay * direcao, ForceMode2D.Impulse);
+            //rigidBody.AddForce(30 * superJumpCharge * direcao, ForceMode2D.Impulse);
         }
         else
         {

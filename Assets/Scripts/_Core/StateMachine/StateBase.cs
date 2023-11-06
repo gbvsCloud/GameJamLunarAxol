@@ -14,6 +14,12 @@ public class StateBase
     public virtual void OnStateExit()
     {
     }
+    public virtual void FixedUpdate()
+    {
+    }
+    public virtual void CheckStateSwitch()
+    {
+    }
 }
 public class StateSwing : StateBase
 {

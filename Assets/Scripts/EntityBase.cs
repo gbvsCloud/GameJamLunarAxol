@@ -10,6 +10,7 @@ public class EntityBase : MonoBehaviour
     public bool isDead;
 
     protected SpriteRenderer spriteRenderer;
+    protected Rigidbody2D rigidBody;
 
     [SerializeField] private Material defaultMaterial;
     [SerializeField] private Material flashMaterial;
@@ -22,6 +23,7 @@ public class EntityBase : MonoBehaviour
         health = maxHealth;
         isDead = false;
         spriteRenderer = GetComponent<SpriteRenderer>();
+        rigidBody = GetComponent<Rigidbody2D>();
         defaultMaterial = spriteRenderer.material;
         flashMaterial = Resources.Load<Material>("Material/FlashMaterial");
     }
@@ -38,6 +40,11 @@ public class EntityBase : MonoBehaviour
         flashCoroutine = StartCoroutine(Flash());
     }
 
+    public virtual void Knockback(Transform knockbackOrigin, float strength)
+    {
+        Vector2 knockbackDirection = (knockbackOrigin.transform.position - transform.position).normalized;
+        rigidBody.AddForce(-knockbackDirection * strength, ForceMode2D.Impulse);
+    }
     public IEnumerator Flash()
     {
         spriteRenderer.material = flashMaterial;

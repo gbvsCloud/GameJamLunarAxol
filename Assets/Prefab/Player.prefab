@@ -183,7 +183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49dfa7768cd79c946b4fdfefeda8b1e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementScript: {fileID: 3678403551309033379}
+  player: {fileID: 2600314246063880980}
 --- !u!1 &1354052418634964604
 GameObject:
   m_ObjectHideFlags: 0
@@ -480,7 +480,7 @@ GameObject:
   - component: {fileID: 7866665645979208403}
   - component: {fileID: 2053690855485187874}
   m_Layer: 0
-  m_Name: Player 1
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -495,7 +495,7 @@ Transform:
   m_GameObject: {fileID: 3460165102199987254}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.9, y: 11.42, z: 0.05109631}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -652,6 +652,10 @@ MonoBehaviour:
   playerMovement: {fileID: 3678403551309033379}
   _currentGravity: 0
   damageSound: {fileID: 8866901344266955568}
+  jumpAudioSource: {fileID: 0}
+  isGrounded: 0
+  xInput: 0
+  usingSuperJump: 0
   manager: {fileID: 0}
 --- !u!114 &3678403551309033379
 MonoBehaviour:

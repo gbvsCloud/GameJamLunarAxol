@@ -6,8 +6,6 @@ public class Enemy : EntityBase
 {
     private Transform currentPatrolPosition;
 
-    [SerializeField]
-    private Rigidbody2D rigidBody;
     float speed = 4;
 
     public bool goingRight = true;
