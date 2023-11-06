@@ -1,8 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-
+using UnityEngine.PlayerLoop;
 
 public class StateMachine<T> where T : System.Enum
 {
@@ -38,4 +37,10 @@ public class StateMachine<T> where T : System.Enum
         if (_currentState != null) _currentState.OnStateStay();
         Debug.Log(_currentState);
     }
+
+    public void FixedUpdate()
+    {
+        if (_currentState != null) _currentState.FixedUpdate();
+    }
+
 }

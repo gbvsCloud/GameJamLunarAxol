@@ -149,7 +149,7 @@ public class GameManager : Singleton<GameManager>
         player.stateMachine.SwitchState(Player.States.DEAD, player);
         yield return new WaitForSeconds(2);
         if(lastCheckpoint != null) player.transform.position = lastCheckpoint.position;
-        player.stateMachine.SwitchState(Player.States.IDLE, tongueManager, player);
+        player.stateMachine.SwitchState(Player.States.IDLE, player);
     }
 
     public void InvertMusicState()
