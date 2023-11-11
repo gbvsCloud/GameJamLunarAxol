@@ -56,5 +56,6 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "GameJamLunarAxol.sln"
+    "dotnet.defaultSolution": "GameJamLunarAxol.sln",
+    "dotnet.preferCSharpExtension": true
 }
