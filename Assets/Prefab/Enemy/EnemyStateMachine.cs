@@ -22,7 +22,7 @@ public class EnemyStateMachine : MonoBehaviour
     }
     private void Update()
     {
-        currentState.OnStateStay();
+        currentState.OnStateStay(); 
     }
     public void ChangeState(EnemyState state)
     {

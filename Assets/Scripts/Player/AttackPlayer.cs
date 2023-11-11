@@ -5,9 +5,10 @@ using DG.Tweening;
 
 public class AttackPlayer : MonoBehaviour
 {
-    public KeyCode keyCodeAttack = KeyCode.R;
     public KeyCode keyCodeLick = KeyCode.Q;
     public Animator animator;
+
+    [SerializeField] private SpriteRenderer spriteRenderer;
 
     //privates
     private string _tagEnemy = "Enemy";
@@ -18,7 +19,7 @@ public class AttackPlayer : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(keyCodeAttack) && canAttack)
+        if (Input.GetButtonDown("Fire1") && canAttack)
         {
             StartCoroutine(Attack());
         }
@@ -27,11 +28,13 @@ public class AttackPlayer : MonoBehaviour
             Lick();
         }
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.transform.tag == _tagEnemy && _attack)
         {
             collision.gameObject.GetComponent<Enemy>().TakeDamage();
+            collision.gameObject.GetComponent<Enemy>().Knockback(transform.parent, 2);
+            _attack = false;
         }
     }
 
@@ -44,19 +47,17 @@ public class AttackPlayer : MonoBehaviour
     {
         Debug.Log("ataque");
         _attack = true;
+        canAttack = false;
+        spriteRenderer.enabled = true;
         animator.SetTrigger("Attack");
         stateInfo = animator.GetCurrentAnimatorStateInfo(0);      
         _normalizedTime = stateInfo.normalizedTime;
-        StartCoroutine(RechargeAttack());
-        yield return new WaitForSeconds(_normalizedTime);
+        yield return new WaitForSeconds(0.25f);
+        canAttack = true;
         _attack = false;
+        spriteRenderer.enabled = false;
     }
 
-    IEnumerator RechargeAttack()
-    {
-        canAttack = false;
-        yield return new WaitForSeconds(1f);
-        canAttack = true;
-    }
+
 
 }

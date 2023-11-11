@@ -9,12 +9,13 @@ public class PlayerIsGrounded : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(player.knockbackTimer > 0)
-        {
-            player.knockbackTimer = 0;
-        }
         if (collision.CompareTag("Map"))
         {
+            if (player.knockbackWorking)
+            {
+                player.knockbackWorking = false;
+            }
+
             player.isGrounded = true;
             if (player.usingSuperJump)
             {

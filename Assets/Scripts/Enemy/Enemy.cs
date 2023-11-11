@@ -18,7 +18,7 @@ public class Enemy : EntityBase
     void Start()
     {
 
-        Init(2);
+        Init(50);
         stateMachine = GetComponent<EnemyStateMachine>();
         stateMachine.Initialize();
     }
@@ -48,8 +48,19 @@ public class Enemy : EntityBase
 
     }
 
+    public override void Knockback(Transform knockbackOrigin, float strength)
+    { 
+        if(knockbackOrigin.position.x < transform.position.x)
+            rigidBody.AddForce(new Vector2(knockbackOrigin.position.x, 2) * strength, ForceMode2D.Impulse);
+        else
+            rigidBody.AddForce(new Vector2(-knockbackOrigin.position.x, 2) * strength, ForceMode2D.Impulse);
+        knockbackTimer = knockbackStunDuration;
+        knockbackWorking = true;
+    }
     public void Patrol()
     {
+        if (knockbackWorking) return;
+
         if(goingRight)
         {
             rigidBody.velocity = new Vector2(speed, rigidBody.velocity.y);

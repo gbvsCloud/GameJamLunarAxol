@@ -17,6 +17,9 @@ public class EntityBase : MonoBehaviour
 
     Coroutine flashCoroutine = null;
 
+    public float knockbackTimer = 0;
+    protected float knockbackStunDuration = 0.2f;
+    public bool knockbackWorking = false;
     public void Init(int maxHealth)
     {
         this.maxHealth = maxHealth;
@@ -42,14 +45,21 @@ public class EntityBase : MonoBehaviour
 
     public virtual void Knockback(Transform knockbackOrigin, float strength)
     {
-        Vector2 knockbackDirection = (knockbackOrigin.transform.position - transform.position).normalized;
-        rigidBody.AddForce(-knockbackDirection * strength, ForceMode2D.Impulse);
+        Vector2 knockbackDirection = -(knockbackOrigin.transform.position - transform.position).normalized;
+        rigidBody.AddForce(new Vector2(knockbackDirection.x, knockbackDirection.y * 1.5f) * strength, ForceMode2D.Impulse);
+        knockbackTimer = knockbackStunDuration;
+        knockbackWorking = true;
     }
     public IEnumerator Flash()
     {
         spriteRenderer.material = flashMaterial;
         yield return new WaitForSeconds(0.1f);
         spriteRenderer.material = defaultMaterial;
+    }
+
+    public virtual void KnockbackEnd()
+    {
+
     }
 
     protected virtual void Update()
@@ -59,6 +69,17 @@ public class EntityBase : MonoBehaviour
             isDead = true;
             Death();
         }
+        if (knockbackTimer > 0)
+        {
+            knockbackTimer -= Time.deltaTime;        
+        }
+        if(knockbackTimer <= 0 && knockbackWorking)
+        {
+            knockbackWorking = false;
+            KnockbackEnd();
+        }
+
+
     }
 
     public virtual void Death()
