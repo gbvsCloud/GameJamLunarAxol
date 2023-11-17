@@ -12,20 +12,20 @@ public class Player : EntityBase
     [SerializeField]
     private GameManager gameManager;
     [SerializeField]
-    public PlayerMovement playerMovement;
-    [SerializeField]
     private Animator animator;
+
+    //privates
     [SerializeField] private float _currentGravity;
     private string _tagEnemy = "Enemy";
+
+    private float invunerableTime = 0;
 
     #region AudioSource
     [SerializeField]
     private RandomSound damageSound;
     [SerializeField]
     private RandomSound jumpAudioSource;
-    #endregion
-
-    private float invunerableTime = 0;
+    #endregion 
 
     
     #region AttackArea 
@@ -55,7 +55,6 @@ public class Player : EntityBase
         IDLE,
         RUNNING,
         DEAD,
-        SWING,
         JUMPING,
         CROUCH,
         FALLING,
@@ -70,7 +69,6 @@ public class Player : EntityBase
         stateMachine.RegisterStates(States.IDLE, new StateIdle());
         stateMachine.RegisterStates(States.RUNNING, new StateRun());
         stateMachine.RegisterStates(States.DEAD, new StateDead());
-        stateMachine.RegisterStates(States.SWING, new StateSwing());
         stateMachine.RegisterStates(States.JUMPING, new StateJump());
         stateMachine.RegisterStates(States.CROUCH, new StateCrouch());
         stateMachine.RegisterStates(States.FALLING, new StateFalling());
@@ -79,7 +77,41 @@ public class Player : EntityBase
         stateMachine.SwitchState(States.IDLE, this);
     }
 
-    public TongueManager manager;
+    #endregion
+
+    #region Ataque
+
+    public float attackRange = .5f;
+    public Transform attackPoint;
+    public LayerMask enemyLayers;
+    public KeyCode keyCodeAttack = KeyCode.R;
+    public KeyCode keyCodeLick = KeyCode.Q;
+
+    public void Attack(string animation)
+    {
+        animator.SetTrigger(animation);
+
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+
+        foreach(Collider2D enemies in hitEnemies)
+        {
+            
+        }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        if (attackPoint == null)
+            return;
+
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+    }
+
+    private void Lick()
+    {
+        animator.SetTrigger("Lick");
+    }
+
     #endregion
 
     void Start()
@@ -92,7 +124,11 @@ public class Player : EntityBase
     {
         base.Update();
 
-        stateMachine.Update();
+
+        if (Input.GetKeyDown(keyCodeAttack)) Attack("Attack");
+        if (Input.GetKeyDown(keyCodeLick)) Lick();
+
+            stateMachine.Update();
         xInput = Input.GetAxisRaw("Horizontal");
         QuicklyFall();
         if (invunerableTime > 0) invunerableTime -= Time.deltaTime;
@@ -100,8 +136,15 @@ public class Player : EntityBase
 
     private void FixedUpdate()
     {
+        if (Input.GetKeyDown(keyCodeAttack))
+        {
+            Attack("attack");
+        }
+        if (Input.GetKeyDown(keyCodeLick))
+        {
+            Lick();
+        }
         stateMachine.FixedUpdate();
-
         rigidBody.velocity = new Vector2(rigidBody.velocity.x, Mathf.Clamp(rigidBody.velocity.y, maxFallSpeed, maxRiseSpeed));
     }
 

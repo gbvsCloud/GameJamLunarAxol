@@ -11,12 +11,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private LineRenderer lineRenderer;
 
-    [SerializeField]
-    private TongueManager tongueManager;
-
-    [SerializeField]
-    //public StateMachine stateMachine;
-
     public float handleAttack = 1.33f;
 
     private Rigidbody2D rigidBody;
@@ -168,7 +162,7 @@ public class PlayerMovement : MonoBehaviour
             if(jumping)
             {
                 player.GetComponent<Animator>().SetTrigger("Landing");
-                player.stateMachine.SwitchState(Player.States.IDLE, tongueManager, player);
+                player.stateMachine.SwitchState(Player.States.IDLE, player);
             }
             canRun = true;
         }

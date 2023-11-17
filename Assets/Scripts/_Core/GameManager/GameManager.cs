@@ -42,9 +42,6 @@ public class GameManager : Singleton<GameManager>
     //private StateMachine stateMachine;
 
     [SerializeField]
-    private TongueManager tongueManager;
-
-    [SerializeField]
     private GameObject pauseGroup;
 
     [SerializeField]
