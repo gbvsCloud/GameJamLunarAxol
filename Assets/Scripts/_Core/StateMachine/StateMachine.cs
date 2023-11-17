@@ -35,7 +35,7 @@ public class StateMachine<T> where T : System.Enum
     public void Update()
     {
         if (_currentState != null) _currentState.OnStateStay();
-        Debug.Log(_currentState);
+        //Debug.Log(_currentState);
     }
 
     public void FixedUpdate()
