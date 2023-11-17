@@ -27,7 +27,18 @@ public class Player : EntityBase
     private RandomSound jumpAudioSource;
     #endregion 
 
+    
+    #region AttackArea 
+    [Header("Attack Area")] 
+    [SerializeField]
+    private GameObject firstAttack;
+    public int currentAttack = 0;
+
+
+    #endregion
+
     #region MovementVariables
+    [Header("Movement Area")] 
     public bool isGrounded = false;
     public float xInput;
     float speed = 6.5f;
@@ -36,7 +47,6 @@ public class Player : EntityBase
     private float fallGravityAcceleration = 2f;
     private float maxFallSpeed = -25;
     private float maxRiseSpeed = 50;
-    public float knockbackTimer = 0;
     #endregion
 
     #region StateMachine
@@ -46,7 +56,9 @@ public class Player : EntityBase
         RUNNING,
         DEAD,
         JUMPING,
-        CROUCH
+        CROUCH,
+        FALLING,
+        ATTACK
     }
     public StateMachine<States> stateMachine;
 
@@ -59,6 +71,8 @@ public class Player : EntityBase
         stateMachine.RegisterStates(States.DEAD, new StateDead());
         stateMachine.RegisterStates(States.JUMPING, new StateJump());
         stateMachine.RegisterStates(States.CROUCH, new StateCrouch());
+        stateMachine.RegisterStates(States.FALLING, new StateFalling());
+        stateMachine.RegisterStates(States.ATTACK, new StateAttack());
 
         stateMachine.SwitchState(States.IDLE, this);
     }
@@ -117,7 +131,6 @@ public class Player : EntityBase
             stateMachine.Update();
         xInput = Input.GetAxisRaw("Horizontal");
         QuicklyFall();
-        if (knockbackTimer > 0) knockbackTimer -= Time.deltaTime;
         if (invunerableTime > 0) invunerableTime -= Time.deltaTime;
     }
 
@@ -150,20 +163,13 @@ public class Player : EntityBase
     {
         if (knockbackTimer > 0) return;
 
+
         if (xInput == 1)
         {
-            /*if (spriteRenderer.flipX == true)
-                transform.DOMoveX(transform.position.x + handleAttack, 0f);
-            if (!jumping)
-                stateMachine.SwitchState(Player.States.RUNNING, player);*/
             spriteRenderer.flipX = false;
         }
         else if (xInput == -1)
         {
-            /*if (spriteRenderer.flipX == false)
-                attack.transform.DOMoveX(transform.position.x - handleAttack, 0f);
-            if (!jumping)
-                player.stateMachine.SwitchState(Player.States.RUNNING, player);*/
             spriteRenderer.flipX = true;
         }
 
@@ -192,11 +198,11 @@ public class Player : EntityBase
 
     }
 
+    
+
     public override void Knockback(Transform knockbackOrigin, float strength)
     {
         base.Knockback(knockbackOrigin, strength);
-        knockbackTimer = 0.1f;
-
     }
     public void Jump()
     {
@@ -213,7 +219,7 @@ public class Player : EntityBase
             {
                 TakeDamage();
                 damageSound.PlayRandomSoundWithVariation();
-                Knockback(collision.transform, 20);
+                Knockback(collision.transform, 25);
                 invunerableTime = 1.5f;
             }
 
@@ -236,11 +242,25 @@ public class Player : EntityBase
             gameManager.NewCheckPoint(collision.transform);
         }
     }
-
+    public override void KnockbackEnd()
+    {
+        StopVelocity();
+    }
     public override void Death()
     {
         stateMachine.SwitchState(Player.States.DEAD, this);
         StartCoroutine(DeathAnimation());
+    }
+
+    public void Attack()
+    {
+        GameObject attack = Instantiate(firstAttack);
+        if(!spriteRenderer.flipX)
+            attack.transform.position = new Vector2(transform.position.x + 2, transform.position.y);
+        else
+            attack.transform.position = new Vector2(transform.position.x - 2, transform.position.y);
+        attack.GetComponent<RapierAttack>().player = this;
+
     }
 
     public override void TakeDamage()

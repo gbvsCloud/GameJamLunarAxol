@@ -290,7 +290,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: d282b450bda9d9b40954b847a5ccff46, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -362,7 +362,8 @@ MonoBehaviour:
   isDead: 0
   defaultMaterial: {fileID: 0}
   flashMaterial: {fileID: 0}
-  rigidBody: {fileID: 8925146711869945056}
+  knockbackTimer: 0
+  knockbackWorking: 0
   goingRight: 1
   damageAudio: {fileID: 4480122240971897378}
 --- !u!95 &4326988019821049497

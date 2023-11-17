@@ -11,6 +11,6 @@ public class EnemyWalkState : EnemyState
 
     public override void OnStateStay()
     {
-        Debug.Log("ANDANDO");
+       // Debug.Log("ANDANDO");
     }
 }

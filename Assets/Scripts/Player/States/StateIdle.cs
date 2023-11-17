@@ -23,9 +23,11 @@ public class StateIdle : StateBase
         }else if (Input.GetKeyDown(KeyCode.Space) && player.isGrounded)
         {
             player.stateMachine.SwitchState(Player.States.JUMPING, player);
-        }else if(Input.GetKeyDown(KeyCode.S) && player.isGrounded)
+        }else if(Input.GetKey(KeyCode.S) && player.isGrounded)
         {
             player.stateMachine.SwitchState(Player.States.CROUCH, player);
+        }else if(Input.GetButtonUp("Fire1")){
+            player.stateMachine.SwitchState(Player.States.ATTACK, player);
         }
     }
 
