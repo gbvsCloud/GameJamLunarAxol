@@ -218,7 +218,9 @@ public class Player : EntityBase
     public void Jump()
     {
         rigidBody.velocity = new Vector2(rigidBody.velocity.x, jumpStrength);
-        jumpAudioSource.PlayRandomSoundWithVariation();
+
+
+        if(jumpAudioSource != null) jumpAudioSource.PlayRandomSoundWithVariation();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

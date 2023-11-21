@@ -11,8 +11,13 @@ public class CMCamera : MonoBehaviour
     private void Awake()
     {
         player = FindObjectOfType<Player>();
+
+
         cameraConfiner = GameObject.FindGameObjectWithTag("CameraBounds").GetComponent<PolygonCollider2D>();
-        virtualCamera.GetComponent<CinemachineConfiner2D>().m_BoundingShape2D = cameraConfiner;
+        if(cameraConfiner != null) virtualCamera.GetComponent<CinemachineConfiner2D>().m_BoundingShape2D = cameraConfiner;
+
+        
+        
 
         virtualCamera.LookAt = player.transform;
         virtualCamera.Follow = player.transform;
