@@ -571,6 +571,21 @@ MonoBehaviour:
     m_Bits: 0
   keyCodeAttack: 114
   keyCodeLick: 113
+  animator: {fileID: 2053690855485187874}
+  _currentGravity: 0
+  damageSound: {fileID: 8866901344266955568}
+  jumpAudioSource: {fileID: 1048421147674320546}
+  isGrounded: 0
+  xInput: 0
+  usingSuperJump: 0
+  knockbackTimer: 0
+  attackRange: 0.72
+  attackPoint: {fileID: 2687202535861960977}
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 64
+  keyCodeAttack: 114
+  keyCodeLick: 113
 --- !u!120 &1334642406568807862
 LineRenderer:
   serializedVersion: 2
