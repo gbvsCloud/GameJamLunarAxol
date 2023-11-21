@@ -80,12 +80,18 @@ public class Player : EntityBase
     #endregion
 
     #region Ataque
-
+    [Header("Ataque")]
     public float attackRange = .5f;
     public Transform attackPoint;
     public LayerMask enemyLayers;
+
+    [Header("Teclas de Ataque")]
     public KeyCode keyCodeAttack = KeyCode.R;
     public KeyCode keyCodeLick = KeyCode.Q;
+    [Header("Tipos de Ataques")]
+    public List<string> attacks;
+
+    private int _indexAttack = 0;
 
     public void Attack(string animation)
     {
@@ -95,7 +101,7 @@ public class Player : EntityBase
 
         foreach(Collider2D enemies in hitEnemies)
         {
-            
+            enemies.GetComponent<Enemy>()?.TakeDamage();
         }
     }
 
@@ -123,12 +129,17 @@ public class Player : EntityBase
     protected override void Update()
     {
         base.Update();
-
-
-        if (Input.GetKeyDown(keyCodeAttack)) Attack("Attack");
+        Debug.Log(attacks.Count);
+        if (Input.GetKeyDown(keyCodeAttack))
+        {
+            Attack(attacks[_indexAttack]);
+            
+            if(_indexAttack < attacks.Count)
+                _indexAttack ++;
+        }
         if (Input.GetKeyDown(keyCodeLick)) Lick();
 
-            stateMachine.Update();
+        stateMachine.Update();
         xInput = Input.GetAxisRaw("Horizontal");
         QuicklyFall();
         if (invunerableTime > 0) invunerableTime -= Time.deltaTime;
@@ -138,7 +149,7 @@ public class Player : EntityBase
     {
         if (Input.GetKeyDown(keyCodeAttack))
         {
-            Attack("attack");
+            Attack("Attack");
         }
         if (Input.GetKeyDown(keyCodeLick))
         {
@@ -206,7 +217,6 @@ public class Player : EntityBase
     }
     public void Jump()
     {
-        //rigidBody.AddForce(new Vector2(0, jumpStrength), ForceMode2D.Impulse);
         rigidBody.velocity = new Vector2(rigidBody.velocity.x, jumpStrength);
         jumpAudioSource.PlayRandomSoundWithVariation();
     }

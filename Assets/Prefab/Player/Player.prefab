@@ -649,13 +649,18 @@ MonoBehaviour:
   flashMaterial: {fileID: 0}
   rigidBody: {fileID: 6460122260922180886}
   gameManager: {fileID: 0}
+<<<<<<< Updated upstream:Assets/Prefab/Player/Player.prefab
   playerMovement: {fileID: 3678403551309033379}
+=======
+  animator: {fileID: 2053690855485187874}
+>>>>>>> Stashed changes:Assets/Prefab/Player.prefab
   _currentGravity: 0
   damageSound: {fileID: 8866901344266955568}
-  jumpAudioSource: {fileID: 0}
+  jumpAudioSource: {fileID: 1048421147674320546}
   isGrounded: 0
   xInput: 0
   usingSuperJump: 0
+<<<<<<< Updated upstream:Assets/Prefab/Player/Player.prefab
   manager: {fileID: 0}
 --- !u!114 &3678403551309033379
 MonoBehaviour:
@@ -682,6 +687,16 @@ MonoBehaviour:
   projection: {fileID: 7866665645979208403}
   echo: {fileID: 451899232462149950, guid: 8dccb2ccc00211e418007f23358da0ca, type: 3}
   jumpAudioSource: {fileID: 1048421147674320546}
+=======
+  knockbackTimer: 0
+  attackRange: 0.72
+  attackPoint: {fileID: 2687202535861960977}
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 64
+  keyCodeAttack: 114
+  keyCodeLick: 113
+>>>>>>> Stashed changes:Assets/Prefab/Player.prefab
 --- !u!120 &1334642406568807862
 LineRenderer:
   serializedVersion: 2
