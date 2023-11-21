@@ -1,98 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &91179128659462668
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3159028428594031985}
-  - component: {fileID: 5160989100269788139}
-  - component: {fileID: 578322216767776297}
-  m_Layer: 0
-  m_Name: AttackBox
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3159028428594031985
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 91179128659462668}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.15, y: -0.391, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1673944512587322501}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5160989100269788139
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 91179128659462668}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71ed8bf57ac8c214bb9c7b15749e060d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keyCodeAttack: 114
-  keyCodeLick: 113
-  animator: {fileID: 2053690855485187874}
---- !u!61 &578322216767776297
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 91179128659462668}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.47214413, y: 0.13707542}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.8659124, y: 0.7869148}
-  m_EdgeRadius: 0
 --- !u!1 &270862698913998626
 GameObject:
   m_ObjectHideFlags: 0
@@ -475,7 +382,6 @@ GameObject:
   - component: {fileID: 6410058355628225275}
   - component: {fileID: 2504437496629426553}
   - component: {fileID: 2600314246063880980}
-  - component: {fileID: 3678403551309033379}
   - component: {fileID: 1334642406568807862}
   - component: {fileID: 7866665645979208403}
   - component: {fileID: 2053690855485187874}
@@ -499,7 +405,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3159028428594031985}
   - {fileID: 1655170883496377470}
   - {fileID: 6037479474321867923}
   - {fileID: 1221078987946813481}
@@ -647,41 +552,25 @@ MonoBehaviour:
   isDead: 0
   defaultMaterial: {fileID: 0}
   flashMaterial: {fileID: 0}
-  rigidBody: {fileID: 6460122260922180886}
+  knockbackTimer: 0
+  knockbackWorking: 0
   gameManager: {fileID: 0}
-  playerMovement: {fileID: 3678403551309033379}
+  animator: {fileID: 0}
   _currentGravity: 0
   damageSound: {fileID: 8866901344266955568}
-  jumpAudioSource: {fileID: 0}
+  jumpAudioSource: {fileID: 1048421147674320546}
+  firstAttack: {fileID: 1148305959435532021, guid: e4f215d0a38877c439856f6d8d536e28, type: 3}
+  currentAttack: 0
   isGrounded: 0
   xInput: 0
   usingSuperJump: 0
-  manager: {fileID: 0}
---- !u!114 &3678403551309033379
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3460165102199987254}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06dd996b3d8fcb441bb960f57a965deb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attack: {fileID: 3159028428594031985}
-  lineRenderer: {fileID: 1334642406568807862}
-  tongueManager: {fileID: 0}
-  handleAttack: 0.857
-  isGrounded: 0
-  canRun: 0
-  jumping: 0
-  superJumpDelay: 0
-  chargingSuperJump: 0
-  mouseJumpTarget: {x: 0, y: 0}
-  projection: {fileID: 7866665645979208403}
-  echo: {fileID: 451899232462149950, guid: 8dccb2ccc00211e418007f23358da0ca, type: 3}
-  jumpAudioSource: {fileID: 1048421147674320546}
+  attackRange: 0.5
+  attackPoint: {fileID: 0}
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  keyCodeAttack: 114
+  keyCodeLick: 113
 --- !u!120 &1334642406568807862
 LineRenderer:
   serializedVersion: 2
