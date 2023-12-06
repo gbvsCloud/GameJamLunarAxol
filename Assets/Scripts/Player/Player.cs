@@ -20,13 +20,25 @@ public class Player : EntityBase
 
     private float invunerableTime = 0;
 
+    [Header("Ataque")]
+    public float attackRange = .5f;
+    public Transform attackPoint;
+    public LayerMask enemyLayers;
+
+    [Header("Teclas de Ataque")]
+    public KeyCode keyCodeAttack = KeyCode.R;
+    public KeyCode keyCodeLick = KeyCode.Q;
+    [Header("Tipos de Ataques")]
+    public List<string> attacks;
+
+    private int _indexAttack = 0;
+
     #region AudioSource
     [SerializeField]
     private RandomSound damageSound;
     [SerializeField]
     private RandomSound jumpAudioSource;
     #endregion 
-
     
     #region AttackArea 
     [Header("Attack Area")] 
@@ -79,47 +91,6 @@ public class Player : EntityBase
 
     #endregion
 
-    #region Ataque
-    [Header("Ataque")]
-    public float attackRange = .5f;
-    public Transform attackPoint;
-    public LayerMask enemyLayers;
-
-    [Header("Teclas de Ataque")]
-    public KeyCode keyCodeAttack = KeyCode.R;
-    public KeyCode keyCodeLick = KeyCode.Q;
-    [Header("Tipos de Ataques")]
-    public List<string> attacks;
-
-    private int _indexAttack = 0;
-
-    public void Attack(string animation)
-    {
-        animator.SetTrigger(animation);
-
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
-
-        foreach(Collider2D enemies in hitEnemies)
-        {
-            enemies.GetComponent<Enemy>()?.TakeDamage();
-        }
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        if (attackPoint == null)
-            return;
-
-        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
-    }
-
-    private void Lick()
-    {
-        animator.SetTrigger("Lick");
-    }
-
-    #endregion
-
     void Start()
     {
         Init(3);
@@ -129,12 +100,12 @@ public class Player : EntityBase
     protected override void Update()
     {
         base.Update();
-        Debug.Log(attacks.Count);
+        Debug.Log(_indexAttack + "e" + attacks.Count);
         if (Input.GetKeyDown(keyCodeAttack))
         {
             Attack(attacks[_indexAttack]);
             
-            if(_indexAttack < attacks.Count)
+            if(_indexAttack < attacks.Count - 1)
                 _indexAttack ++;
         }
         if (Input.GetKeyDown(keyCodeLick)) Lick();
@@ -159,6 +130,40 @@ public class Player : EntityBase
         rigidBody.velocity = new Vector2(rigidBody.velocity.x, Mathf.Clamp(rigidBody.velocity.y, maxFallSpeed, maxRiseSpeed));
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.transform.CompareTag(_tagEnemy))
+        {
+
+            if (invunerableTime <= 0)
+            {
+                TakeDamage();
+                damageSound.PlayRandomSoundWithVariation();
+                Knockback(collision.transform, 25);
+                invunerableTime = 1.5f;
+            }
+
+        }
+        else if (collision.transform.CompareTag("TornTiles"))
+        {
+            TakeDamage();
+            gameManager.ReturnToLastCheckpoint();
+            rigidBody.gravityScale = 1;
+            damageSound.PlayRandomSoundWithVariation();
+            stateMachine.SwitchState(States.DEAD, this);
+            invunerableTime = 1.5f;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.transform.CompareTag("Checkpoint"))
+        {
+            gameManager.NewCheckPoint(collision.transform);
+        }
+    }
+
+    #region Movement
     public void QuicklyFall()
     {
         if(rigidBody.velocity.y < 0)
@@ -209,12 +214,6 @@ public class Player : EntityBase
 
     }
 
-    
-
-    public override void Knockback(Transform knockbackOrigin, float strength)
-    {
-        base.Knockback(knockbackOrigin, strength);
-    }
     public void Jump()
     {
         rigidBody.velocity = new Vector2(rigidBody.velocity.x, jumpStrength);
@@ -222,42 +221,48 @@ public class Player : EntityBase
 
         if(jumpAudioSource != null) jumpAudioSource.PlayRandomSoundWithVariation();
     }
+    #endregion
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    #region Ataque
+    public void Attack(string animation)
     {
-        if (collision.transform.CompareTag(_tagEnemy)) { 
+        animator.SetTrigger(animation);
 
-            if (invunerableTime <= 0)
-            {
-                TakeDamage();
-                damageSound.PlayRandomSoundWithVariation();
-                Knockback(collision.transform, 25);
-                invunerableTime = 1.5f;
-            }
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
-        }
-        else if (collision.transform.CompareTag("TornTiles"))
+        foreach (Collider2D enemies in hitEnemies)
         {
-            TakeDamage();
-            gameManager.ReturnToLastCheckpoint();
-            rigidBody.gravityScale = 1;
-            damageSound.PlayRandomSoundWithVariation();
-            stateMachine.SwitchState(States.DEAD, this);
-            invunerableTime = 1.5f;
+            enemies.GetComponent<Enemy>()?.TakeDamage();
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnDrawGizmosSelected()
     {
-        if (collision.transform.CompareTag("Checkpoint"))
-        {
-            gameManager.NewCheckPoint(collision.transform);
-        }
+        if (attackPoint == null)
+            return;
+
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
+
+    private void Lick()
+    {
+        animator.SetTrigger("Lick");
+    }
+
+    #endregion
+
+    #region Combat
+
+    public override void Knockback(Transform knockbackOrigin, float strength)
+    {
+        base.Knockback(knockbackOrigin, strength);
+    }
+
     public override void KnockbackEnd()
     {
         StopVelocity();
     }
+
     public override void Death()
     {
         stateMachine.SwitchState(Player.States.DEAD, this);
@@ -285,6 +290,13 @@ public class Player : EntityBase
         }
 
     }
+    IEnumerator DeathAnimation()
+    {
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene(0);
+    }
+
+    #endregion
 
     public void SuperJump(float superJumpCharge)
     {
@@ -306,12 +318,6 @@ public class Player : EntityBase
 
         //mouseJumpTarget = mousePos;
         //lineRenderer.positionCount = 0;
-    }
-
-    IEnumerator DeathAnimation()
-    {
-        yield return new WaitForSeconds(2);
-        SceneManager.LoadScene(0);
     }
 
 }
