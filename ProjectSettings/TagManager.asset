@@ -11,6 +11,7 @@ TagManager:
   - Map
   - CameraBounds
   - VirtualCamera
+  - Plataforms
   layers:
   - Default
   - TransparentFX

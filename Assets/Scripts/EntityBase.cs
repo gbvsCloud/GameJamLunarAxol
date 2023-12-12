@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -47,7 +48,8 @@ public class EntityBase : MonoBehaviour
 
     public virtual void Knockback(Transform knockbackOrigin, float strength)
     {
-        Vector2 knockbackDirection = -(knockbackOrigin.transform.position - transform.position).normalized;
+        Vector2 direction = -(knockbackOrigin.transform.position - transform.position).normalized;
+        Vector2 knockbackDirection = new Vector2(Mathf.Clamp(direction.x, -1, 1), Mathf.Clamp(direction.y, -1, 1));
         rigidBody.AddForce(new Vector2(knockbackDirection.x, knockbackDirection.y * 1.5f) * strength, ForceMode2D.Impulse);
         knockbackTimer = knockbackStunDuration;
         knockbackWorking = true;
