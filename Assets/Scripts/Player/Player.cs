@@ -139,7 +139,7 @@ public class Player : EntityBase
             {
                 TakeDamage();
                 damageSound.PlayRandomSoundWithVariation();
-                Knockback(collision.transform, 25);
+                Knockback(collision.transform, 20);
                 collision.transform.GetComponent<Enemy>().HitPlayer(transform);
                 invunerableTime = 1.5f;
             }
