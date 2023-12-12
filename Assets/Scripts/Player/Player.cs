@@ -134,12 +134,13 @@ public class Player : EntityBase
     {
         if (collision.transform.CompareTag(_tagEnemy))
         {
-
+            
             if (invunerableTime <= 0)
             {
                 TakeDamage();
                 damageSound.PlayRandomSoundWithVariation();
                 Knockback(collision.transform, 25);
+                collision.transform.GetComponent<Enemy>().HitPlayer(transform);
                 invunerableTime = 1.5f;
             }
 
@@ -283,7 +284,7 @@ public class Player : EntityBase
     public override void TakeDamage()
     {
         base.TakeDamage();
-        gameManager.CloseEye();
+        gameManager?.CloseEye();
         if (health <= 0)
         {
             rigidBody.gravityScale = 1;

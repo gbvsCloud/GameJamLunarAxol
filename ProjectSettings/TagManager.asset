@@ -10,6 +10,7 @@ TagManager:
   - ReturnEnemy
   - Map
   - CameraBounds
+  - VirtualCamera
   layers:
   - Default
   - TransparentFX
