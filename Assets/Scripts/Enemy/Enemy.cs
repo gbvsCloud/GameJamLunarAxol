@@ -1,33 +1,42 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Enemy : EntityBase
 {
     private Transform currentPatrolPosition;
 
-    float speed = 4;
+    protected float speed = 4;
 
     public bool goingRight = true;
 
-    EnemyStateMachine stateMachine;
+    protected EnemyStateMachine stateMachine;
 
     [SerializeField] private RandomSound damageAudio;
 
 
-    void Start()
+    public void Start()
     {
-
-        Init(50);
+        Init(2);
         stateMachine = GetComponent<EnemyStateMachine>();
         stateMachine.Initialize();
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    public void FixedUpdate()
     {
         Patrol();
     }
+
+    public void HitPlayer(Transform playerPosition){
+        if(playerPosition.position.x > transform.position.x && goingRight){
+            goingRight = !goingRight;
+        }else if(playerPosition.position.x < transform.position.x && !goingRight){
+            goingRight = !goingRight;
+        }
+    }
+
     protected override void Update()
     {
         base.Update();
@@ -44,7 +53,7 @@ public class Enemy : EntityBase
     public override void TakeDamage()
     {
         base.TakeDamage();
-        damageAudio.PlayRandomSoundWithVariation();
+        damageAudio?.PlayRandomSoundWithVariation();
 
     }
 
@@ -57,10 +66,9 @@ public class Enemy : EntityBase
         knockbackTimer = knockbackStunDuration;
         knockbackWorking = true;
     }
-    public void Patrol()
+    public virtual void Patrol()
     {
-        if (knockbackWorking) return;
-
+        if(knockbackWorking) return;
         if(goingRight)
         {
             rigidBody.velocity = new Vector2(speed, rigidBody.velocity.y);
@@ -69,6 +77,7 @@ public class Enemy : EntityBase
         {
             rigidBody.velocity = new Vector2(-speed, rigidBody.velocity.y);
         }
+        
 
     }
 

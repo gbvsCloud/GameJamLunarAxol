@@ -11,6 +11,7 @@ public class EntityBase : MonoBehaviour
 
     protected SpriteRenderer spriteRenderer;
     protected Rigidbody2D rigidBody;
+    public bool stunned;
 
     [SerializeField] private Material defaultMaterial;
     [SerializeField] private Material flashMaterial;
@@ -22,6 +23,7 @@ public class EntityBase : MonoBehaviour
     public bool knockbackWorking = false;
     public void Init(int maxHealth)
     {
+        stunned = false;
         this.maxHealth = maxHealth;
         health = maxHealth;
         isDead = false;
