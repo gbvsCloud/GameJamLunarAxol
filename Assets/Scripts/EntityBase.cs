@@ -11,7 +11,7 @@ public class EntityBase : MonoBehaviour
     public bool isDead;
 
     protected SpriteRenderer spriteRenderer;
-    protected Rigidbody2D rigidBody;
+    public Rigidbody2D rigidBody;
     public bool stunned;
 
     [SerializeField] private Material defaultMaterial;

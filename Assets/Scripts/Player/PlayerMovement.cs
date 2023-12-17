@@ -27,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
     public bool isGrounded = false;
     public bool canRun = false;
     public bool jumping = false;
-
+    public bool falling = false;
     public float superJumpDelay = 0;
     public bool chargingSuperJump = false;
     public Vector2 mouseJumpTarget;
@@ -57,6 +57,7 @@ public class PlayerMovement : MonoBehaviour
 
         Jump();
 
+        
 
         
        /* else if (canRun && !jumping)

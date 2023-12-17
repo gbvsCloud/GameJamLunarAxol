@@ -1,5 +1,6 @@
-using System.Collections;
+    using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerIsGrounded : MonoBehaviour
@@ -7,34 +8,36 @@ public class PlayerIsGrounded : MonoBehaviour
     [SerializeField]
     private Player player;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    /*private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Map"))
-        {
-            if (player.knockbackWorking)
-            {
-                player.knockbackWorking = false;
-            }
-
+        {    
+            player.StopVelocity();
+            player.usingSuperJump = false;           
             player.isGrounded = true;
-            if (player.usingSuperJump)
-            {
-                player.usingSuperJump = false;
-                player.StopVelocity();
-            } 
+            player.knockbackWorking = false;
+            
+        }else if(collision.CompareTag("Plataforms")){
+            player.StopVelocity();
+            player.usingSuperJump = false;     
+            player.isGrounded = true;
+            player.knockbackWorking = false;
         }
-    }
+    }*/
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.CompareTag("Map"))
-        {
+        if (collision.CompareTag("Map") && player.falling)
+        {  
+            player.StopVelocity();
             player.isGrounded = true;
-            if (player.usingSuperJump)
-            {
-                player.usingSuperJump = false;
-                player.StopVelocity();
-            }
+            player.usingSuperJump = false;                      
+        }
+        else if(collision.CompareTag("Plataforms") && player.falling){
+            player.StopVelocity();
+            player.usingSuperJump = false;           
+            player.isGrounded = true;
+            player.knockbackWorking = false;
         }
     }
 

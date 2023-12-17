@@ -59,6 +59,7 @@ public class Player : EntityBase
     private float fallGravityAcceleration = 2f;
     private float maxFallSpeed = -25;
     private float maxRiseSpeed = 50;
+    public bool falling = false;
     #endregion
 
     #region StateMachine
@@ -114,6 +115,11 @@ public class Player : EntityBase
         xInput = Input.GetAxisRaw("Horizontal");
         QuicklyFall();
         if (invunerableTime > 0) invunerableTime -= Time.deltaTime;
+
+        if(rigidBody.velocity.y < 0)
+            falling = true;
+
+        
     }
 
     private void FixedUpdate()
@@ -160,7 +166,7 @@ public class Player : EntityBase
     {
         if (collision.transform.CompareTag("Checkpoint"))
         {
-            gameManager.NewCheckPoint(collision.transform);
+            gameManager?.NewCheckPoint(collision.transform);
         }
     }
 
@@ -200,7 +206,7 @@ public class Player : EntityBase
 
     public void StopVelocity()
     {
-        rigidBody.velocity = Vector2.zero;
+        rigidBody.velocity = new Vector2(0, rigidBody.velocity.y);
     }
     public void Crouch()
     {
@@ -218,7 +224,7 @@ public class Player : EntityBase
     public void Jump()
     {
         rigidBody.velocity = new Vector2(rigidBody.velocity.x, jumpStrength);
-
+        falling = false;
 
         if(jumpAudioSource != null) jumpAudioSource.PlayRandomSoundWithVariation();
     }
@@ -303,6 +309,8 @@ public class Player : EntityBase
     {
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 direcao = (mousePos - (Vector2)transform.position).normalized;
+    
+        falling = false;    
 
         if (superJumpCharge < 1)
         {
