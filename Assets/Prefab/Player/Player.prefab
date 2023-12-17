@@ -76,7 +76,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.1043091, y: 0.07819271}
+  m_Size: {x: 0.9, y: 0.1}
   m_EdgeRadius: 0
 --- !u!114 &7081363090143695025
 MonoBehaviour:
@@ -347,7 +347,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.2109747, y: 1.5632405}
+  m_Size: {x: 1.2, y: 1.5632405}
   m_EdgeRadius: 0
 --- !u!212 &2504437496629426553
 SpriteRenderer:
@@ -415,6 +415,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 0
   isDead: 0
+  rigidBody: {fileID: 0}
+  stunned: 0
   defaultMaterial: {fileID: 0}
   flashMaterial: {fileID: 0}
   knockbackTimer: 0
