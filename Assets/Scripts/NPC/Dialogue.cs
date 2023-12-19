@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class Dialogue : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class Dialogue : MonoBehaviour
     public float fasterTextSpeed = 0.01f;
     public Actor[] actors;
     public Message[] messages;
+
+    public UnityEvent onDialogueEnd;
 
     int currentMessage = -1;
     public bool writing = false;
@@ -36,11 +39,8 @@ public class Dialogue : MonoBehaviour
 
         if(currentMessage >= messages.Length){
             currentMessage = 0;
-            foreach(Actor actor in actors){
-                if(actor.npc != null)
-                    actor.npc.EndDialogue();
-            }
-
+            
+            onDialogueEnd.Invoke();
             gameObject.SetActive(false);  
             return;     
         }
@@ -102,7 +102,6 @@ public class Dialogue : MonoBehaviour
         public string name;
         public Sprite sprite;
         public Sprite dialogueBoxSprite;
-        public NPC npc;
         public float fontSize;
     }
 

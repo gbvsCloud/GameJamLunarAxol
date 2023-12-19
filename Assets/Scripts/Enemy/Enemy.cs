@@ -11,23 +11,26 @@ public class Enemy : EntityBase
 
     public bool goingRight = true;
 
-    protected EnemyStateMachine stateMachine;
-
     [SerializeField] private RandomSound damageAudio;
 
+     #region StateMachine
+    public enum States
+    {
+        IDLE,
+        WALKING
+    }
+    public StateMachine<States> stateMachine;
+
+
+
+    #endregion
 
     public void Start()
     {
         Init(2);
-        stateMachine = GetComponent<EnemyStateMachine>();
-        stateMachine.Initialize();
     }
 
-    // Update is called once per frame
-    public void FixedUpdate()
-    {
-        Patrol();
-    }
+    // Update is called once per fram
 
     public void HitPlayer(Transform playerPosition){
         if(playerPosition.position.x > transform.position.x && goingRight){
@@ -66,21 +69,9 @@ public class Enemy : EntityBase
         knockbackTimer = knockbackStunDuration;
         knockbackWorking = true;
     }
-    public virtual void Patrol()
-    {
-        if(knockbackWorking) return;
-        if(goingRight)
-        {
-            rigidBody.velocity = new Vector2(speed, rigidBody.velocity.y);
-        }
-        else
-        {
-            rigidBody.velocity = new Vector2(-speed, rigidBody.velocity.y);
-        }
-        
+    public virtual void TurnAround(){
 
     }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("ReturnEnemy"))

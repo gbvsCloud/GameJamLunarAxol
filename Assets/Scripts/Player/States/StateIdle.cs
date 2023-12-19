@@ -6,8 +6,9 @@ public class StateIdle : StateBase
     private Player player;
     public override void OnStateEnter(params object[] objs)
     {
-        player = (Player)objs[0];   
-        player.GetComponent<Animator>().SetTrigger("Idle");
+        
+        player = objs[0] as Player;   
+        player?.GetComponent<Animator>().SetTrigger("Idle");
     }
 
     public override void OnStateStay()
