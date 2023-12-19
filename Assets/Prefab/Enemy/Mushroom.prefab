@@ -195,7 +195,6 @@ GameObject:
   - component: {fileID: 8925146711869945056}
   - component: {fileID: 6017692979522646895}
   - component: {fileID: 4326988019821049497}
-  - component: {fileID: -8937776445939021942}
   - component: {fileID: 5385829467404202707}
   m_Layer: 6
   m_Name: Mushroom
@@ -263,7 +262,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -42897541, guid: 12834d820e449fa45a2fcef06984b460, type: 3}
+  m_Sprite: {fileID: 2092563790, guid: 5991d44c9b5ab9844a8e96eb2abefe7e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -333,18 +332,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.1}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.25, y: 1.375}
+    oldSize: {x: 4, y: 4}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.5, y: 1.5}
   m_EdgeRadius: 0
 --- !u!95 &4326988019821049497
 Animator:
@@ -367,18 +366,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &-8937776445939021942
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8434440502726738525}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a654eb9559bb7ec4a8d8bc5027bde315, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5385829467404202707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -393,6 +380,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 0
   isDead: 0
+  rigidBody: {fileID: 0}
+  stunned: 0
   defaultMaterial: {fileID: 0}
   flashMaterial: {fileID: 0}
   knockbackTimer: 0

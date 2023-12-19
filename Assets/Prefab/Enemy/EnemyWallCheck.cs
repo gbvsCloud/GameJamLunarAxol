@@ -32,7 +32,7 @@ public class EnemyWallCheck : MonoBehaviour
         if (collision.CompareTag("Map"))
         {
             enemy.goingRight = !enemy.goingRight;
-            
+            enemy.TurnAround();
         }
     }
 

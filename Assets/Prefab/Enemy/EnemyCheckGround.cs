@@ -9,6 +9,10 @@ public class EnemyCheckGround : MonoBehaviour
 
     bool goingRight;
     float distanceCheck = 1f;
+
+    public bool groundAhead = false;
+    public bool plataformAhead = false;
+
     private void Awake()
     {
         goingRight = !enemy.goingRight;
@@ -27,12 +31,17 @@ public class EnemyCheckGround : MonoBehaviour
             goingRight = enemy.goingRight;
         }
 
+
+
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+
+    /// <summary>
+    /// Update is called every frame, if the MonoBehaviour is enabled.
+    /// </summary>
+    void Update()
     {
-        if (collision.CompareTag("Map"))
-        {
+        if(!groundAhead && !plataformAhead){
             enemy.goingRight = !enemy.goingRight;
             if (enemy.goingRight)
             {
@@ -42,6 +51,37 @@ public class EnemyCheckGround : MonoBehaviour
             {
                 transform.position = new Vector2(enemy.transform.position.x - distanceCheck, transform.position.y);
             }
+            enemy.TurnAround();
+        }
+    }
+
+    /// <summary>
+    /// Sent when another object enters a trigger collider attached to this
+    /// object (2D physics only).
+    /// </summary>
+    /// <param name="other">The other Collider2D involved in this collision.</param>
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.CompareTag("Map")){
+            groundAhead  = true;
+        }
+        if(other.CompareTag("Plataforms")){
+            plataformAhead = true;
+        }
+    }
+    
+
+
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Map"))
+        {      
+            groundAhead = false;
+        }
+
+        if(collision.CompareTag("Plataforms")){
+            plataformAhead = false;
         }
     }
 
