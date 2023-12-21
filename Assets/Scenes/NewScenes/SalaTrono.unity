@@ -5910,12 +5910,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textComponent: {fileID: 1386891641}
-  entityName: {fileID: 1147116077}
-  lines:
-  - Bem vindo a loja! O que deseja comprar?
-  - Uma rapieira nova, uma pocao maior?
-  speakerName: Vendedor
+  nameComponent: {fileID: 0}
+  backgroundComponent: {fileID: 0}
+  imageComponent: {fileID: 0}
+  speakerImage: {fileID: 0}
   textSpeed: 0.1
+  fasterTextSpeed: 0.01
+  actors: []
+  messages: []
+  onDialogueEnd:
+    m_PersistentCalls:
+      m_Calls: []
+  writing: 0
+  accelerateWrite: 0
 --- !u!1001 &779117565
 PrefabInstance:
   m_ObjectHideFlags: 0

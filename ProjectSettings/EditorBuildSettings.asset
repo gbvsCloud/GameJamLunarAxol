@@ -6,9 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Menu.unity
-    guid: a111462c9eaa45948a184ebd6c46c2eb
-  - enabled: 1
     path: Assets/Scenes/NewScenes/SalaTrono.unity
     guid: e6f8e80443c852d44a56f5966cdfbd76
   - enabled: 1
@@ -20,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/NewScenes/Quarto2.unity
     guid: a451ce37228412b45a9af6986586e50d
+  - enabled: 1
+    path: Assets/Scenes/NewScenes/Creditos.unity
+    guid: 75421e6341c927041b62cc559c3566f5
+  - enabled: 1
+    path: Assets/Scenes/NewScenes/TelaPrincipal.unity
+    guid: 61254461d117f56409b2cbcbda7668bc
   m_configObjects: {}

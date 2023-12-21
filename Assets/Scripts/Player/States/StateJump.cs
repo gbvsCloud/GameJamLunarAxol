@@ -47,6 +47,8 @@ public class StateJump : StateBase
             player.stateMachine.SwitchState(Player.States.IDLE, player);
         }else if(Input.GetButtonUp("Fire1")){
             player.stateMachine.SwitchState(Player.States.ATTACK, player);
+        }else if((int)player.rigidBody.velocity.y < 0){
+            player.stateMachine.SwitchState(Player.States.FALLING, player);
         }
     }
 

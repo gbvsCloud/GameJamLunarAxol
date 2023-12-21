@@ -36,7 +36,7 @@ public class StateRun : StateBase
         else if (Input.GetKey(KeyCode.S) && player.isGrounded)
         {
             player.stateMachine.SwitchState(Player.States.CROUCH, player);
-        }else if(Input.GetButtonUp("Fire1")){
+        }else if(Input.GetButtonUp("Fire1") && !player.attacking){
             player.stateMachine.SwitchState(Player.States.ATTACK, player);
         }
     }

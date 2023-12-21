@@ -24,14 +24,13 @@ public class Player : EntityBase
     public float attackRange = .5f;
     public Transform attackPoint;
     public LayerMask enemyLayers;
+    
 
     [Header("Teclas de Ataque")]
     public KeyCode keyCodeAttack = KeyCode.R;
     public KeyCode keyCodeLick = KeyCode.Q;
     [Header("Tipos de Ataques")]
-    public List<string> attacks;
 
-    private int _indexAttack = 0;
 
     #region AudioSource
     [SerializeField]
@@ -43,15 +42,16 @@ public class Player : EntityBase
     #region AttackArea 
     [Header("Attack Area")] 
     [SerializeField]
-    private GameObject firstAttack;
+    public GameObject[] attacks;
     public int currentAttack = 0;
-
+    public float attackOvertime = 0;
+    public bool attacking = false;
 
     #endregion
 
     #region MovementVariables
     [Header("Movement Area")] 
-    public bool isGrounded = false;
+    public bool isGrounded = true;
     public float xInput;
     float speed = 6.5f;
     float jumpStrength = 12f;
@@ -101,14 +101,6 @@ public class Player : EntityBase
     protected override void Update()
     {
         base.Update();
-        Debug.Log(_indexAttack + "e" + attacks.Count);
-        if (Input.GetKeyDown(keyCodeAttack))
-        {
-            Attack(attacks[_indexAttack]);
-            
-            if(_indexAttack < attacks.Count - 1)
-                _indexAttack ++;
-        }
         if (Input.GetKeyDown(keyCodeLick)) Lick();
 
         stateMachine.Update();
@@ -118,20 +110,16 @@ public class Player : EntityBase
 
         if(rigidBody.velocity.y < 0)
             falling = true;
-
+        if(attackOvertime > 0){
+            attackOvertime -= Time.deltaTime;
+        }else if(attackOvertime <= 0 && !attacking){
+            currentAttack = 0;
+        }
         
     }
 
     private void FixedUpdate()
     {
-        if (Input.GetKeyDown(keyCodeAttack))
-        {
-            Attack("Attack");
-        }
-        if (Input.GetKeyDown(keyCodeLick))
-        {
-            Lick();
-        }
         stateMachine.FixedUpdate();
         rigidBody.velocity = new Vector2(rigidBody.velocity.x, Mathf.Clamp(rigidBody.velocity.y, maxFallSpeed, maxRiseSpeed));
     }
@@ -231,25 +219,7 @@ public class Player : EntityBase
     #endregion
 
     #region Ataque
-    public void Attack(string animation)
-    {
-        animator.SetTrigger(animation);
 
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
-
-        foreach (Collider2D enemies in hitEnemies)
-        {
-            enemies.GetComponent<Enemy>()?.TakeDamage();
-        }
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        if (attackPoint == null)
-            return;
-
-        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
-    }
 
     private void Lick()
     {
@@ -276,15 +246,31 @@ public class Player : EntityBase
         StartCoroutine(DeathAnimation());
     }
 
+    IEnumerator IAttack(){
+        
+        if(currentAttack == 0){
+            yield return new WaitForSeconds(0.1f);
+            GameObject attack = Instantiate(attacks[0]);
+            if(!spriteRenderer.flipX)
+                attack.transform.position = new Vector2(transform.position.x + 1.2f, transform.position.y - 0.6f);
+            else
+                attack.transform.position = new Vector2(transform.position.x - 1.2f, transform.position.y - 0.6f);
+            attack.GetComponent<RapierAttack>().player = this;
+        }else if(currentAttack == 1){
+            yield return new WaitForSeconds(0.2f);
+            GameObject attack = Instantiate(attacks[1]);
+            if(!spriteRenderer.flipX)
+                attack.transform.position = new Vector2(transform.position.x + 1f, transform.position.y - 0.3f);
+            else
+                attack.transform.position = new Vector2(transform.position.x - 1f, transform.position.y - 0.3f);
+            attack.GetComponent<RapierAttack>().player = this;
+
+        }
+    }
+
     public void Attack()
     {
-        GameObject attack = Instantiate(firstAttack);
-        if(!spriteRenderer.flipX)
-            attack.transform.position = new Vector2(transform.position.x + 2, transform.position.y);
-        else
-            attack.transform.position = new Vector2(transform.position.x - 2, transform.position.y);
-        attack.GetComponent<RapierAttack>().player = this;
-
+        StartCoroutine(IAttack());
     }
 
     public override void TakeDamage()
