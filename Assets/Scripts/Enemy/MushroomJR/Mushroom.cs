@@ -56,7 +56,7 @@ public class Mushroom : Enemy
     }
     IEnumerator IdleDuration(){
         yield return new WaitForSeconds(1f);
-        stateMachine.SwitchState(Enemy.States.WALKING, this);
+        stateMachine.SwitchState(States.WALKING, this);
     }
     void FixedUpdate()
     {
@@ -64,7 +64,7 @@ public class Mushroom : Enemy
     }
     IEnumerator StunDuration(){
         stunned = true;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.30f);
         stunned = false;
     }
 

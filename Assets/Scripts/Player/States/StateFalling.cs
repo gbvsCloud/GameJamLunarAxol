@@ -4,9 +4,12 @@ using UnityEngine;
 public class StateFalling : StateBase
 {
     private Player player;
+    private Animator animator;
     public override void OnStateEnter(params object[] objs)
     {
-        player = (Player)objs[0];
+        player = objs[0] as Player;
+        animator = player?.GetComponent<Animator>();
+        animator.SetTrigger("Fall");
     }  
     public override void OnStateStay()
     {
@@ -17,8 +20,6 @@ public class StateFalling : StateBase
     {
         player.Run();
     }
-
-
     public override void CheckStateSwitch()
     {
         if (player.isGrounded)
@@ -30,5 +31,6 @@ public class StateFalling : StateBase
     public override void OnStateExit()
     {
         player.isGrounded = false;
+        animator.ResetTrigger("Fall");
     }
 }
