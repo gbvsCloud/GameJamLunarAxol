@@ -7,12 +7,13 @@ public class StateCrouch : StateBase
     private Player player;
     private float superJumpCharge;
     private bool superJumpTriggered;
-
+    SuperJumpProjection projection;
     public override void OnStateEnter(params object[] objs)
     {
         player = (Player)objs[0];
         player.GetComponent<Animator>().SetTrigger("Idle");
         player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        projection = player.GetComponent<SuperJumpProjection>();
         superJumpCharge = 0;
         superJumpTriggered = false;
     }
@@ -20,24 +21,31 @@ public class StateCrouch : StateBase
     public override void OnStateStay()
     {
         CheckStateSwitch();
-        player.Crouch();
+        if(!player.isGrounded)
+            return;
+        player.Crouch(); 
 
+       
         if(Input.GetKey(KeyCode.Space))
         {
-            superJumpCharge += Time.deltaTime;
+            if(superJumpCharge < 0.85f)superJumpCharge += Time.deltaTime;
+            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 direcao = (mousePos - (Vector2)player.transform.position).normalized;
+            Vector2 velocity = 30 * superJumpCharge * direcao;
+            projection?.SimulateTrajectory(player.echo, player.transform.position, velocity);
         }
         else
         {
-            if(superJumpCharge > 0.15f)
+            if(superJumpCharge > 0.10f)
             {
                 player.SuperJump(superJumpCharge);
                 player.usingSuperJump = true;
                 superJumpTriggered = true;
+                projection.DisableTrajectory();
             }
             superJumpCharge = 0;
         }
-
-
+        
     }
 
     public override void CheckStateSwitch()
@@ -49,6 +57,7 @@ public class StateCrouch : StateBase
         {
             player.stateMachine.SwitchState(Player.States.IDLE, player);
         }
+        projection.DisableTrajectory();
 
     }
 }

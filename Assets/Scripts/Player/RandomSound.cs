@@ -20,12 +20,13 @@ public class RandomSound : MonoBehaviour
         audioSource.pitch = 1;
         audioSource.clip = audioClips[Random.Range(0, audioClips.Count)];
         audioSource.Play();
+        
     }
 
     public void PlayRandomSoundWithVariation()
     {
-        audioSource.volume = Random.Range(0.95f, 1.15f);
-        audioSource.pitch = Random.Range(0.80f, 1.15f);
+        audioSource.volume = Random.Range(0.85f, 1f);
+        audioSource.pitch = Random.Range(0.95f, 1.35f);
         audioSource.clip = audioClips[Random.Range(0, audioClips.Count)];
         audioSource.Play();
     }

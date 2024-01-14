@@ -102,7 +102,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   virtualCamera: {fileID: 6776495669144361531}
-  cameraConfiner: {fileID: 0}
 --- !u!1 &1794268604826086955
 GameObject:
   m_ObjectHideFlags: 0

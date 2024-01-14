@@ -10,7 +10,7 @@ using UnityEngine.UI;
 public class Player : EntityBase
 {   
     [SerializeField]
-    private GameManager gameManager;
+    public GameManager gameManager;
     [SerializeField]
     private Animator animator;
 
@@ -28,7 +28,6 @@ public class Player : EntityBase
 
     [Header("Teclas de Ataque")]
     public KeyCode keyCodeAttack = KeyCode.R;
-    public KeyCode keyCodeLick = KeyCode.Q;
     [Header("Tipos de Ataques")]
 
 
@@ -51,6 +50,7 @@ public class Player : EntityBase
 
     #region MovementVariables
     [Header("Movement Area")] 
+    public SuperJumpEcho echo;
     public bool isGrounded = true;
     public float xInput;
     float speed = 6.5f;
@@ -94,14 +94,15 @@ public class Player : EntityBase
 
     void Start()
     {
-        Init(3);
-        _currentGravity = GetComponent<Rigidbody2D>().gravityScale;
+        _currentGravity = GetComponent<Rigidbody2D>().gravityScale;     
+        Init(GameManager.RetrievePlayerHealth());
+
+
     }
 
     protected override void Update()
     {
         base.Update();
-        if (Input.GetKeyDown(keyCodeLick)) Lick();
 
         stateMachine.Update();
         xInput = Input.GetAxisRaw("Horizontal");
@@ -132,31 +133,52 @@ public class Player : EntityBase
             if (invunerableTime <= 0)
             {
                 TakeDamage();
-                damageSound.PlayRandomSoundWithVariation();
                 Knockback(collision.transform, 20);
                 collision.transform.GetComponent<Enemy>().HitPlayer(transform);
                 invunerableTime = 1.5f;
+
             }
 
         }
         else if (collision.transform.CompareTag("TornTiles"))
         {
+            
             TakeDamage();
-            gameManager.ReturnToLastCheckpoint();
+            gameManager?.ReturnToLastCheckpoint();
             rigidBody.gravityScale = 1;
-            damageSound.PlayRandomSoundWithVariation();
             stateMachine.SwitchState(States.DEAD, this);
             invunerableTime = 1.5f;
         }
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    /// <summary>
+    /// Sent when another object enters a trigger collider attached to this
+    /// object (2D physics only).
+    /// </summary>
+    /// <param name="other">The other Collider2D involved in this collision.</param>
+    void OnTriggerStay2D(Collider2D other)
     {
-        if (collision.transform.CompareTag("Checkpoint"))
+        if (other.transform.CompareTag(_tagEnemy))
         {
-            gameManager?.NewCheckPoint(collision.transform);
+            
+            if (invunerableTime <= 0)
+            {
+                TakeDamage();
+                damageSound.PlayRandomSoundWithVariation();
+                Knockback(other.transform, 20);
+                other.transform.GetComponent<Enemy>().HitPlayer(transform);
+                invunerableTime = 1.5f;
+            }
+
         }
     }
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.CompareTag("Checkpoint")){
+            Debug.Log("New checkpoint");
+            gameManager?.NewCheckPoint(other.transform);
+        }
+    }
+
 
     #region Movement
     public void QuicklyFall()
@@ -198,14 +220,7 @@ public class Player : EntityBase
     }
     public void Crouch()
     {
-        if (xInput == 1)
-        {
-            spriteRenderer.flipX = false;
-        }
-        else if (xInput == -1)
-        {
-            spriteRenderer.flipX = true;
-        }
+        spriteRenderer.flipX = !(Camera.main.ScreenToWorldPoint(Input.mousePosition).x > transform.position.x);
 
     }
 
@@ -257,7 +272,7 @@ public class Player : EntityBase
                 attack.transform.position = new Vector2(transform.position.x - 1.2f, transform.position.y - 0.6f);
             attack.GetComponent<RapierAttack>().player = this;
         }else if(currentAttack == 1){
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(0.15f);
             GameObject attack = Instantiate(attacks[1]);
             if(!spriteRenderer.flipX)
                 attack.transform.position = new Vector2(transform.position.x + 1f, transform.position.y - 0.3f);
@@ -265,7 +280,17 @@ public class Player : EntityBase
                 attack.transform.position = new Vector2(transform.position.x - 1f, transform.position.y - 0.3f);
             attack.GetComponent<RapierAttack>().player = this;
 
+        }else if(currentAttack == 2){
+            yield return new WaitForSeconds(0.15f);
+            GameObject attack = Instantiate(attacks[2]);
+            if(!spriteRenderer.flipX)
+                attack.transform.position = new Vector2(transform.position.x + 1f, transform.position.y - 0.3f);
+            else
+                attack.transform.position = new Vector2(transform.position.x - 1f, transform.position.y - 0.3f);
+            attack.GetComponent<RapierAttack>().player = this;
+
         }
+
     }
 
     public void Attack()
@@ -276,7 +301,8 @@ public class Player : EntityBase
     public override void TakeDamage()
     {
         base.TakeDamage();
-        gameManager?.CloseEye();
+        gameManager.CloseEye();
+        damageSound.PlayRandomSound();
         if (health <= 0)
         {
             rigidBody.gravityScale = 1;
@@ -286,7 +312,8 @@ public class Player : EntityBase
     IEnumerator DeathAnimation()
     {
         yield return new WaitForSeconds(2);
-        SceneManager.LoadScene(0);
+        GameManager.playerHealth = 3;
+        SceneManager.LoadScene("GameOver");
     }
 
     #endregion
@@ -298,7 +325,7 @@ public class Player : EntityBase
     
         falling = false;    
 
-        if (superJumpCharge < 1)
+        if (superJumpCharge < 0.85f)    
         {
             rigidBody.AddForce(30 * superJumpCharge * direcao, ForceMode2D.Impulse);
         }
@@ -310,7 +337,7 @@ public class Player : EntityBase
 
         isGrounded = false;
         usingSuperJump = true;
-
+        
         //mouseJumpTarget = mousePos;
         //lineRenderer.positionCount = 0;
     }

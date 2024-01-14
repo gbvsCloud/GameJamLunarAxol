@@ -1,7 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : Singleton<GameManager>
@@ -17,10 +20,25 @@ public class GameManager : Singleton<GameManager>
     }
 
     public StateMachine<GameStates> stateMachine;
-
+    public static int playerHealth = 3;
     public void Start()
     {
         Init();
+        
+
+
+    }
+
+
+    int GetEyeName(string nomeDoObjeto)
+    {
+        string stringNumber = new string(nomeDoObjeto.Where(char.IsDigit).ToArray());
+
+        if (int.TryParse(stringNumber, out int number))
+        {
+            return number;
+        }
+        return 0;
     }
 
     public void Init()
@@ -71,16 +89,47 @@ public class GameManager : Singleton<GameManager>
     bool musicMuted = false;
     bool sfxMuted = false;
 
-    public Image[] eyes;
+    public List<Image> eyes;
     public Sprite openEye, closedEye;
 
+    /// <summary>
+    /// This function is called when the object becomes enabled and active.
+    /// </summary>
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode){
+        player = FindObjectOfType<Player>()?.GetComponent<Player>();
+        eyes.Clear();
+        checkpoints.Clear();
+        player.gameManager = this;
+
+        Checkpoint[] checkpointsScript = FindObjectsOfType<Checkpoint>();
+        foreach(Checkpoint c in checkpointsScript){
+            checkpoints.Add(c?.GetComponent<Transform>());
+        }
+        
+        // Obter todos os objetos com uma determinada tag
+        GameObject[] eye = GameObject.FindGameObjectsWithTag("Eye");
+
+        // Ordenar os objetos com base nos números nos nomes
+        GameObject[] eyesInOrder = eye?.OrderBy(objeto => GetEyeName(objeto.name)).ToArray();
+        foreach(GameObject e in eyesInOrder){
+            eyes.Add(e?.GetComponent<Image>());
+        }
+        if(eyes.Count > 0) CheckEyes();
+    }
     public override void Awake()
     {
+
+        
         base.Awake();
-        DontDestroyOnLoad(this.gameObject);
+        
     }
+
     private void Update()
-    {
+    {   
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             if (!gamePaused)
@@ -128,10 +177,7 @@ public class GameManager : Singleton<GameManager>
 
     public void NewCheckPoint(Transform checkpoint)
     {
-        if(checkpoints.IndexOf(checkpoint) > checkpoints.IndexOf(lastCheckpoint))
-        {
-            lastCheckpoint = checkpoint;
-        }
+        lastCheckpoint = checkpoint;
 
         
     }
@@ -144,9 +190,13 @@ public class GameManager : Singleton<GameManager>
     private IEnumerator AnimationDeath()
     {
         player.stateMachine.SwitchState(Player.States.DEAD, player);
-        yield return new WaitForSeconds(2);
-        if(lastCheckpoint != null) player.transform.position = lastCheckpoint.position;
-        player.stateMachine.SwitchState(Player.States.IDLE, player);
+        yield return new WaitForSeconds(0.5f);
+        if(player.health > 0){
+        if(lastCheckpoint != null) 
+            player.transform.position = lastCheckpoint.position;
+            player.stateMachine.SwitchState(Player.States.IDLE, player);
+            player.GetComponent<SpriteRenderer>().flipX = lastCheckpoint.GetComponent<Checkpoint>().lookRight;
+        }
     }
 
     public void InvertMusicState()
@@ -186,14 +236,21 @@ public class GameManager : Singleton<GameManager>
 
     public void CloseEye()
     {
-        for(int i = 2; i > -1; i--)
-        {
-            if (eyes[i].sprite == openEye)
-            {
-                eyes[i].sprite = closedEye;
-                return;
-            }
+        playerHealth = player.health;
+        eyes[player.health].sprite = closedEye;
+        
+    }
+
+    public void CheckEyes(){
+        if(playerHealth == 1){
+            eyes[2].sprite = closedEye;
+            eyes[1].sprite = closedEye;
+        }else if(playerHealth == 2){
+            eyes[2].sprite = closedEye;   
         }
+    }
+    public static int RetrievePlayerHealth(){
+        return playerHealth;
     }
 
 }
