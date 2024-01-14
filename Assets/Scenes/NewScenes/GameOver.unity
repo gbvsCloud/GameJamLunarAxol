@@ -180,7 +180,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Sair
+  m_text: Menu Principal
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d8cbe243e2662a14b9d0f4f695289580, type: 2}
   m_sharedMaterial: {fileID: -3534568411927734233, guid: d8cbe243e2662a14b9d0f4f695289580, type: 2}
@@ -337,7 +337,7 @@ GameObject:
   - component: {fileID: 364295789}
   - component: {fileID: 364295788}
   - component: {fileID: 364295787}
-  - component: {fileID: 364295786}
+  - component: {fileID: 364295790}
   m_Layer: 5
   m_Name: Sair
   m_TagString: Untagged
@@ -362,21 +362,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 110.50604}
-  m_SizeDelta: {x: 443.67, y: 114.753}
+  m_AnchoredPosition: {x: -0.000030518, y: 110.5}
+  m_SizeDelta: {x: 640.172, y: 114.753}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &364295786
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 364295784}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4a5b46b8e136a949bb6fc0220fc53ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &364295787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -421,9 +409,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 364295786}
-        m_TargetAssemblyTypeName: B_Exit, Assembly-CSharp
-        m_MethodName: Quit
+      - m_Target: {fileID: 364295790}
+        m_TargetAssemblyTypeName: LoadScene, Assembly-CSharp
+        m_MethodName: Load
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -471,6 +459,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 364295784}
   m_CullTransparentMesh: 1
+--- !u!114 &364295790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 364295784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f90327a4d705a054387c7f8725ba3447, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneToLoad: TelaPrincipal
 --- !u!1 &397756683
 GameObject:
   m_ObjectHideFlags: 0
@@ -703,8 +704,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -0.000074076, y: 258.17}
-  m_SizeDelta: {x: 443.67004, y: 180.581}
+  m_AnchoredPosition: {x: -0.000002861, y: 258.17}
+  m_SizeDelta: {x: 640.17, y: 180.581}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &697809339
 MonoBehaviour:

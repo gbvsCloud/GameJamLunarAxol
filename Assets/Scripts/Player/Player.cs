@@ -1,11 +1,6 @@
-
 using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
-using UnityEditor.U2D;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class Player : EntityBase
 {   
@@ -306,6 +301,7 @@ public class Player : EntityBase
         if (health <= 0)
         {
             rigidBody.gravityScale = 1;
+
         }
 
     }

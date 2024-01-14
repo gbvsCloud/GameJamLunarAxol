@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
@@ -21,10 +20,10 @@ public class GameManager : Singleton<GameManager>
 
     public StateMachine<GameStates> stateMachine;
     public static int playerHealth = 3;
+    GameObject pause;
     public void Start()
     {
         Init();
-        
 
 
     }
@@ -101,8 +100,10 @@ public class GameManager : Singleton<GameManager>
     }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode){
         player = FindObjectOfType<Player>()?.GetComponent<Player>();
+        pause = GameObject.Find("Canvas")?.transform.Find("Pause")?.gameObject;
         eyes.Clear();
         checkpoints.Clear();
+        lastCheckpoint = null;
         if(player)player.gameManager = this;
 
         Checkpoint[] checkpointsScript = FindObjectsOfType<Checkpoint>();
@@ -136,31 +137,15 @@ public class GameManager : Singleton<GameManager>
             {
                 gamePaused = true;
                 Time.timeScale = 0;
-                if (musicMuted)
-                {
-                    musicButton.image.sprite = musicMutedIMG;
-                }
-                else
-                {
-                    musicButton.image.sprite = musicUnmutedIMG;
-                }
 
-                if(sfxMuted)
-                {
-                    SFXButton.image.sprite = SFXMutedIMG;
-                }
-                else
-                {
-                    SFXButton.image.sprite = SFXUnmutedIMG;
-                }
-
-                pauseGroup.SetActive(true);
+                pause.SetActive(!false);
             }
             else
             {
                 gamePaused = false;
                 Time.timeScale = 1;
-                pauseGroup.SetActive(false);
+                pause.SetActive(!true);
+            
             }
         }
     }
@@ -171,7 +156,7 @@ public class GameManager : Singleton<GameManager>
         {
             gamePaused = false;
             Time.timeScale = 1;
-            pauseGroup.SetActive(false);
+           
         }
     }
 
@@ -192,10 +177,11 @@ public class GameManager : Singleton<GameManager>
         player.stateMachine.SwitchState(Player.States.DEAD, player);
         yield return new WaitForSeconds(0.5f);
         if(player.health > 0){
-        if(lastCheckpoint != null) 
-            player.transform.position = lastCheckpoint.position;
-            player.stateMachine.SwitchState(Player.States.IDLE, player);
-            player.GetComponent<SpriteRenderer>().flipX = lastCheckpoint.GetComponent<Checkpoint>().lookRight;
+            if(lastCheckpoint != null){
+                player.transform.position = lastCheckpoint.position;
+                player.stateMachine.SwitchState(Player.States.IDLE, player);
+                player.GetComponent<SpriteRenderer>().flipX = lastCheckpoint.GetComponent<Checkpoint>().lookRight;
+            }
         }
     }
 
