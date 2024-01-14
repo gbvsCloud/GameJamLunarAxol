@@ -103,7 +103,7 @@ public class GameManager : Singleton<GameManager>
         player = FindObjectOfType<Player>()?.GetComponent<Player>();
         eyes.Clear();
         checkpoints.Clear();
-        player.gameManager = this;
+        if(player)player.gameManager = this;
 
         Checkpoint[] checkpointsScript = FindObjectsOfType<Checkpoint>();
         foreach(Checkpoint c in checkpointsScript){

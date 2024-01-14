@@ -3265,7 +3265,7 @@ PrefabInstance:
       objectReference: {fileID: 1756658405}
     - target: {fileID: 4318658687962341400, guid: 240479406d46a9740bd4160ddac83b15, type: 3}
       propertyPath: messages.Array.size
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4318658687962341400, guid: 240479406d46a9740bd4160ddac83b15, type: 3}
       propertyPath: actors.Array.data[0].npc
@@ -3306,19 +3306,44 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4318658687962341400, guid: 240479406d46a9740bd4160ddac83b15, type: 3}
       propertyPath: messages.Array.data[2].actorID
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4318658687962341400, guid: 240479406d46a9740bd4160ddac83b15, type: 3}
-      propertyPath: messages.Array.data[2].message
-      value: "DE QUALQUER MANEIRA SAIA DAQUI \xC9 PERIGOSO E PEGUE ISSO"
-      objectReference: {fileID: 0}
-    - target: {fileID: 4318658687962341400, guid: 240479406d46a9740bd4160ddac83b15, type: 3}
-      propertyPath: messages.Array.data[3].actorID
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4318658687962341400, guid: 240479406d46a9740bd4160ddac83b15, type: 3}
+      propertyPath: messages.Array.data[2].message
+      value: "Se acalma colega, j\xE1 j\xE1 as coisas voltam ao normal"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4318658687962341400, guid: 240479406d46a9740bd4160ddac83b15, type: 3}
+      propertyPath: messages.Array.data[3].actorID
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4318658687962341400, guid: 240479406d46a9740bd4160ddac83b15, type: 3}
       propertyPath: messages.Array.data[3].message
-      value: '*O coitado mal consegue falar*'
+      value: "EST\xC3O DIZENDO QUE OS GUARDAS ENDOIDARAM!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4318658687962341400, guid: 240479406d46a9740bd4160ddac83b15, type: 3}
+      propertyPath: messages.Array.data[4].actorID
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4318658687962341400, guid: 240479406d46a9740bd4160ddac83b15, type: 3}
+      propertyPath: messages.Array.data[4].message
+      value: "Acredita nisso n\xE3o, certeza que eles devem estar cuidando de tudo
+        l\xE1 embaixo :p"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4318658687962341400, guid: 240479406d46a9740bd4160ddac83b15, type: 3}
+      propertyPath: messages.Array.data[5].actorID
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4318658687962341400, guid: 240479406d46a9740bd4160ddac83b15, type: 3}
+      propertyPath: messages.Array.data[5].message
+      value: "SE VOC\xCA DIZ PRINCESA..."
+      objectReference: {fileID: 0}
+    - target: {fileID: 4318658687962341400, guid: 240479406d46a9740bd4160ddac83b15, type: 3}
+      propertyPath: messages.Array.data[6].actorID
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4318658687962341400, guid: 240479406d46a9740bd4160ddac83b15, type: 3}
+      propertyPath: messages.Array.data[6].message
+      value: "SE VOC\xCA DIZ PRINCESA..."
       objectReference: {fileID: 0}
     - target: {fileID: 4318658687962341400, guid: 240479406d46a9740bd4160ddac83b15, type: 3}
       propertyPath: actors.Array.data[0].dialogueBoxSprite

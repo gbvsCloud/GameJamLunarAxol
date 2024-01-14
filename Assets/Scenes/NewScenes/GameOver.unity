@@ -182,8 +182,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Sair
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 12fae2ed707b53947a679b9f570beac5, type: 2}
-  m_sharedMaterial: {fileID: 552593134378985574, guid: 12fae2ed707b53947a679b9f570beac5, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d8cbe243e2662a14b9d0f4f695289580, type: 2}
+  m_sharedMaterial: {fileID: -3534568411927734233, guid: d8cbe243e2662a14b9d0f4f695289580, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -928,7 +928,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.7
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1084,8 +1084,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Tentar Novamente
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 12fae2ed707b53947a679b9f570beac5, type: 2}
-  m_sharedMaterial: {fileID: 552593134378985574, guid: 12fae2ed707b53947a679b9f570beac5, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d8cbe243e2662a14b9d0f4f695289580, type: 2}
+  m_sharedMaterial: {fileID: -3534568411927734233, guid: d8cbe243e2662a14b9d0f4f695289580, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

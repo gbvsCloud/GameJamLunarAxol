@@ -12,7 +12,7 @@ public class Dialogue : MonoBehaviour
     public Image backgroundComponent;
     public Image imageComponent;
     public Sprite speakerImage;
-    public float textSpeed = 0.1f;
+    float textSpeed = 0.05f;
     public float fasterTextSpeed = 0.01f;
     public Actor[] actors;
     public Message[] messages;

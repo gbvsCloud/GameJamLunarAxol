@@ -16,6 +16,7 @@ public class BigFrog : EntityBase
 
     public bool bossStunned = false;
     IEnumerator IEJump = null;
+    public BlackScreen blackScreen;
     public enum States
     {
         IDLE,
@@ -43,6 +44,9 @@ public class BigFrog : EntityBase
     {
         base.Update();
         stateMachine.Update();
+        if(health <= 0){
+            blackScreen.TurnBlack();
+        }
         //Debug.Log(stateMachine.CurrentState);
     }
 

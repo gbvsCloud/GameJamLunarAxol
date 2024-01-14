@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/NewScenes/TelaPrincipal.unity
+    guid: 61254461d117f56409b2cbcbda7668bc
+  - enabled: 1
     path: Assets/Scenes/NewScenes/SalaTrono.unity
     guid: e6f8e80443c852d44a56f5966cdfbd76
   - enabled: 1
@@ -21,9 +24,6 @@ EditorBuildSettings:
     path: Assets/Scenes/NewScenes/Creditos.unity
     guid: 75421e6341c927041b62cc559c3566f5
   - enabled: 1
-    path: Assets/Scenes/NewScenes/TelaPrincipal.unity
-    guid: 61254461d117f56409b2cbcbda7668bc
-  - enabled: 1
     path: Assets/Scenes/NewScenes/Boss.unity
     guid: 07d6d128cc56b5c45a687ccb2a5178ad
   - enabled: 1
@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/NewScenes/CorredorInfectado.unity
     guid: 47f120884fa1a1b4a80d71ea9e9ea5e5
+  - enabled: 1
+    path: Assets/Scenes/NewScenes/TelaVitoria.unity
+    guid: 7c1d77aa366b7684d8a9d87f462b016e
   m_configObjects: {}
