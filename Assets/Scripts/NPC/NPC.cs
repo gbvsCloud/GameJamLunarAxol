@@ -10,7 +10,7 @@ public class NPC : MonoBehaviour
     public Transform playerTrans;
     public bool inRange = false;
     public SpriteRenderer spriteRenderer;
-
+    public GameObject interactButton;
 
     void Start()
     {
@@ -18,7 +18,9 @@ public class NPC : MonoBehaviour
     }
     void Update()
     {
+        
         if(inRange){
+            
             if(playerTrans.position.x > transform.position.x){
                 spriteRenderer.flipX = false;
             }else{
@@ -43,12 +45,14 @@ public class NPC : MonoBehaviour
         if(other.CompareTag("Player")){
             playerTrans = other.GetComponent<Transform>();
             inRange = true;
+            interactButton?.SetActive(inRange);
         } 
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
         if(other.CompareTag("Player")) inRange = false;
+        interactButton?.SetActive(inRange);
     }       
     public virtual void EndDialogue(){
 

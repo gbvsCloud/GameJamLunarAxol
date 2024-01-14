@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Tilemaps;
 
 public class SuperJumpProjection : MonoBehaviour
 {
@@ -36,10 +34,12 @@ public class SuperJumpProjection : MonoBehaviour
 
     public void SimulateTrajectory(SuperJumpEcho echo, Vector2 pos, Vector2 velocity)
     {
+        Debug.Log("simulate");
         var ghostObj = Instantiate(echo, pos, Quaternion.identity);
         SceneManager.MoveGameObjectToScene(ghostObj.gameObject, simulationScene);
 
         ghostObj.Init(velocity);
+        
 
         lineRenderer.positionCount = maxPhysicsIterations;
 
@@ -47,9 +47,16 @@ public class SuperJumpProjection : MonoBehaviour
         {
             physicsScene.Simulate(Time.fixedDeltaTime);
             lineRenderer.SetPosition(i, ghostObj.transform.position);
+            if(ghostObj.IsDestroyed()){
+                break;
+            }
         }
 
         Destroy(ghostObj.gameObject);
+    }
+
+    public void DisableTrajectory(){
+         lineRenderer.positionCount = 0;
     }
 
 }

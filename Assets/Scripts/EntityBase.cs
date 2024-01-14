@@ -7,7 +7,7 @@ public class EntityBase : MonoBehaviour
 {
     protected int maxHealth;
     [SerializeField]
-    protected int health;
+    public int health;
     public bool isDead;
 
     protected SpriteRenderer spriteRenderer;
@@ -27,6 +27,16 @@ public class EntityBase : MonoBehaviour
         stunned = false;
         this.maxHealth = maxHealth;
         health = maxHealth;
+        isDead = false;
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        rigidBody = GetComponent<Rigidbody2D>();
+        defaultMaterial = spriteRenderer.material;
+        flashMaterial = Resources.Load<Material>("Material/FlashMaterial");
+    }
+
+    public void Init()
+    {
+        stunned = false;
         isDead = false;
         spriteRenderer = GetComponent<SpriteRenderer>();
         rigidBody = GetComponent<Rigidbody2D>();
@@ -65,7 +75,17 @@ public class EntityBase : MonoBehaviour
     {
 
     }
-
+    public virtual void LookAt(Transform transform){
+        spriteRenderer.flipX = transform.position.x > this.transform.position.x;
+    }
+    public virtual void LookAt(int direction){
+        if(direction == 1){
+            spriteRenderer.flipX = true;
+        }
+        if(direction == -1){
+            spriteRenderer.flipX = false;
+        }
+    }
     protected virtual void Update()
     {
         if (health <= 0)

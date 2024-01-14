@@ -28,17 +28,23 @@ public class StateAttack : StateBase
             case 1:
                 currentTrigger = "SecondAttack";
                 GetAttackDuration("Player_Second_Attack");
+                player.attackOvertime = 0.25f + attackAnimationDuration;
+                break;
+            case 2:
+                Debug.Log("Third attack");
+                currentTrigger = "ThirdAttack";
+                GetAttackDuration("Player_Third_Attack");
                 break;
         }
         animator.SetTrigger(currentTrigger);
 
         player.Attack();
-         if(player.currentAttack == player.attacks.Length - 1){
+        if(player.currentAttack == player.attacks.Length){
             player.currentAttack = 0;
             player.attackOvertime = 0;
         }
-        if(player.currentAttack < player.attacks.Length - 1)
-            player.currentAttack++;
+        if(player.currentAttack < player.attacks.Length)
+        player.currentAttack++;
         
        
         

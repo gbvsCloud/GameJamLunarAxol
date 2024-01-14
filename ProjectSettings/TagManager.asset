@@ -12,6 +12,8 @@ TagManager:
   - CameraBounds
   - VirtualCamera
   - Plataforms
+  - Eye
+  - Boss
   layers:
   - Default
   - TransparentFX
@@ -20,9 +22,9 @@ TagManager:
   - Water
   - UI
   - Enemy
-  - 
-  - 
-  - 
+  - Boss
+  - Player
+  - Plataforms
   - 
   - 
   - 
