@@ -831,7 +831,7 @@ GameObject:
   - component: {fileID: 739584532}
   - component: {fileID: 739584531}
   - component: {fileID: 739584530}
-  - component: {fileID: 739584529}
+  - component: {fileID: 739584533}
   m_Layer: 5
   m_Name: Sair
   m_TagString: Untagged
@@ -859,19 +859,6 @@ RectTransform:
   m_AnchoredPosition: {x: 432, y: 109.42}
   m_SizeDelta: {x: 443.67, y: 180.581}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &739584529
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 739584527}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f90327a4d705a054387c7f8725ba3447, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneToLoad: SalaTrono
 --- !u!114 &739584530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -916,9 +903,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 739584529}
-        m_TargetAssemblyTypeName: LoadScene, Assembly-CSharp
-        m_MethodName: Load
+      - m_Target: {fileID: 739584533}
+        m_TargetAssemblyTypeName: B_Exit, Assembly-CSharp
+        m_MethodName: Quit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -966,6 +953,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 739584527}
   m_CullTransparentMesh: 1
+--- !u!114 &739584533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 739584527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4a5b46b8e136a949bb6fc0220fc53ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &862299989
 GameObject:
   m_ObjectHideFlags: 0
