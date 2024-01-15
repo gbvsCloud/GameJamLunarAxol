@@ -3504,7 +3504,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4318658687962341400, guid: 240479406d46a9740bd4160ddac83b15, type: 3}
       propertyPath: messages.Array.data[0].message
-      value: "QUE-QUE, QUEM T\xC1 AI?"
+      value: "QUE... QUE... QUEM T\xC1 A\xCD?"
       objectReference: {fileID: 0}
     - target: {fileID: 4318658687962341400, guid: 240479406d46a9740bd4160ddac83b15, type: 3}
       propertyPath: messages.Array.data[1].actorID
@@ -3512,7 +3512,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4318658687962341400, guid: 240479406d46a9740bd4160ddac83b15, type: 3}
       propertyPath: messages.Array.data[1].message
-      value: "QUE SUSTO PRINCESA! O QUE T\xC1 ACONTECENDO? TEM UM MONTE DE BICHO
+      value: "QUE SUSTO, PRINCESA! O QUE T\xC1 ACONTECENDO? TEM UM MONTE DE BICHO
         CORRENDO E ATACANDO AS PESSOAS!"
       objectReference: {fileID: 0}
     - target: {fileID: 4318658687962341400, guid: 240479406d46a9740bd4160ddac83b15, type: 3}
@@ -3521,7 +3521,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4318658687962341400, guid: 240479406d46a9740bd4160ddac83b15, type: 3}
       propertyPath: messages.Array.data[2].message
-      value: "Se acalma colega, j\xE1 j\xE1 as coisas voltam ao normal"
+      value: Se acalme, colega. Logo as coisas voltam ao normal.
       objectReference: {fileID: 0}
     - target: {fileID: 4318658687962341400, guid: 240479406d46a9740bd4160ddac83b15, type: 3}
       propertyPath: messages.Array.data[3].actorID
@@ -3537,8 +3537,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4318658687962341400, guid: 240479406d46a9740bd4160ddac83b15, type: 3}
       propertyPath: messages.Array.data[4].message
-      value: "Acredita nisso n\xE3o, certeza que eles devem estar cuidando de tudo
-        l\xE1 embaixo :p"
+      value: "N\xE3o acredite nisso, com certeza que eles devem estar cuidando de
+        tudo l\xE1 embaixo."
       objectReference: {fileID: 0}
     - target: {fileID: 4318658687962341400, guid: 240479406d46a9740bd4160ddac83b15, type: 3}
       propertyPath: messages.Array.data[5].actorID
@@ -3546,7 +3546,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4318658687962341400, guid: 240479406d46a9740bd4160ddac83b15, type: 3}
       propertyPath: messages.Array.data[5].message
-      value: "SE VOC\xCA DIZ PRINCESA..."
+      value: "SE VOC\xCA DIZ, PRINCESA..."
       objectReference: {fileID: 0}
     - target: {fileID: 4318658687962341400, guid: 240479406d46a9740bd4160ddac83b15, type: 3}
       propertyPath: messages.Array.data[6].actorID

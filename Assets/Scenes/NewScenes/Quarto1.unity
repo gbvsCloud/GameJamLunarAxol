@@ -8350,7 +8350,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4318658687962341400, guid: 240479406d46a9740bd4160ddac83b15, type: 3}
       propertyPath: messages.Array.data[0].message
-      value: "O que est\xE1 acontecendo princesa?"
+      value: "O que est\xE1 acontecendo, princesa?"
       objectReference: {fileID: 0}
     - target: {fileID: 4318658687962341400, guid: 240479406d46a9740bd4160ddac83b15, type: 3}
       propertyPath: messages.Array.data[1].actorID
@@ -8366,7 +8366,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4318658687962341400, guid: 240479406d46a9740bd4160ddac83b15, type: 3}
       propertyPath: messages.Array.data[2].message
-      value: Fique calmo meu senhor, eu cuidarei disso!
+      value: Fique calmo, meu senhor. Eu cuidarei disso!
       objectReference: {fileID: 0}
     - target: {fileID: 4318658687962341400, guid: 240479406d46a9740bd4160ddac83b15, type: 3}
       propertyPath: actors.Array.data[0].dialogueBoxSprite
